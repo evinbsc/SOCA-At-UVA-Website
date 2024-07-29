@@ -5,11 +5,7 @@ import '../../style.css';
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <iframe
-        src="https://drive.google.com/file/d/1m_2CRQglbDlI86EjbWox7TYZ01PrNeKx/preview"
-        className="rectangle"
-        title="SOCALogo"
-      ></iframe>
+      <iframe src="https://drive.google.com/file/d/1m_2CRQglbDlI86EjbWox7TYZ01PrNeKx/preview" className="rectangle" title="SOCALogo"></iframe>
       <div>
         <Link to="/" className="text-wrapper-3">Home</Link>
         <Link to="/discover" className="text-wrapper-4">Discover Caribbean</Link>
@@ -21,3 +17,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
