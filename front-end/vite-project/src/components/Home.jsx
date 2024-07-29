@@ -24,14 +24,14 @@ const Home = () => {
   return (
     <div className="frame">
       <div className="video-container">
-        <iframe src="https://drive.google.com/file/d/1AJdF1FSewqpSPTlwFKixhSTS7RpLKVlK/preview" allow="autoplay"></iframe>
+        <iframe src="https://drive.google.com/file/d/1AJdF1FSewqpSPTlwFKixhSTS7RpLKVlK/preview" allow="autoplay" title="HomeVideo"></iframe>
       </div>
       <div className="events-section">
         <h1 className="UPCOMING-event">UPCOMING EVENT</h1>
         <div className="events-grid">
           {events.map(event => (
             <div key={event.id} className="event">
-              <iframe src={event.image} width="200" height="150" allow="autoplay" className="event-image"></iframe>
+              <iframe src={event.image} width="200" height="150" allow="autoplay" className="event-image" title={event.title}></iframe>
               <h3>{event.title}</h3>
               <p>{event.date}</p>
             </div>
@@ -43,7 +43,7 @@ const Home = () => {
         <div className="articles-grid">
           {articles.slice(0, 2).map((article, index) => (
             <div key={article.id} className={`article ${index % 2 === 0 ? 'left' : 'right'}`}>
-              <iframe src={article.image} width="300" height="200" allow="autoplay" className="article-image"></iframe>
+              <iframe src={article.image} width="300" height="200" allow="autoplay" className="article-image" title={article.title}></iframe>
               <div className="article-text">
                 <h3>{article.title}</h3>
                 <p>{article.paragraphs[0].text}</p>
