@@ -1,0 +1,9 @@
+[build]
+  base = "front-end/vite-project"
+  publish = "front-end/vite-project/build"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
