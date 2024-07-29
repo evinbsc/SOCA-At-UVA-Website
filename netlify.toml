@@ -1,6 +1,6 @@
 [build]
   base = "front-end/vite-project"
-  publish = "front-end/vite-project/build"
+  publish = "build"
   command = "npm run build"
 
 [[redirects]]
