@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Discover.css';
-import HurricaneBerylArticleImage from '../assets/HurricaneBerylArticleImage.jpg';
-import CaribbeanCarnivalArticleImage from '../assets/CaribbeanCarnivalArticleImage.jpg';
+import HurricaneBerylArticleImage from '../Assets/HurricaneBerylArticleImage.jpg';
+import CaribbeanCarnivalArticleImage from '../Assets/CaribbeanCarnivalArticleImage.jpg';
 
 const articles = [
   {
