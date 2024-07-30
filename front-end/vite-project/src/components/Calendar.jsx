@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import '../styles/calendar.css';
-import HaitiFlag from '../assets/Haiti_Flag.png';
-import DominicanRepublicFlag from '../assets/Dominican_Republic_Flag.png';
-import CubaFlag from '../assets/Cuba_Flag.png';
-import PanamaFlag from '../assets/Panama_Flag.png';
-import JamaicaFlag from '../assets/Jamaica_Flag.png';
-import TrinidadTobagoFlag from '../assets/Trinidad_and_Tobago_Flag.png';
-import BarbadosFlag from '../assets/Barbados_Flag.png';
-import GuyanaFlag from '../assets/Guyana_Flag.png';
-import GrenadaFlag from '../assets/Grenada_Flag.png';
-import DominicaFlag from '../assets/Dominica_Flag.png';
-import SaintLuciaFlag from '../assets/Saint_Lucia_Flag.png';
-import SaintVincentGrenadinesFlag from '../assets/Saint_Vincent_and_the_Grenadines_Flag.png';
-import AntiguaBarbudaFlag from '../assets/Antigua_and_Barbuda_Flag.png';
-import SaintKittsNevisFlag from '../assets/Saint_Kitts_and_Nevis_Flag.png';
+import HaitiFlag from '../Assets/Haiti_Flag.png';
+import DominicanRepublicFlag from '../Assets/Dominican_Republic_Flag.png';
+import CubaFlag from '../Assets/Cuba_Flag.png';
+import PanamaFlag from '../Assets/Panama_Flag.png';
+import JamaicaFlag from '../Assets/Jamaica_Flag.png';
+import TrinidadTobagoFlag from '../Assets/Trinidad_and_Tobago_Flag.png';
+import BarbadosFlag from '../Assets/Barbados_Flag.png';
+import GuyanaFlag from '../Assets/Guyana_Flag.png';
+import GrenadaFlag from '../Assets/Grenada_Flag.png';
+import DominicaFlag from '../Assets/Dominica_Flag.png';
+import SaintLuciaFlag from '../Assets/Saint_Lucia_Flag.png';
+import SaintVincentGrenadinesFlag from '../Assets/Saint_Vincent_and_the_Grenadines_Flag.png';
+import AntiguaBarbudaFlag from '../Assets/Antigua_and_Barbuda_Flag.png';
+import SaintKittsNevisFlag from '../Assets/Saint_Kitts_and_Nevis_Flag.png';
 
 const events = [
   { id: 1, title: 'Haiti Independence Day', date: '2025-01-01', image: HaitiFlag },
