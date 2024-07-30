@@ -2,8 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/article.css'; // Create a new CSS file for article styling
 
-import HurricaneBerylArticleImage from '../assets/HurricaneBerylArticleImage.jpg';
-import CaribbeanCarnivalArticleImage from '../assets/CaribbeanCarnivalArticleImage.jpg';
+import HurricaneBerylArticleImage from '../Assets/HurricaneBerylArticleImage.jpg';
+import CaribbeanCarnivalArticleImage from '../Assets/CaribbeanCarnivalArticleImage.jpg';
 
 const articles = [
   {
