@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/about.css';
 
-import AboutUSSocaImage from '../assets/AboutUSSocaImage.png';
-import EvinResearchCoChair from '../assets/EvinResearchCo-Chair.jpg';
-import DaraVicePresident from '../assets/DaraVicePresident.png';
+import AboutUSSocaImage from '../Assets/AboutUSSocaImage.png';
+import EvinResearchCoChair from '../Assets/EvinResearchCo-Chair.jpg';
+import DaraVicePresident from '../Assets/DaraVicePresident.png';
 
 const About = () => {
   return (
