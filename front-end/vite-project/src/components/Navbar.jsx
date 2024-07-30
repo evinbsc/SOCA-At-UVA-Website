@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SOCALogo from '../assets/SOCALogo.png';
+import SOCALogo from '../Assets/SOCALogo.png';
 import '../styles/navbar.css';
 
 
