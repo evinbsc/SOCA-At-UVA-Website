@@ -1,0 +1,15 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f8f8f8;
+  color: #383838;
+}
+
+.frame {
+  padding: 2rem;
+}
+
+.overlap, .overlap-group {
+  margin-top: 2rem;
+}

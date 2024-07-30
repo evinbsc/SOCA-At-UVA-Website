@@ -1,0 +1,67 @@
+/* /src/styles/discover.css */
+
+.discover-frame {
+  padding: 2rem;
+  background-color: transparent;
+  max-width: 1000px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.discover-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2rem;
+  color: #ffb700;
+  margin-bottom: 1rem;
+}
+
+.articles-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.article-preview {
+  display: flex;
+  gap: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.article-preview .article-image {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.article-info {
+  text-align: left;
+}
+
+.article-info h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  color: #383838;
+}
+
+.article-info p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  color: #777;
+}
+
+.article-info a {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  color: #ffb700;
+  text-decoration: none;
+}
+
+.article-info a:hover {
+  text-decoration: underline;
+}

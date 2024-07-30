@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../../style.css';
+import '../styles/navbar.css';
+import SOCALogo from '../assets/SOCALogo.png';
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <iframe src="https://drive.google.com/file/d/1m_2CRQglbDlI86EjbWox7TYZ01PrNeKx/preview" className="rectangle" title="SOCALogo"></iframe>
+      <Link to="/">
+        <img src={SOCALogo} className="rectangle" alt="SOCALogo" />
+      </Link>
       <div>
         <Link to="/" className="text-wrapper-3">Home</Link>
         <Link to="/discover" className="text-wrapper-4">Discover Caribbean</Link>
@@ -17,4 +20,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

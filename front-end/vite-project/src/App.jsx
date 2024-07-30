@@ -1,3 +1,5 @@
+// /src/App.jsx
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -6,7 +8,14 @@ import Discover from './components/Discover';
 import Calendar from './components/Calendar';
 import About from './components/About';
 import Footer from './components/Footer';
-import '../style.css';
+import Article from './components/Article';
+import './styles/main.css';
+import './styles/navbar.css';
+import './styles/home.css';
+import './styles/calendar.css';
+import './styles/about.css';
+import './styles/footer.css';
+import './styles/article.css';
 
 function App() {
   return (
@@ -17,6 +26,7 @@ function App() {
         <Route path="/discover" element={<Discover />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/about" element={<About />} />
+        <Route path="/article/:id" element={<Article />} />
       </Routes>
       <Footer />
     </Router>

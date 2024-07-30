@@ -1,0 +1,89 @@
+/* /src/styles/about.css */
+
+.about-frame {
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+  }
+  
+  .main-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    color: #ffb700;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mission-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    gap: 2rem;
+  }
+  
+  .about-image {
+    max-width: 50%;
+    border-radius: 10px;
+  }
+  
+  .mission-section p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+    color: #383838;
+  }
+  
+  .sub-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    color: #ffb700;
+    margin-bottom: 1.5rem;
+  }
+  
+  .executive-section {
+    margin-top: 2rem;
+  }
+  
+  .executive-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .executive-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    flex: 1 1 200px;
+    max-width: 200px;
+  }
+  
+  .executive-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .rounded {
+    border-radius: 10px;
+  }
+  
+  .executive-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    color: #383838;
+  }
+  
+  .executive-position {
+    font-size: 1rem;
+    color: #777;
+  }
+  
