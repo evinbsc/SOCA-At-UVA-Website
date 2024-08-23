@@ -159,6 +159,16 @@
     padding: 1rem;
   }
 
+  .video-container {
+    width: 100%; 
+    padding: 0; 
+  }
+
+  .video {
+    width: 100%; 
+    height: auto;
+  }
+  
   .box {
     padding: 1rem;
   }
