@@ -23,8 +23,8 @@
 
 .organization-name {
   font-family: 'Oswald', sans-serif;
-  font-size: 1.2rem;
-  color: #383838;
+  font-size: 1rem;
+  color: #ffb700;
 }
 
 .nav-links {
@@ -58,6 +58,6 @@
   }
 
   .organization-name {
-    font-size: 1rem; 
+    font-size: 0.7rem; 
   }
 }
