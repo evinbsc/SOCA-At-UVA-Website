@@ -6,20 +6,32 @@
   padding: 1rem 2rem;
   background-color: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap; 
 }
 
-.navbar iframe {
-  height: 50px;
-  width: 50px;
-  border: none;
-  overflow: hidden;
-}
-
-.navbar div {
+.logo-container {
   display: flex;
   align-items: center;
 }
 
+.rectangle {
+  height: 50px;
+  width: 50px;
+  margin-right: 1rem;
+}
+
+.organization-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  color: #383838;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+/* Links */
 .navbar a {
   margin: 0 1rem;
   font-family: 'Oswald', sans-serif;
@@ -31,18 +43,20 @@
   color: #d8a527;
 }
 
-.rectangle {
-  height: 50px;
-  width: 50px;
-}
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
 
-.text-wrapper-3, .text-wrapper-4, .text-wrapper-5, .text-wrapper-6 {
-  margin: 0 1rem;
-  font-family: 'Oswald', sans-serif;
-  color: #ffb700;
-  text-decoration: none;
-}
+  .nav-links {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+  }
 
-.text-wrapper-3:hover, .text-wrapper-4:hover, .text-wrapper-5:hover, .text-wrapper-6:hover {
-  color: #d8a527;
+  .organization-name {
+    font-size: 1rem; 
+  }
 }
