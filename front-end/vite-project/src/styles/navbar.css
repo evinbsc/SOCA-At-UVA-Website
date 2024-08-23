@@ -1,4 +1,5 @@
-/* Navbar styles */
+/* navbar.css */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -23,15 +24,16 @@
 .organization-name {
   font-family: 'Oswald', sans-serif;
   font-size: 1.2rem;
-  color: #383838;
+  color: #ffb700; 
+  margin-left: 0.5rem;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-/* Links */
 .navbar a {
   margin: 0 1rem;
   font-family: 'Oswald', sans-serif;
@@ -43,20 +45,21 @@
   color: #d8a527;
 }
 
+/* Media query for smaller screens */
 @media (max-width: 600px) {
-  .navbar {
-    flex-direction: column; 
-    align-items: flex-start; 
-  }
+    .navbar {
+        flex-direction: column; 
+        align-items: flex-start; 
+        padding: 1rem;
+    }
 
-  .nav-links {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1rem;
-  }
+    .nav-links {
+        width: 100%;
+        justify-content: space-around;
+        margin-top: 1rem;
+    }
 
-  .organization-name {
-    font-size: 1rem; 
-  }
+    .organization-name {
+        font-size: 1rem; 
+    }
 }

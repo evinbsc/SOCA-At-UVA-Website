@@ -1,3 +1,5 @@
+/* home.css */
+
 .frame {
   padding: 2rem;
   background: transparent;
@@ -13,11 +15,11 @@
 }
 
 .video {
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 980px;
   height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .box {
@@ -137,25 +139,6 @@
   padding: 2rem;
 }
 
-.article.left .article-image {
-  order: 1;
-}
-
-.article.right .article-image {
-  order: 2;
-}
-
-.article h3 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.2rem;
-  color: #383838;
-}
-
-.article p {
-  font-size: 1rem;
-  color: #777;
-}
-
 /* Media query for smaller screens to stack image on top */
 @media (max-width: 600px) {
   .frame {
@@ -164,6 +147,10 @@
 
   .box {
       padding: 1rem;
+  }
+
+  .articles-grid {
+      flex-direction: column; 
   }
 
   .article {

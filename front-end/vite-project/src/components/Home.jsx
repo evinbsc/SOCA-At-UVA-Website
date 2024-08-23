@@ -110,10 +110,8 @@ const Home = () => {
   return (
     <div className="frame">
       <div className="video-container">
-        <iframe
+      <iframe
           className="video"
-          width="980"
-          height="550"
           src="https://www.youtube.com/embed/5WWuoR2NS4c?si=uh8Orc2207VLwxbv&autoplay=1"
           title="YouTube video player"
           frameBorder="0"
@@ -147,35 +145,22 @@ const Home = () => {
         </div>
       </div>
       <div className="articles-section">
-        <h2 className="sa-ka-f-te">SA KA FÊTE?</h2>
-        <div className="articles-grid">
-          {articles.map((article, index) => (
-            <div key={article.id} className={`article box ${index % 2 === 0 ? 'left' : 'right'}`}>
-              {index % 2 === 0 ? (
-                <>
-                  <img src={article.image} width="300" height="200" alt={article.title} className="article-image" />
-                  <div className="article-text">
-                    <h3>{article.title}</h3>
-                    <p>{article.paragraphs[0].text}</p>
-                    <a href={`/article/${article.id}`}>Read more</a>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="article-text">
-                    <h3>{article.title}</h3>
-                    <p>{article.paragraphs[0].text}</p>
-                    <a href={`/article/${article.id}`}>Read more</a>
-                  </div>
-                  <img src={article.image} width="300" height="200" alt={article.title} className="article-image" />
-                </>
-              )}
+                <h2 className="sa-ka-f-te">SA KA FÊTE?</h2>
+                <div className="articles-grid">
+                    {articles.map((article) => (
+                        <div key={article.id} className="article box">
+                            <img src={article.image} alt={article.title} className="article-image" />
+                            <div className="article-text">
+                                <h3>{article.title}</h3>
+                                <p>{article.paragraphs[0].text}</p>
+                                <a href={`/article/${article.id}`}>Read more</a>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
-          ))}
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Home;

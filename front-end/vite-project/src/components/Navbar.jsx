@@ -1,3 +1,5 @@
+// navbar.jsx
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SOCALogo from '../Assets/SOCALogo.png';
@@ -13,10 +15,10 @@ const Navbar = () => {
         <span className="organization-name">Student Organization for Caribbean Awareness</span>
       </div>
       <div className="nav-links">
-        <Link to="/" className="text-wrapper-3">Home</Link>
-        <Link to="/discover" className="text-wrapper-4">Discover Caribbean</Link>
-        <Link to="/calendar" className="text-wrapper-5">Calendar</Link>
-        <Link to="/about" className="text-wrapper-6">About Us</Link>
+        <Link to="/" className="text-wrapper">Home</Link>
+        <Link to="/discover" className="text-wrapper">Discover Caribbean</Link>
+        <Link to="/calendar" className="text-wrapper">Calendar</Link>
+        <Link to="/about" className="text-wrapper">About Us</Link>
       </div>
     </nav>
   );
