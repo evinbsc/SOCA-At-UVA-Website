@@ -110,8 +110,10 @@ const Home = () => {
   return (
     <div className="frame">
       <div className="video-container">
-      <iframe
+        <iframe
           className="video"
+          width="980"
+          height="550"
           src="https://www.youtube.com/embed/5WWuoR2NS4c?si=uh8Orc2207VLwxbv&autoplay=1"
           title="YouTube video player"
           frameBorder="0"

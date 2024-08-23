@@ -159,33 +159,34 @@
 /* Media query for smaller screens to stack image on top */
 @media (max-width: 600px) {
   .frame {
-      padding: 1rem;
+    padding: 1rem;
   }
 
   .box {
-      padding: 1rem;
+    padding: 1rem;
   }
 
   .article {
-      flex-direction: column; 
-      align-items: flex-start; 
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .article-image {
-      width: 100%; 
-      height: auto; 
-      margin-bottom: 1rem; 
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    order: -1; 
   }
 
   .article-text h3 {
-      font-size: 1rem; 
+    font-size: 1rem;
   }
 
   .article-text p {
-      font-size: 0.9rem; 
+    font-size: 0.9rem;
   }
 
   .calendar-title {
-      font-size: 1.5rem; 
+    font-size: 1.5rem;
   }
 }
