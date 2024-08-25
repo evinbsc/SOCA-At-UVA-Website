@@ -64,7 +64,6 @@
     transition: background-color 0.2s ease-in-out;
   }
   
-  /* Responsive adjustments */
   @media (max-width: 600px) {
     .popup-content {
       width: 90%;

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/popup.css';
+import '../styles/Popup.css';
 import InstagramLogo from '../Assets/Instagram_logo.png'; 
 import MailIcon from '../Assets/Mail_Icon.png'; 
 
@@ -19,7 +19,9 @@ const Popup = ({ isOpen, onClose }) => {
         </div>
         <div className="popup-section">
           <p>Subscribe to our UVA Mailing List</p>
-          <p>soca-uva@virginia.edu</p>
+          <a href="https://lists.virginia.edu/sympa/subscribe/soca-uva?previous_action=info#" target="_blank" rel="noopener noreferrer">
+            soca-uva@virginia.edu
+          </a>
         </div>
         <div className="popup-section">
           <img src={MailIcon} alt="Mail" className="popup-icon" />
