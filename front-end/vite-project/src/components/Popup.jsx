@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/popup.css';
+import '../styles/Popup.css';
 import InstagramLogo from '../Assets/Instagram_logo.png';
 import MailIcon from '../Assets/Mail_Icon.png';
 
