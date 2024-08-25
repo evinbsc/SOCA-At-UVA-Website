@@ -7,6 +7,18 @@
   position: relative;
 }
 
+.main-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.intro-text {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: #383838;
+}
+
 .flag-container {
   position: absolute;
   top: 0;
@@ -230,6 +242,7 @@
     justify-content: center;
     align-items: center;
     gap: 1rem; 
+    color: #ffb700
   }
 
   .stay-connected-links a {
@@ -242,7 +255,17 @@
   }
 
   .video-container {
-    display: none; 
+    width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .video {
+    width: auto;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   .mobile-image-container {

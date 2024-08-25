@@ -159,6 +159,16 @@ const Home = () => {
     <div className="frame">
       <Popup isOpen={isPopupOpen} onClose={closePopup} />
 
+      {/* Main image for all screens */}
+      <img src={SOCAHomePageMobile} alt="SOCA Home" className="main-image" />
+
+      {/* Introduction text */}
+      <div className="intro-text">
+        <p>
+          The Student Organization for Caribbean Awareness (SOCA) is a University of Virginia student-run organization that is committed to promoting awareness of issues facing the Caribbean and creating a community based around Caribbean cultures. The goal of SOCA is to bring together peoples with Caribbean descent, heritage and/or interest, in an effort to foster educational, cultural and social growth. SOCA welcomes and encourages all people to join and contribute to the organization, regardless of national or ethnic origin.
+        </p>
+      </div>
+
       {/* Flag containers for outer ends */}
       <div className="flag-container left">
         <img src={StLuciaBackground} alt="St Lucia" className="flag-image" />
@@ -181,29 +191,6 @@ const Home = () => {
         <img src={NetherlandsBackground} alt="Netherlands Antilles" className="flag-image" />
         <img src={TrinidadBackground} alt="Trinidad" className="flag-image" />
         <img src={BarbadosBackground} alt="Barbados" className="flag-image" />
-      </div>
-
-      {/* Video or Image section */}
-      <div className="media-container">
-        <div className="video-container">
-          <iframe
-            className="video"
-            width="980"
-            height="550"
-            src="https://www.youtube.com/embed/5WWuoR2NS4c?si=uh8Orc2207VLwxbv&autoplay=1&mute=1"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
-        </div>
-        <div className="mobile-image-container">
-          <img src={SocaHomePagePicMobile} alt="SOCA Home Page" className="mobile-home-image" />
-          <p className="mobile-intro-text">
-            The Student Organization for Caribbean Awareness (SOCA) is a University of Virginia student-run organization that is committed to promoting awareness of issues facing the Caribbean and creating a community based around Caribbean cultures. The goal of SOCA is to bring together peoples with Caribbean descent, heritage and/or interest, in an effort to foster educational, cultural and social growth. SOCA welcomes and encourages all people to join and contribute to the organization, regardless of national or ethnic origin.
-          </p>
-        </div>
       </div>
 
       <h1 className="UPCOMING-event">UPCOMING EVENTS</h1>
@@ -258,6 +245,22 @@ const Home = () => {
           ))}
         </div>
       </div>
+
+      {/* Video Section moved under the SA KA FÊTE? section */}
+      <div className="video-container">
+        <iframe
+          className="video"
+          width="980"
+          height="550"
+          src="https://www.youtube.com/embed/5WWuoR2NS4c?si=uh8Orc2207VLwxbv&autoplay=1&mute=1"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
+      </div>
+
       <div className="stay-connected-section">
         <h2 className="stay-connected-title">Stay Connected</h2>
         <div className="stay-connected-links">
