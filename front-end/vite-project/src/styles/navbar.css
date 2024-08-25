@@ -1,5 +1,3 @@
-
-/* Navbar styles */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -7,7 +5,14 @@
   padding: 1rem 2rem;
   background-color: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  flex-wrap: wrap; 
+  position: relative;
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #ffb700;
 }
 
 .logo-container {
@@ -18,12 +23,12 @@
 .rectangle {
   height: 50px;
   width: 50px;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 
 .organization-name {
   font-family: 'Oswald', sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #ffb700;
 }
 
@@ -32,32 +37,45 @@
   align-items: center;
 }
 
-/* Links */
-.navbar a {
+.nav-links a {
   margin: 0 1rem;
   font-family: 'Oswald', sans-serif;
   color: #ffb700;
   text-decoration: none;
 }
 
-.navbar a:hover {
+.nav-links a:hover {
   color: #d8a527;
 }
 
 @media (max-width: 600px) {
   .navbar {
-    flex-direction: column; 
-    align-items: flex-start; 
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .menu-icon {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+
+  .logo-container {
+    flex-direction: column;
+    text-align: center;
   }
 
   .nav-links {
+    display: none;
+    flex-direction: column;
     width: 100%;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1rem;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
-  .organization-name {
-    font-size: 0.85rem; 
+  .nav-links.show {
+    display: flex;
   }
 }
