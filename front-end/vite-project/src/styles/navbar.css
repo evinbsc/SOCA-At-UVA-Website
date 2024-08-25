@@ -1,11 +1,13 @@
+/* Base styles for the navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem; 
   background-color: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
+  margin-bottom: 1rem; 
 }
 
 .menu-icon {
@@ -31,6 +33,7 @@
   font-size: 0.9rem;
   color: #ffb700;
   text-decoration: none; 
+  margin-left: 0.5rem; 
 }
 
 .nav-links {
@@ -43,7 +46,7 @@
   font-family: 'Oswald', sans-serif;
   color: #ffb700;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 0.8rem; 
   transition: background 0.3s, color 0.3s; 
 }
 
@@ -52,11 +55,13 @@
   color: #ffffff; 
 }
 
+/* Media query for smaller screens */
 @media (max-width: 600px) {
   .navbar {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 0.5rem 1rem; 
   }
 
   .menu-icon {
@@ -69,7 +74,7 @@
   .logo-container {
     flex-direction: column;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 5px; 
   }
 
   .nav-links {
@@ -79,9 +84,15 @@
     text-align: center;
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px; 
   }
 
   .nav-links.show {
     display: flex;
+  }
+
+  .nav-links a {
+    padding: 0.5rem 0; 
+    width: 100%; 
   }
 }

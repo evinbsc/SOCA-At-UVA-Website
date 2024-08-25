@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/Popup.css';
-import InstagramLogo from '../Assets/Instagram_logo.png'; 
-import MailIcon from '../Assets/Mail_Icon.png'; 
+import '../styles/popup.css';
+import InstagramLogo from '../Assets/Instagram_logo.png';
+import MailIcon from '../Assets/Mail_Icon.png';
 
 const Popup = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -12,22 +12,22 @@ const Popup = ({ isOpen, onClose }) => {
         <button className="popup-close" onClick={onClose}>×</button>
         <h2>Stay Connected</h2>
         <div className="popup-section">
-          <img src={InstagramLogo} alt="Instagram" className="popup-icon" />
-          <div>
-            <p>@soca_at_uva</p>
-          </div>
-        </div>
-        <div className="popup-section">
-          <p>Subscribe to our UVA Mailing List</p>
-          <a href="https://lists.virginia.edu/sympa/subscribe/soca-uva?previous_action=info#" target="_blank" rel="noopener noreferrer">
-            soca-uva@virginia.edu
+          <a href="https://www.instagram.com/soca_at_uva/" target="_blank" rel="noopener noreferrer">
+            <img src={InstagramLogo} alt="Instagram" className="popup-icon" />
+            <span>@soca_at_uva</span>
           </a>
         </div>
         <div className="popup-section">
-          <img src={MailIcon} alt="Mail" className="popup-icon" />
-          <div>
-            <p>officialsoca@virginia.edu</p>
-          </div>
+          <a href="https://lists.virginia.edu/sympa/subscribe/soca-uva?previous_action=info#" target="_blank" rel="noopener noreferrer">
+            <img src={MailIcon} alt="Mailing List" className="popup-icon" />
+            <span>Subscribe to our UVA Mailing List</span>
+          </a>
+        </div>
+        <div className="popup-section">
+          <a href="mailto:officialsoca@virginia.edu">
+            <img src={MailIcon} alt="Contact Mail" className="popup-icon" />
+            <span>officialsoca@virginia.edu</span>
+          </a>
         </div>
       </div>
     </div>

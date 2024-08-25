@@ -46,6 +46,8 @@ import DominicanBackground from '../Assets/dominican_background.png';
 import NetherlandsBackground from '../Assets/netherlands_background.png';
 import TrinidadBackground from '../Assets/trinidad_background.png';
 import BarbadosBackground from '../Assets/barbados_background.png';
+import SocaHomePagePicMobile from '../Assets/SOCA_home_page_pic_mobile.png';
+
 
 const events = [
   { id: 1, title: 'Haiti Independence Day', date: '2025-01-01', image: HaitiFlag },
@@ -181,19 +183,29 @@ const Home = () => {
         <img src={BarbadosBackground} alt="Barbados" className="flag-image" />
       </div>
 
-      <div className="video-container">
-        <iframe
-          className="video"
-          width="980"
-          height="550"
-          src="https://www.youtube.com/embed/5WWuoR2NS4c?si=uh8Orc2207VLwxbv&autoplay=1&mute=1"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
+      {/* Video or Image section */}
+      <div className="media-container">
+        <div className="video-container">
+          <iframe
+            className="video"
+            width="980"
+            height="550"
+            src="https://www.youtube.com/embed/5WWuoR2NS4c?si=uh8Orc2207VLwxbv&autoplay=1&mute=1"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
+        <div className="mobile-image-container">
+          <img src={SocaHomePagePicMobile} alt="SOCA Home Page" className="mobile-home-image" />
+          <p className="mobile-intro-text">
+            The Student Organization for Caribbean Awareness (SOCA) is a University of Virginia student-run organization that is committed to promoting awareness of issues facing the Caribbean and creating a community based around Caribbean cultures. The goal of SOCA is to bring together peoples with Caribbean descent, heritage and/or interest, in an effort to foster educational, cultural and social growth. SOCA welcomes and encourages all people to join and contribute to the organization, regardless of national or ethnic origin.
+          </p>
+        </div>
       </div>
+
       <h1 className="UPCOMING-event">UPCOMING EVENTS</h1>
       <div className="events-section box">
         <div className="calendar-header">

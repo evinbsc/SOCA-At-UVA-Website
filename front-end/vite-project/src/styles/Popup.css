@@ -1,82 +1,88 @@
+/* Base styles for the popup */
 .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; 
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; 
+}
+
+.popup-content {
+  background-color: #fff; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  padding: 2rem;
+  width: 80%; 
+  max-width: 500px; 
+  text-align: center;
+  font-family: 'Oswald', sans-serif; 
+}
+
+.popup-header {
+  font-size: 2rem;
+  color: #ffb700; 
+  margin-bottom: 1rem;
+}
+
+.popup-section {
+  margin-bottom: 1rem;
+}
+
+.popup-section img {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+
+.popup-section a {
+  text-decoration: none;
+  color: #383838;
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+}
+
+.popup-section a:hover {
+  color: #d8a527; 
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ffb700;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
   .popup-content {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 80%;
-    max-width: 500px;
-    text-align: center;
-    position: relative;
+    width: 90%; 
+    padding: 1rem; 
   }
-  
-  .popup-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    border: none;
-    background: none;
+
+  .popup-header {
+    font-size: 1.5rem; 
   }
-  
-  .popup-section {
-    margin: 1.5rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+  .popup-section img {
+    width: 30px;
+    height: 30px;
   }
-  
-  .popup-icon {
-    width: 40px; 
-    height: 40px;
-    margin-right: 1rem;
+
+  .popup-section a {
+    font-size: 1rem; 
   }
-  
-  .popup-icon:hover {
-    transform: scale(1.1); 
-    transition: transform 0.2s ease-in-out;
+
+  .close-button {
+    font-size: 1.2rem; 
   }
-  
-  .popup-section div {
-    text-align: left;
-  }
-  
-  .popup-section p {
-    margin: 0;
-  }
-  
-  .popup-section:hover {
-    background-color: #f7f7f7;
-    border-radius: 5px;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  @media (max-width: 600px) {
-    .popup-content {
-      width: 90%;
-      padding: 1.5rem;
-    }
-  
-    .popup-icon {
-      width: 30px;
-      height: 30px;
-    }
-  
-    .popup-close {
-      font-size: 1.2rem;
-    }
-  }
-  
+}

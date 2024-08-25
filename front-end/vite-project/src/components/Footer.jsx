@@ -1,26 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../styles/footer.css';
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <div className="footer-section">
-          <h2>Navigation</h2>
-          <Link to="/">Home</Link>
-          <Link to="/discover">Discover Caribbean</Link>
-          <Link to="/calendar">Calendar</Link>
-        </div>
-        <div className="footer-section">
-          <h2>Contact</h2>
-          <a href="mailto:officialsoca@virginia.edu">Email: officialsoca@virginia.edu</a>
-          <div className="social-icons">
-            <a href="https://www.instagram.com/soca_at_uva?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" className="instagram-icon" />
-            </a>
-          </div>
-        </div>
+        <p className="footer-statement">
+          The Student Organization for Caribbean Awareness (SOCA) comprises members who are University of Virginia students and may include participation from University employees. However, SOCA operates as a separate and independent entity, distinct from the University. It is solely responsible for managing its own activities and affairs. The University of Virginia does not oversee, direct, or control SOCA's operations and holds no responsibility for the organization's contracts, actions, or omissions.
+        </p>
       </div>
       <div className="footer-bottom">
         All Content Copyright © 2024 University of Virginia SOCA
