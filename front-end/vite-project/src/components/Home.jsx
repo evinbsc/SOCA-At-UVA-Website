@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/home.css';
-import Popup from './Popup'
+import Popup from './Popup';
 
 // Importing stay connected icons
 import InstagramLogo from '../Assets/Instagram_logo.png';
@@ -125,6 +125,7 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const openPopup = () => setIsPopupOpen(true); // Ensure this function is defined
   const closePopup = () => setIsPopupOpen(false);
 
   const nextMonth = () => {
@@ -153,10 +154,7 @@ const Home = () => {
   );
 
   return (
-
     <div className="frame">
-      {/* Button to open the pop-up */}
-      <button onClick={openPopup} className="open-popup-button">Stay Connected</button>
       <Popup isOpen={isPopupOpen} onClose={closePopup} />
 
       {/* Flag containers for outer ends */}
@@ -199,9 +197,9 @@ const Home = () => {
       <h1 className="UPCOMING-event">UPCOMING EVENTS</h1>
       <div className="events-section box">
         <div className="calendar-header">
-          <button onClick={() => setCurrentDate(prevDate => new Date(prevDate.setMonth(prevDate.getMonth() - 1)))} className="calendar-nav">&lt;</button>
+          <button onClick={prevMonth} className="calendar-nav">&lt;</button>
           <h1 className="calendar-title">{formatMonthYear(currentDate)}</h1>
-          <button onClick={() => setCurrentDate(nextDate => new Date(nextDate.setMonth(nextDate.getMonth() + 1)))} className="calendar-nav">&gt;</button>
+          <button onClick={nextMonth} className="calendar-nav">&gt;</button>
         </div>
         <div className="events-grid">
           {eventsForMonth.length > 0 ? (
