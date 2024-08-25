@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/home.css';
+import Popup from './Popup'
 
 // Importing article images
 import HurricaneBerylArticleImage from '../Assets/HurricaneBerylArticleImage.jpg';
@@ -111,6 +112,7 @@ const formatDate = (dateStr) => {
 
 const Home = () => {
   const [currentDate, setCurrentDate] = useState(new Date('2024-07-01'));
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const nextMonth = () => {
     const nextDate = new Date(currentDate);
@@ -132,13 +134,21 @@ const Home = () => {
     return date.toLocaleString('default', { month: 'long', year: 'numeric' });
   };
 
+  const openPopup = () => setIsPopupOpen(true);
+  const closePopup = () => setIsPopupOpen(false);
+
   const eventsForMonth = events.filter(event => 
     new Date(event.date).getMonth() === currentDate.getMonth() &&
     new Date(event.date).getFullYear() === currentDate.getFullYear()
   );
 
   return (
+
     <div className="frame">
+      {/* Button to open the pop-up */}
+      <button onClick={openPopup} className="open-popup-button">Stay Connected</button>
+      <Popup isOpen={isPopupOpen} onClose={closePopup} />
+
       {/* Flag containers for outer ends */}
       <div className="flag-container left">
         <img src={StLuciaBackground} alt="St Lucia" className="flag-image" />
