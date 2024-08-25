@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="menu-icon" onClick={toggleMenu}>
-        &#9776; {/* Unicode for hamburger icon */}
+        &#9776; {/* Larger hamburger icon */}
       </div>
       <Link to="/" className="logo-container">
         <img src={SOCALogo} className="rectangle" alt="SOCALogo" />

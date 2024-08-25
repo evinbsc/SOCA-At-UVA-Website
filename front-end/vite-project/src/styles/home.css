@@ -13,23 +13,25 @@
   bottom: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between; 
   align-items: center;
-  width: 100%; 
+  width: 100px; 
   z-index: -1; 
 }
 
-.flag-image {
-  width: 200px; 
-  height: auto;
-  margin: 10px 0;
-  opacity: 0.7; 
+.flag-container.left {
+  left: -120px; 
 }
 
-.flag-image.staggered {
-  position: absolute;
-  width: 100px; 
-  opacity: 0.5;
+.flag-container.right {
+  right: -120px; 
+}
+
+.flag-image {
+  width: 80px; 
+  height: auto;
+  margin: 20px 0; 
+  opacity: 0.8; 
 }
 
 .video {
@@ -176,27 +178,7 @@
 /* Media query for smaller screens to stack images on top */
 @media (max-width: 600px) {
   .frame {
-    padding: 1rem;
-    background: 
-      url('../Assets/st_lucia_background.png') left top no-repeat,
-      url('../Assets/haiti_background.png') right top no-repeat,
-      url('../Assets/puerto_background.png') left center no-repeat,
-      url('../Assets/cuba_background.png') right center no-repeat,
-      url('../Assets/antigua_background.png') left bottom no-repeat,
-      url('../Assets/dominica_background.png') right bottom no-repeat,
-      url('../Assets/cayman_background.png') 20% 20% no-repeat,
-      url('../Assets/st_kitts_background.png') 80% 20% no-repeat,
-      url('../Assets/guadeloupe_background.png') 50% 50% no-repeat,
-      url('../Assets/martinique_background.png') 10% 80% no-repeat,
-      url('../Assets/aruba_background.png') 90% 80% no-repeat,
-      url('../Assets/grenada_background.png') 30% 30% no-repeat,
-      url('../Assets/st_vincent_background.png') 70% 30% no-repeat,
-      url('../Assets/jamaica_background.png') 40% 70% no-repeat,
-      url('../Assets/dominican_background.png') 60% 70% no-repeat,
-      url('../Assets/netherlands_background.png') 25% 25% no-repeat,
-      url('../Assets/trinidad_background.png') 75% 25% no-repeat,
-      url('../Assets/barbados_background.png') 50% 10% no-repeat;
-    background-size: 100px; 
+    padding: 1rem; 
   }
 
   .video-container {
@@ -244,11 +226,6 @@
 
   .flag-container {
     display: none; 
-  }
-
-  .flag-container.left, .flag-container.right {
-    left: auto;
-    right: auto;
   }
 
   .flag-image {
