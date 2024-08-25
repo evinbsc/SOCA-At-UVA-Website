@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import '../styles/home.css';
 import Popup from './Popup'
 
+// Importing stay connected icons
+import InstagramLogo from '../Assets/Instagram_logo.png';
+import MailIcon from '../Assets/Mail_Icon.png';
+
 // Importing article images
 import HurricaneBerylArticleImage from '../Assets/HurricaneBerylArticleImage.jpg';
 import CaribbeanCarnivalArticleImage from '../Assets/CaribbeanCarnivalArticleImage.jpg';
@@ -114,6 +118,15 @@ const Home = () => {
   const [currentDate, setCurrentDate] = useState(new Date('2024-07-01'));
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsPopupOpen(true);
+    }, 5000); // 5 second delay
+    return () => clearTimeout(timer);
+  }, []);
+
+  const closePopup = () => setIsPopupOpen(false);
+
   const nextMonth = () => {
     const nextDate = new Date(currentDate);
     nextDate.setMonth(currentDate.getMonth() + 1);
@@ -133,9 +146,6 @@ const Home = () => {
   const formatMonthYear = (date) => {
     return date.toLocaleString('default', { month: 'long', year: 'numeric' });
   };
-
-  const openPopup = () => setIsPopupOpen(true);
-  const closePopup = () => setIsPopupOpen(false);
 
   const eventsForMonth = events.filter(event => 
     new Date(event.date).getMonth() === currentDate.getMonth() &&
@@ -189,9 +199,9 @@ const Home = () => {
       <h1 className="UPCOMING-event">UPCOMING EVENTS</h1>
       <div className="events-section box">
         <div className="calendar-header">
-          <button onClick={prevMonth} className="calendar-nav">&lt;</button>
+          <button onClick={() => setCurrentDate(prevDate => new Date(prevDate.setMonth(prevDate.getMonth() - 1)))} className="calendar-nav">&lt;</button>
           <h1 className="calendar-title">{formatMonthYear(currentDate)}</h1>
-          <button onClick={nextMonth} className="calendar-nav">&gt;</button>
+          <button onClick={() => setCurrentDate(nextDate => new Date(nextDate.setMonth(nextDate.getMonth() + 1)))} className="calendar-nav">&gt;</button>
         </div>
         <div className="events-grid">
           {eventsForMonth.length > 0 ? (
@@ -236,6 +246,23 @@ const Home = () => {
               )}
             </div>
           ))}
+        </div>
+      </div>
+      <div className="stay-connected-section">
+        <h2 className="stay-connected-title">Stay Connected</h2>
+        <div className="stay-connected-links">
+          <a href="https://www.instagram.com/soca_at_uva/" target="_blank" rel="noopener noreferrer">
+            <img src={InstagramLogo} alt="Instagram" className="stay-connected-icon" />
+            <span>@soca_at_uva</span>
+          </a>
+          <a href="https://lists.virginia.edu/sympa/subscribe/soca-uva?previous_action=info#" target="_blank" rel="noopener noreferrer">
+            <img src={MailIcon} alt="Mail" className="stay-connected-icon" />
+            <span>Subscribe to our UVA Mailing List</span>
+          </a>
+          <a href="mailto:officialsoca@virginia.edu">
+            <img src={MailIcon} alt="Contact" className="stay-connected-icon" />
+            <span>officialsoca@virginia.edu</span>
+          </a>
         </div>
       </div>
     </div>
