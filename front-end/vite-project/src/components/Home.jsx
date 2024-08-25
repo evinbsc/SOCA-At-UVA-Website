@@ -160,7 +160,7 @@ const Home = () => {
       <Popup isOpen={isPopupOpen} onClose={closePopup} />
 
       {/* Main image for all screens */}
-      <img src={SocaHomePagePicMobile} alt="SOCA Home" className="main-image" />
+      <img src={SocaHomePagePicMobile} width="980" height="550" alt="SOCA Home" className="main-image" />
 
       {/* Introduction text */}
       <div className="intro-text">
@@ -194,6 +194,22 @@ const Home = () => {
       </div>
 
       <h1 className="UPCOMING-event">UPCOMING EVENTS</h1>
+
+      {/* Video Section moved under the SA KA FÊTE? section */}
+      <div className="video-container">
+        <iframe
+          className="video"
+          width="980"
+          height="550"
+          src="https://www.youtube.com/embed/5WWuoR2NS4c?si=uh8Orc2207VLwxbv&autoplay=1&mute=1"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
+      </div>
+
       <div className="events-section box">
         <div className="calendar-header">
           <button onClick={prevMonth} className="calendar-nav">&lt;</button>
@@ -246,23 +262,9 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Video Section moved under the SA KA FÊTE? section */}
-      <div className="video-container">
-        <iframe
-          className="video"
-          width="980"
-          height="550"
-          src="https://www.youtube.com/embed/5WWuoR2NS4c?si=uh8Orc2207VLwxbv&autoplay=1&mute=1"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
-      </div>
+      <h1 className="stay-connected-title">Stay Connected</h1>
 
       <div className="stay-connected-section">
-        <h2 className="stay-connected-title">Stay Connected</h2>
         <div className="stay-connected-links">
           <a href="https://www.instagram.com/soca_at_uva/" target="_blank" rel="noopener noreferrer">
             <img src={InstagramLogo} alt="Instagram" className="stay-connected-icon" />
