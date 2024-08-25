@@ -160,7 +160,7 @@ const Home = () => {
       <Popup isOpen={isPopupOpen} onClose={closePopup} />
 
       {/* Main image for all screens */}
-      <img src={SOCAHomePageMobile} alt="SOCA Home" className="main-image" />
+      <img src={SocaHomePagePicMobile} alt="SOCA Home" className="main-image" />
 
       {/* Introduction text */}
       <div className="intro-text">
