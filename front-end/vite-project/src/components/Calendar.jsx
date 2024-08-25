@@ -52,12 +52,12 @@ const formatDate = (dateStr) => {
 };
 
 const Calendar = () => {
-  const [currentDate, setCurrentDate] = useState(new Date('2024-07-01'));
+  const [currentDate, setCurrentDate] = useState(new Date('2024-08-01'));
 
   const nextMonth = () => {
     const nextDate = new Date(currentDate);
     nextDate.setMonth(currentDate.getMonth() + 1);
-    if (nextDate <= new Date('2025-07-01')) {
+    if (nextDate <= new Date('2025-08-01')) {
       setCurrentDate(nextDate);
     }
   };
@@ -65,7 +65,7 @@ const Calendar = () => {
   const prevMonth = () => {
     const prevDate = new Date(currentDate);
     prevDate.setMonth(currentDate.getMonth() - 1);
-    if (prevDate >= new Date('2024-07-01')) {
+    if (prevDate >= new Date('2024-08-01')) {
       setCurrentDate(prevDate);
     }
   };
@@ -80,9 +80,9 @@ const Calendar = () => {
     <div className="frame-calendar">
       <div className="calendar-container">
         <div className="calendar-header">
-          <button onClick={prevMonth} className="calendar-nav" disabled={currentDate <= new Date('2024-07-01')}>&lt;</button>
+          <button onClick={prevMonth} className="calendar-nav" disabled={currentDate <= new Date('2024-08-01')}>&lt;</button>
           <h1 className="calendar-title">{formatMonthYear(currentDate)}</h1>
-          <button onClick={nextMonth} className="calendar-nav" disabled={currentDate >= new Date('2025-07-01')}>&gt;</button>
+          <button onClick={nextMonth} className="calendar-nav" disabled={currentDate >= new Date('2025-08-01')}>&gt;</button>
         </div>
         <div className="events-grid">
           {eventsForMonth.length > 0 ? (

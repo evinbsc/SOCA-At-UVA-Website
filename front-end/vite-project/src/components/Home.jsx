@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import '../styles/home.css';
+
+// Importing article images
 import HurricaneBerylArticleImage from '../Assets/HurricaneBerylArticleImage.jpg';
 import CaribbeanCarnivalArticleImage from '../Assets/CaribbeanCarnivalArticleImage.jpg';
+import BlockPartyFlyer from '../Assets/soca_black_block_party_flyer.png';
+
+// Importing flag images
 import HaitiFlag from '../Assets/Haiti_Flag.png';
 import DominicanRepublicFlag from '../Assets/Dominican_Republic_Flag.png';
 import CubaFlag from '../Assets/Cuba_Flag.png';
@@ -16,6 +21,26 @@ import SaintLuciaFlag from '../Assets/Saint_Lucia_Flag.png';
 import SaintVincentGrenadinesFlag from '../Assets/Saint_Vincent_and_the_Grenadines_Flag.png';
 import AntiguaBarbudaFlag from '../Assets/Antigua_and_Barbuda_Flag.png';
 import SaintKittsNevisFlag from '../Assets/Saint_Kitts_and_Nevis_Flag.png';
+
+// Importing background images
+import StLuciaBackground from '../Assets/st_lucia_background.png';
+import HaitiBackground from '../Assets/haiti_background.png';
+import PuertoBackground from '../Assets/puerto_background.png';
+import CubaBackground from '../Assets/cuba_background.png';
+import AntiguaBackground from '../Assets/antigua_background.png';
+import DominicaBackground from '../Assets/dominica_background.png';
+import CaymanBackground from '../Assets/cayman_background.png';
+import StKittsBackground from '../Assets/st_kitts_background.png';
+import GuadeloupeBackground from '../Assets/guadeloupe_background.png';
+import MartiniqueBackground from '../Assets/martinique_background.png';
+import ArubaBackground from '../Assets/aruba_background.png';
+import GrenadaBackground from '../Assets/grenada_background.png';
+import StVincentBackground from '../Assets/st_vincent_background.png';
+import JamaicaBackground from '../Assets/jamaica_background.png';
+import DominicanBackground from '../Assets/dominican_background.png';
+import NetherlandsBackground from '../Assets/netherlands_background.png';
+import TrinidadBackground from '../Assets/trinidad_background.png';
+import BarbadosBackground from '../Assets/barbados_background.png';
 
 const events = [
   { id: 1, title: 'Haiti Independence Day', date: '2025-01-01', image: HaitiFlag },
@@ -38,7 +63,7 @@ const articles = [
   {
     id: 1,
     title: 'The Impact of Hurricane Beryl on the Caribbean in 2024',
-    date: 'July 28, 4',
+    date: 'July 28, 2024',
     author: 'Evin St Clair',
     image: HurricaneBerylArticleImage,
     paragraphs: [
@@ -65,7 +90,9 @@ const articles = [
 
 // Upcoming events algorithm
 const getUpcomingEvents = (events, startDate) => {
-  const sortedEvents = events.filter(event => new Date(event.date) >= new Date(startDate)).sort((a, b) => new Date(a.date) - new Date(b.date));
+  const sortedEvents = events
+    .filter(event => new Date(event.date) >= new Date(startDate))
+    .sort((a, b) => new Date(a.date) - new Date(b.date));
   const upcomingEvents = sortedEvents.slice(0, 4);
   return upcomingEvents;
 };
@@ -105,10 +132,37 @@ const Home = () => {
     return date.toLocaleString('default', { month: 'long', year: 'numeric' });
   };
 
-  const eventsForMonth = events.filter(event => new Date(event.date).getMonth() === currentDate.getMonth() && new Date(event.date).getFullYear() === currentDate.getFullYear());
+  const eventsForMonth = events.filter(event => 
+    new Date(event.date).getMonth() === currentDate.getMonth() &&
+    new Date(event.date).getFullYear() === currentDate.getFullYear()
+  );
 
   return (
     <div className="frame">
+      {/* Flag containers for outer ends */}
+      <div className="flag-container left">
+        <img src={StLuciaBackground} alt="St Lucia" className="flag-image" />
+        <img src={HaitiBackground} alt="Haiti" className="flag-image" />
+        <img src={PuertoBackground} alt="Puerto Rico" className="flag-image" />
+        <img src={CubaBackground} alt="Cuba" className="flag-image" />
+        <img src={AntiguaBackground} alt="Antigua" className="flag-image" />
+        <img src={DominicaBackground} alt="Dominica" className="flag-image" />
+        <img src={CaymanBackground} alt="Cayman Islands" className="flag-image" />
+        <img src={StKittsBackground} alt="St Kitts" className="flag-image" />
+        <img src={GuadeloupeBackground} alt="Guadeloupe" className="flag-image" />
+      </div>
+      <div className="flag-container right">
+        <img src={MartiniqueBackground} alt="Martinique" className="flag-image" />
+        <img src={ArubaBackground} alt="Aruba" className="flag-image" />
+        <img src={GrenadaBackground} alt="Grenada" className="flag-image" />
+        <img src={StVincentBackground} alt="St Vincent" className="flag-image" />
+        <img src={JamaicaBackground} alt="Jamaica" className="flag-image" />
+        <img src={DominicanBackground} alt="Dominican Republic" className="flag-image" />
+        <img src={NetherlandsBackground} alt="Netherlands Antilles" className="flag-image" />
+        <img src={TrinidadBackground} alt="Trinidad" className="flag-image" />
+        <img src={BarbadosBackground} alt="Barbados" className="flag-image" />
+      </div>
+
       <div className="video-container">
         <iframe
           className="video"

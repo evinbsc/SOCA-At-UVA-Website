@@ -4,6 +4,37 @@
   max-width: 1000px;
   margin: 2rem auto;
   text-align: center;
+  position: relative;
+}
+
+.flag-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.flag-container.left {
+  left: -110px; 
+}
+
+.flag-container.right {
+  right: -110px; 
+}
+
+.flag-image {
+  width: 50px; 
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; 
+}
+
+.flag-image:hover {
+  transform: scale(1.1); 
 }
 
 .video-container {
@@ -200,5 +231,27 @@
 
   .calendar-title {
     font-size: 1.5rem;
+  }
+
+  .flag-container {
+    position: static;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 1rem;
+  }
+  
+  .flag-container.left, .flag-container.right {
+    left: auto;
+    right: auto;
+  }
+
+  .flag-image {
+    width: 30px; 
+  }
+  
+  .frame {
+    padding: 1rem;
   }
 }
