@@ -227,10 +227,12 @@
 
 .article.left .article-image {
   order: 2; /* Ensures image is on the right for the first article */
+  flex: 1; /* Added to make text and image take equal space */
 }
 
 .article.right .article-image {
   order: 1; /* Ensures image is on the left for the second article */
+  flex: 1; /* Added to make text and image take equal space */
 }
 
 .article h3 {
@@ -245,13 +247,18 @@
   line-height: 1.5; /* Ensures better readability */
 }
 
+.article-text {
+  flex: 1; /* Ensures that text takes up the same amount of space as the image */
+}
+
 .article:hover {
   background-color: rgba(255, 183, 0, 0.1); /* Faded orange theme on hover */
 }
 
-.article-image-large {
-  width: 50%; /* Increased image size for better visual balance */
+.article-image {
+  width: 100%; /* Sets image width to take equal space with text */
   height: auto;
+  border-radius: 10px;
 }
 
 /* Media query for smaller screens to stack images on top */
