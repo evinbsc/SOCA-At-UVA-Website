@@ -63,7 +63,6 @@ const articles = [
   }
 ];
 
-// Define the Article component
 const Article = () => {
   const { id } = useParams();
   const article = articles.find(article => article.id === parseInt(id));
@@ -85,4 +84,4 @@ const Article = () => {
   );
 };
 
-export default Article; 
+export default Article;

@@ -1,5 +1,5 @@
 .frame {
-  padding: 0.5rem;
+  padding: 0.1rem;
   background: transparent;
   max-width: 1000px;
   margin: 0 auto;
@@ -211,12 +211,12 @@
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  margin: 0 auto; 
-  max-width: 1200px; 
+  margin: 0 auto; /* Center the articles list */
+  max-width: 1200px; /* Restrict the maximum width */
 }
 
 .article-card {
-  flex: 1 1 calc(50% - 2rem); 
+  flex: 1 1 calc(50% - 2rem); /* Two articles side by side, with a small gap */
   background-color: #f7f7f7;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -225,12 +225,11 @@
   cursor: pointer;
   transition: transform 0.3s, background-color 0.3s;
   margin: 1rem;
-  max-width: calc(50% - 2rem); 
 }
 
 .article-card:hover {
   transform: scale(1.02);
-  background-color: rgba(255, 183, 0, 0.1); 
+  background-color: rgba(255, 183, 0, 0.1); /* Light orange hover effect */
 }
 
 .article-card-image {
@@ -271,7 +270,6 @@
   .article-card {
     width: 100%;
     margin: 0 0 1rem 0; 
-    max-width: 100%;
   }
 
   .video-container {
