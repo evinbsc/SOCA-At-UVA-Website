@@ -215,7 +215,7 @@ const Home = () => {
           ></iframe>
         </div>
 
-        <div className="articles-list">
+        <div className="articles-grid">
           {articles.map((article) => (
             <div 
               key={article.id} 
