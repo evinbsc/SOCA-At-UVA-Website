@@ -205,10 +205,10 @@
 .articles-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 1200px; 
+  gap: 2rem; 
+  justify-content: center; 
+  margin: 0 auto; 
+  max-width: 1000px; 
 }
 
 .article-card {
