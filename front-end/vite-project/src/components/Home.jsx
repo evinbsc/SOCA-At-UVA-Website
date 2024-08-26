@@ -79,7 +79,7 @@ const articles = [
     paragraphs: [
       {
         id: 1,
-        text: 'Hurricane Beryl, the first major hurricane of the 2024 Atlantic hurricane season, brought severe devastation to many Caribbean islands. It formed unusually early in the rainy season on June 28, 2024, and rapidly grew to a Category 5 storm. Beryl has set a record for the earliest Category 5 hurricane in the Atlantic, which was previously held by Hurricane Emily from 2005​. Jamaica was one of the hardest-hit islands as Hurricane Beryl, Category 4 at the time, passed close to Kingston. It reached wind speeds up to 145 mph, causing extensive damage to infrastructure...'
+        text: 'Hurricane Beryl, the first major hurricane of the 2024 Atlantic hurricane season, brought severe devastation to many Caribbean islands...'
       }
     ]
   },
@@ -92,27 +92,16 @@ const articles = [
     paragraphs: [
       {
         id: 1,
-        text: 'Carnival in the Caribbean is a vibrant display of colors, music, and dance, rooted in history and cultural significance. This celebration can be traced back to the late 18th century in Trinidad and Tobago, where enslaved Africans and free people of color created their own festivities in response to exclusion from European masquerade balls. These traditions, infused with perseverance and defiance, have spread throughout the Caribbean over the years, with each island making its unique take on the celebration. Today, carnival celebrations typically span a month long...'
+        text: 'Carnival in the Caribbean is a vibrant display of colors, music, and dance, rooted in history and cultural significance...'
       }
     ]
   }
 ];
 
-const formatDate = (dateStr) => {
-  const date = new Date(dateStr);
-  const options = { month: 'long', day: 'numeric' };
-  const formattedDate = date.toLocaleDateString('en-US', options);
-  const day = date.getDate();
-  let suffix = 'th';
-  if (day === 1 || day === 21 || day === 31) suffix = 'st';
-  else if (day === 2 || day === 22) suffix = 'nd';
-  else if (day === 3 || day === 23) suffix = 'rd';
-  return `${formattedDate}${suffix}`;
-};
-
 const Home = () => {
   const [currentDate, setCurrentDate] = useState(new Date('2024-09-01')); 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const navigate = useNavigate(); // Define navigate for navigation
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -120,9 +109,6 @@ const Home = () => {
     }, 5000); // 5 second delay
     return () => clearTimeout(timer);
   }, []);
-
-  const openPopup = () => setIsPopupOpen(true); 
-  const closePopup = () => setIsPopupOpen(false);
 
   const nextMonth = () => {
     const nextDate = new Date(currentDate);
@@ -151,44 +137,18 @@ const Home = () => {
 
   return (
     <div className="frame">
-      <Popup isOpen={isPopupOpen} onClose={closePopup} />
+      <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
 
-      {/* Main image for all screens */}
       <img src={SocaHomePagePicMobile} width="980" height="530" alt="SOCA Home" className="main-image" />
 
-      {/* Introduction text */}
       <div className="intro-text">
         <p>
-          The Student Organization for Caribbean Awareness (SOCA) is a University of Virginia student-run organization that is committed to promoting awareness of issues facing the Caribbean and creating a community based around Caribbean cultures. The goal of SOCA is to bring together peoples with Caribbean descent, heritage and/or interest, in an effort to foster educational, cultural and social growth. SOCA welcomes and encourages all people to join and contribute to the organization, regardless of national or ethnic origin.
+          The Student Organization for Caribbean Awareness (SOCA) is a University of Virginia student-run organization...
         </p>
       </div>
 
-      {/* Flag containers for outer ends */}
-      <div className="flag-container left">
-        <img src={StLuciaBackground} alt="St Lucia" className="flag-image" />
-        <img src={HaitiBackground} alt="Haiti" className="flag-image" />
-        <img src={PuertoBackground} alt="Puerto Rico" className="flag-image" />
-        <img src={CubaBackground} alt="Cuba" className="flag-image" />
-        <img src={AntiguaBackground} alt="Antigua" className="flag-image" />
-        <img src={DominicaBackground} alt="Dominica" className="flag-image" />
-        <img src={CaymanBackground} alt="Cayman Islands" className="flag-image" />
-        <img src={StKittsBackground} alt="St Kitts" className="flag-image" />
-        <img src={GuadeloupeBackground} alt="Guadeloupe" className="flag-image" />
-      </div>
-      <div className="flag-container right">
-        <img src={MartiniqueBackground} alt="Martinique" className="flag-image" />
-        <img src={ArubaBackground} alt="Aruba" className="flag-image" />
-        <img src={GrenadaBackground} alt="Grenada" className="flag-image" />
-        <img src={StVincentBackground} alt="St Vincent" className="flag-image" />
-        <img src={JamaicaBackground} alt="Jamaica" className="flag-image" />
-        <img src={DominicanBackground} alt="Dominican Republic" className="flag-image" />
-        <img src={NetherlandsBackground} alt="Netherlands Antilles" className="flag-image" />
-        <img src={TrinidadBackground} alt="Trinidad" className="flag-image" />
-        <img src={BarbadosBackground} alt="Barbados" className="flag-image" />
-      </div>
-
+      {/* Upcoming Events */}
       <h1 className="UPCOMING-event">UPCOMING EVENTS</h1>
-
       <div className="events-section box">
         <div className="calendar-header">
           <button onClick={prevMonth} className="calendar-nav">&lt;</button>
@@ -199,7 +159,7 @@ const Home = () => {
           {eventsForMonth.length > 0 ? (
             eventsForMonth.map(event => (
               <div key={event.id} className="event">
-                <img src={event.image} width="200" height="150" className="event-image-full" alt={event.title} />
+                <img src={event.image} className="event-image-full" alt={event.title} />
               </div>
             ))
           ) : (
@@ -211,24 +171,25 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Articles Section */}
       <div className="articles-section">
         <h2 className="sa-ka-f-te">SA KA FÊTE?</h2>
 
         <div className="video-container">
-        <iframe
-          className="video"
-          width="980"
-          height="550"
-          src="https://www.youtube.com/embed/5WWuoR2NS4c?si=uh8Orc2207VLwxbv&autoplay=1&mute=1"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
-      </div>
+          <iframe
+            className="video"
+            width="980"
+            height="550"
+            src="https://www.youtube.com/embed/5WWuoR2NS4c?si=uh8Orc2207VLwxbv&autoplay=1&mute=1"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
 
-      <div className="articles-grid">
+        <div className="articles-grid">
           {articles.map((article, index) => (
             <div 
               key={article.id} 
@@ -237,19 +198,19 @@ const Home = () => {
             >
               {index % 2 === 0 ? (
                 <>
-                  <img src={article.image} width="300" height="200" alt={article.title} className="article-image" />
                   <div className="article-text">
                     <h3>{article.title}</h3>
                     <p>{article.paragraphs[0].text}</p>
                   </div>
+                  <img src={article.image} className="article-image-large" alt={article.title} />
                 </>
               ) : (
                 <>
+                  <img src={article.image} className="article-image-large" alt={article.title} />
                   <div className="article-text">
                     <h3>{article.title}</h3>
                     <p>{article.paragraphs[0].text}</p>
                   </div>
-                  <img src={article.image} width="300" height="200" alt={article.title} className="article-image" />
                 </>
               )}
             </div>
