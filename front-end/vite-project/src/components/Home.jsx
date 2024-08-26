@@ -203,11 +203,11 @@ const Home = () => {
                     <h3>{article.title}</h3>
                     <p>{article.paragraphs[0].text}</p>
                   </div>
-                  <img src={article.image} className="article-image-large" alt={article.title} />
+                  <img src={article.image} width="490" height="275" className="article-image-large" alt={article.title} />
                 </>
               ) : (
                 <>
-                  <img src={article.image} className="article-image-large" alt={article.title} />
+                  <img src={article.image} width="490" height="275" className="article-image-large" alt={article.title} />
                   <div className="article-text">
                     <h3>{article.title}</h3>
                     <p>{article.paragraphs[0].text}</p>
