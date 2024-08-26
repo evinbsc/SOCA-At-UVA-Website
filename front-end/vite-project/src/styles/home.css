@@ -256,8 +256,8 @@
 }
 
 .article-image {
-  width: 100%; /* Sets image width to take equal space with text */
-  height: auto;
+  width: 30%; /* Sets image width to take equal space with text */
+  height: 30%;
   border-radius: 10px;
 }
 
