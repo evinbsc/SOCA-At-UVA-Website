@@ -6,7 +6,7 @@ import Popup from './Popup';
 // Importing stay connected icons
 import InstagramLogo from '../Assets/Instagram_logo.png';
 import MailIcon from '../Assets/Mail_Icon.png';
-import UVALogo from '../Assets/uva_logo.png';
+import UVALogo from '../Assets/uva_logo.jpg';
 
 // Importing article images
 import HurricaneBerylArticleImage from '../Assets/HurricaneBerylArticleImage.jpg';
