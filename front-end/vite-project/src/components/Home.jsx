@@ -52,7 +52,7 @@ import SocaHomePagePicMobile from '../Assets/SOCA_home_page_pic_mobile.png';
 
 const events = [
   { id: 1, title: 'Pool Party', date: '2024-08-26', image: PoolPartyFlyer },
-  { id: 2, title: 'Block Party', date: '2024-08-25', image: BlockPartyFlyer },
+  { id: 2, title: 'Block Party', date: '2024-08-25', image: BlockPartyFlyer }
   // { id: 3, title: 'Haiti Independence Day', date: '2025-01-01', image: HaitiFlag },
   // { id: 4, title: 'Dominican Republic Independence Day', date: '2025-02-27', image: DominicanRepublicFlag },
   // { id: 5, title: 'Grenada Independence Day', date: '2025-02-07', image: GrenadaFlag },
@@ -228,16 +228,19 @@ const Home = () => {
         ></iframe>
       </div>
 
-        <div className="articles-grid">
+      <div className="articles-grid">
           {articles.map((article, index) => (
-            <div key={article.id} className={`article box ${index % 2 === 0 ? 'left' : 'right'}`}>
+            <div 
+              key={article.id} 
+              className={`article box ${index % 2 === 0 ? 'left' : 'right'}`} 
+              onClick={() => navigate(`/article/${article.id}`)}
+            >
               {index % 2 === 0 ? (
                 <>
                   <img src={article.image} width="300" height="200" alt={article.title} className="article-image" />
                   <div className="article-text">
                     <h3>{article.title}</h3>
                     <p>{article.paragraphs[0].text}</p>
-                    <a href={`/article/${article.id}`}>Read more</a>
                   </div>
                 </>
               ) : (
@@ -245,7 +248,6 @@ const Home = () => {
                   <div className="article-text">
                     <h3>{article.title}</h3>
                     <p>{article.paragraphs[0].text}</p>
-                    <a href={`/article/${article.id}`}>Read more</a>
                   </div>
                   <img src={article.image} width="300" height="200" alt={article.title} className="article-image" />
                 </>

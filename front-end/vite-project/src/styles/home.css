@@ -102,6 +102,10 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.video-container {
+  padding-bottom: 4rem; 
+}
+
 .box {
   background-color: #fff;
   border-radius: 10px;
@@ -202,6 +206,16 @@
   color: #ffb700;
 }
 
+.articles-section {
+  margin-top: 2rem;
+}
+
+.sa-ka-f-te {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2rem;
+  color: #ffb700;
+}
+
 .articles-grid {
   display: flex;
   flex-direction: column;
@@ -217,6 +231,8 @@
   align-items: center;
   border: 1px solid #ddd;
   padding: 2rem;
+  transition: background-color 0.3s;
+  cursor: pointer;
 }
 
 .article.left .article-image {
@@ -236,6 +252,10 @@
 .article p {
   font-size: 1rem;
   color: #777;
+}
+
+.article:hover {
+  background-color: rgba(255, 183, 0, 0.1); /* Faded orange theme on hover */
 }
 
 /* Media query for smaller screens to stack images on top */

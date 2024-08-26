@@ -18,20 +18,22 @@ import BlockPartyFlyer from '../Assets/soca_black_block_party_flyer.png';
 import PoolPartyFlyer from '../Assets/soca_pool_party_flyer.png';
 
 const events = [
-  { id: 1, title: 'Haiti Independence Day', date: '2025-01-01', image: HaitiFlag },
-  { id: 2, title: 'Dominican Republic Independence Day', date: '2025-02-27', image: DominicanRepublicFlag },
-  { id: 3, title: 'Grenada Independence Day', date: '2025-02-07', image: GrenadaFlag },
-  { id: 4, title: 'Cuba Independence Day', date: '2025-05-20', image: CubaFlag },
-  { id: 5, title: 'Guyana Independence Day', date: '2025-05-26', image: GuyanaFlag },
-  { id: 6, title: 'Jamaica Independence Day', date: '2024-08-06', image: JamaicaFlag },
-  { id: 7, title: 'Trinidad and Tobago Independence Day', date: '2024-08-31', image: TrinidadTobagoFlag },
-  { id: 8, title: 'Saint Kitts and Nevis Independence Day', date: '2024-09-19', image: SaintKittsNevisFlag },
-  { id: 9, title: 'Saint Vincent and the Grenadines Independence Day', date: '2024-10-27', image: SaintVincentGrenadinesFlag },
-  { id: 10, title: 'Antigua and Barbuda Independence Day', date: '2024-11-01', image: AntiguaBarbudaFlag },
-  { id: 11, title: 'Panama Independence Day', date: '2024-11-03', image: PanamaFlag },
-  { id: 12, title: 'Dominica Independence Day', date: '2024-11-03', image: DominicaFlag },
-  { id: 13, title: 'Barbados Independence Day', date: '2024-11-30', image: BarbadosFlag },
-  { id: 14, title: 'Saint Lucia Independence Day', date: '2025-02-22', image: SaintLuciaFlag },
+  { id: 1, title: 'Pool Party', date: '2024-08-26', image: PoolPartyFlyer },
+  { id: 2, title: 'Block Party', date: '2024-08-25', image: BlockPartyFlyer }
+  // { id: 1, title: 'Haiti Independence Day', date: '2025-01-01', image: HaitiFlag },
+  // { id: 2, title: 'Dominican Republic Independence Day', date: '2025-02-27', image: DominicanRepublicFlag },
+  // { id: 3, title: 'Grenada Independence Day', date: '2025-02-07', image: GrenadaFlag },
+  // { id: 4, title: 'Cuba Independence Day', date: '2025-05-20', image: CubaFlag },
+  // { id: 5, title: 'Guyana Independence Day', date: '2025-05-26', image: GuyanaFlag },
+  // { id: 6, title: 'Jamaica Independence Day', date: '2024-08-06', image: JamaicaFlag },
+  // { id: 7, title: 'Trinidad and Tobago Independence Day', date: '2024-08-31', image: TrinidadTobagoFlag },
+  // { id: 8, title: 'Saint Kitts and Nevis Independence Day', date: '2024-09-19', image: SaintKittsNevisFlag },
+  // { id: 9, title: 'Saint Vincent and the Grenadines Independence Day', date: '2024-10-27', image: SaintVincentGrenadinesFlag },
+  // { id: 10, title: 'Antigua and Barbuda Independence Day', date: '2024-11-01', image: AntiguaBarbudaFlag },
+  // { id: 11, title: 'Panama Independence Day', date: '2024-11-03', image: PanamaFlag },
+  // { id: 12, title: 'Dominica Independence Day', date: '2024-11-03', image: DominicaFlag },
+  // { id: 13, title: 'Barbados Independence Day', date: '2024-11-30', image: BarbadosFlag },
+  // { id: 14, title: 'Saint Lucia Independence Day', date: '2025-02-22', image: SaintLuciaFlag },
 ];
 
 const getEventsForMonth = (events, month, year) => {
@@ -54,7 +56,7 @@ const formatDate = (dateStr) => {
 };
 
 const Calendar = () => {
-  const [currentDate, setCurrentDate] = useState(new Date('2024-08-01'));
+  const [currentDate, setCurrentDate] = useState(new Date('2024-09-01'));
 
   const nextMonth = () => {
     const nextDate = new Date(currentDate);
