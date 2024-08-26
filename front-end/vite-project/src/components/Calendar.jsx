@@ -20,20 +20,6 @@ import PoolPartyFlyer from '../Assets/soca_pool_party_flyer.png';
 const events = [
   { id: 1, title: 'Pool Party', date: '2024-08-26', image: PoolPartyFlyer },
   { id: 2, title: 'Block Party', date: '2024-08-25', image: BlockPartyFlyer }
-  // { id: 1, title: 'Haiti Independence Day', date: '2025-01-01', image: HaitiFlag },
-  // { id: 2, title: 'Dominican Republic Independence Day', date: '2025-02-27', image: DominicanRepublicFlag },
-  // { id: 3, title: 'Grenada Independence Day', date: '2025-02-07', image: GrenadaFlag },
-  // { id: 4, title: 'Cuba Independence Day', date: '2025-05-20', image: CubaFlag },
-  // { id: 5, title: 'Guyana Independence Day', date: '2025-05-26', image: GuyanaFlag },
-  // { id: 6, title: 'Jamaica Independence Day', date: '2024-08-06', image: JamaicaFlag },
-  // { id: 7, title: 'Trinidad and Tobago Independence Day', date: '2024-08-31', image: TrinidadTobagoFlag },
-  // { id: 8, title: 'Saint Kitts and Nevis Independence Day', date: '2024-09-19', image: SaintKittsNevisFlag },
-  // { id: 9, title: 'Saint Vincent and the Grenadines Independence Day', date: '2024-10-27', image: SaintVincentGrenadinesFlag },
-  // { id: 10, title: 'Antigua and Barbuda Independence Day', date: '2024-11-01', image: AntiguaBarbudaFlag },
-  // { id: 11, title: 'Panama Independence Day', date: '2024-11-03', image: PanamaFlag },
-  // { id: 12, title: 'Dominica Independence Day', date: '2024-11-03', image: DominicaFlag },
-  // { id: 13, title: 'Barbados Independence Day', date: '2024-11-30', image: BarbadosFlag },
-  // { id: 14, title: 'Saint Lucia Independence Day', date: '2025-02-22', image: SaintLuciaFlag },
 ];
 
 const getEventsForMonth = (events, month, year) => {
@@ -41,18 +27,6 @@ const getEventsForMonth = (events, month, year) => {
     const eventDate = new Date(event.date);
     return eventDate.getMonth() === month && eventDate.getFullYear() === year;
   });
-};
-
-const formatDate = (dateStr) => {
-  const date = new Date(dateStr);
-  const options = { month: 'long', day: 'numeric' };
-  const formattedDate = date.toLocaleDateString('en-US', options);
-  const day = date.getDate();
-  let suffix = 'th';
-  if (day === 1 || day === 21 || day === 31) suffix = 'st';
-  else if (day === 2 || day === 22) suffix = 'nd';
-  else if (day === 3 || day === 23) suffix = 'rd';
-  return `${formattedDate}${suffix}`;
 };
 
 const Calendar = () => {
@@ -91,10 +65,12 @@ const Calendar = () => {
         <div className="events-grid">
           {eventsForMonth.length > 0 ? (
             eventsForMonth.map(event => (
-              <div key={event.id} className="event">
-                <img src={event.image} width="200" height="150" className="event-image" alt={event.title} />
-                <h3>{event.title}</h3>
-                <p>{formatDate(event.date)}</p>
+              <div 
+                key={event.id} 
+                className="event" 
+                onClick={() => console.log(`Navigate to event: ${event.title}`)} // Placeholder for navigation
+              >
+                <img src={event.image} className="event-image-full" alt={event.title} />
               </div>
             ))
           ) : (

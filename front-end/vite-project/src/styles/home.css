@@ -103,7 +103,7 @@
 }
 
 .video-container {
-  padding-bottom: 4rem; 
+  padding-bottom: 4rem;
 }
 
 .box {
@@ -208,57 +208,51 @@
 
 .articles-grid {
   display: flex;
-  flex-direction: column;
-  gap: 2rem; /* Increased gap for visual clarity between articles */
+  flex-wrap: wrap; /* Changed to wrap to allow articles to fit on smaller screens */
+  justify-content: space-between;
+  gap: 1.5rem; /* Gap between article cards */
 }
 
-.article {
-  display: flex;
-  gap: 1rem;
-  background-color: #fff;
+.article-card {
+  width: 48%; /* Set width for two articles per row on larger screens */
+  background-color: #f7f7f7;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  align-items: center;
   border: 1px solid #ddd;
-  padding: 2rem;
-  transition: background-color 0.3s;
-  cursor: pointer; /* Added cursor pointer to indicate clickability */
+  overflow: hidden;
+  cursor: pointer; /* Indicates the card is clickable */
+  transition: transform 0.3s; /* Smooth scaling effect */
 }
 
-.article.left .article-image {
-  order: 2; /* Ensures image is on the right for the first article */
-  flex: 1; /* Added to make text and image take equal space */
+.article-card:hover {
+  transform: scale(1.02); /* Slightly scale up on hover */
 }
 
-.article.right .article-image {
-  order: 1; /* Ensures image is on the left for the second article */
-  flex: 1; /* Added to make text and image take equal space */
+.article-card-image {
+  width: 100%; /* Image takes full width of the card */
+  height: auto;
 }
 
-.article h3 {
+.article-card-text {
+  padding: 1rem;
+  text-align: left;
+}
+
+.article-card-text h3 {
   font-family: 'Oswald', sans-serif;
-  font-size: 1.5rem; /* Adjusted font size for better readability */
+  font-size: 1.2rem;
   color: #383838;
 }
 
-.article p {
-  font-size: 1rem;
-  color: #777;
-  line-height: 1.5; /* Ensures better readability */
+.article-card-text p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
 }
 
-.article-text {
-  flex: 1; /* Ensures that text takes up the same amount of space as the image */
-}
-
-.article:hover {
-  background-color: rgba(255, 183, 0, 0.1); /* Faded orange theme on hover */
-}
-
-.article-image {
-  width: 30%; /* Sets image width to take equal space with text */
-  height: 30%;
-  border-radius: 10px;
+.article-date {
+  font-size: 0.8rem;
+  color: #999;
 }
 
 /* Media query for smaller screens to stack images on top */
@@ -267,12 +261,20 @@
     padding: 1rem; 
   }
 
+  .articles-grid {
+    flex-direction: column; /* Stack articles vertically */
+  }
+
+  .article-card {
+    width: 100%; /* Full width on smaller screens */
+  }
+
   .stay-connected-links {
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem; 
-    color: #ffb700
+    color: #ffb700;
   }
 
   .stay-connected-links a {
@@ -320,12 +322,6 @@
 
   .box {
     padding: 1rem;
-  }
-
-  .article {
-    flex-direction: column;
-    align-items: flex-start;
-    order: -1;
   }
 
   .article-image {

@@ -144,8 +144,32 @@ const Home = () => {
 
       <div className="intro-text">
         <p>
-          The Student Organization for Caribbean Awareness (SOCA) is a University of Virginia student-run organization...
+        The Student Organization for Caribbean Awareness (SOCA) is a University of Virginia student-run organization that is committed to promoting awareness of issues facing the Caribbean and creating a community based around Caribbean cultures. The goal of SOCA is to bring together peoples with Caribbean descent, heritage and/or interest, in an effort to foster educational, cultural and social growth. SOCA welcomes and encourages all people to join and contribute to the organization, regardless of national or ethnic origin.
         </p>
+      </div>
+
+       {/* Flag containers for outer ends */}
+       <div className="flag-container left">
+        <img src={StLuciaBackground} alt="St Lucia" className="flag-image" />
+        <img src={HaitiBackground} alt="Haiti" className="flag-image" />
+        <img src={PuertoBackground} alt="Puerto Rico" className="flag-image" />
+        <img src={CubaBackground} alt="Cuba" className="flag-image" />
+        <img src={AntiguaBackground} alt="Antigua" className="flag-image" />
+        <img src={DominicaBackground} alt="Dominica" className="flag-image" />
+        <img src={CaymanBackground} alt="Cayman Islands" className="flag-image" />
+        <img src={StKittsBackground} alt="St Kitts" className="flag-image" />
+        <img src={GuadeloupeBackground} alt="Guadeloupe" className="flag-image" />
+      </div>
+      <div className="flag-container right">
+        <img src={MartiniqueBackground} alt="Martinique" className="flag-image" />
+        <img src={ArubaBackground} alt="Aruba" className="flag-image" />
+        <img src={GrenadaBackground} alt="Grenada" className="flag-image" />
+        <img src={StVincentBackground} alt="St Vincent" className="flag-image" />
+        <img src={JamaicaBackground} alt="Jamaica" className="flag-image" />
+        <img src={DominicanBackground} alt="Dominican Republic" className="flag-image" />
+        <img src={NetherlandsBackground} alt="Netherlands Antilles" className="flag-image" />
+        <img src={TrinidadBackground} alt="Trinidad" className="flag-image" />
+        <img src={BarbadosBackground} alt="Barbados" className="flag-image" />
       </div>
 
       {/* Upcoming Events */}
@@ -191,29 +215,18 @@ const Home = () => {
         </div>
 
         <div className="articles-grid">
-          {articles.map((article, index) => (
+          {articles.map((article) => (
             <div 
               key={article.id} 
-              className={`article box ${index % 2 === 0 ? 'left' : 'right'}`} 
+              className="article-card" 
               onClick={() => navigate(`/article/${article.id}`)}
             >
-              {index % 2 === 0 ? (
-                <>
-                  <div className="article-text">
-                    <h3>{article.title}</h3>
-                    <p>{article.paragraphs[0].text}</p>
-                  </div>
-                  <img src={article.image} width="490" height="275" className="article-image-large" alt={article.title} />
-                </>
-              ) : (
-                <>
-                  <img src={article.image} width="490" height="275" className="article-image-large" alt={article.title} />
-                  <div className="article-text">
-                    <h3>{article.title}</h3>
-                    <p>{article.paragraphs[0].text}</p>
-                  </div>
-                </>
-              )}
+              <img src={article.image} alt={article.title} className="article-card-image" />
+              <div className="article-card-text">
+                <h3>{article.title}</h3>
+                <p>{article.paragraphs[0].text}</p>
+                <p className="article-date">{article.date}</p>
+              </div>
             </div>
           ))}
         </div>
