@@ -14,6 +14,8 @@ import SaintLuciaFlag from '../Assets/Saint_Lucia_Flag.png';
 import SaintVincentGrenadinesFlag from '../Assets/Saint_Vincent_and_the_Grenadines_Flag.png';
 import AntiguaBarbudaFlag from '../Assets/Antigua_and_Barbuda_Flag.png';
 import SaintKittsNevisFlag from '../Assets/Saint_Kitts_and_Nevis_Flag.png';
+import BlockPartyFlyer from '../Assets/soca_black_block_party_flyer.png';
+import PoolPartyFlyer from '../Assets/soca_pool_party_flyer.png';
 
 const events = [
   { id: 1, title: 'Haiti Independence Day', date: '2025-01-01', image: HaitiFlag },

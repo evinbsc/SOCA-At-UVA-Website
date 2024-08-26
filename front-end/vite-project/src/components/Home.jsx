@@ -10,6 +10,7 @@ import MailIcon from '../Assets/Mail_Icon.png';
 import HurricaneBerylArticleImage from '../Assets/HurricaneBerylArticleImage.jpg';
 import CaribbeanCarnivalArticleImage from '../Assets/CaribbeanCarnivalArticleImage.jpg';
 import BlockPartyFlyer from '../Assets/soca_black_block_party_flyer.png';
+import PoolPartyFlyer from '../Assets/soca_pool_party_flyer.png';
 
 // Importing flag images
 import HaitiFlag from '../Assets/Haiti_Flag.png';
@@ -50,20 +51,22 @@ import SocaHomePagePicMobile from '../Assets/SOCA_home_page_pic_mobile.png';
 
 
 const events = [
-  { id: 1, title: 'Haiti Independence Day', date: '2025-01-01', image: HaitiFlag },
-  { id: 2, title: 'Dominican Republic Independence Day', date: '2025-02-27', image: DominicanRepublicFlag },
-  { id: 3, title: 'Grenada Independence Day', date: '2025-02-07', image: GrenadaFlag },
-  { id: 4, title: 'Cuba Independence Day', date: '2025-05-20', image: CubaFlag },
-  { id: 5, title: 'Guyana Independence Day', date: '2025-05-26', image: GuyanaFlag },
-  { id: 6, title: 'Jamaica Independence Day', date: '2024-08-06', image: JamaicaFlag },
-  { id: 7, title: 'Trinidad and Tobago Independence Day', date: '2024-08-31', image: TrinidadTobagoFlag },
-  { id: 8, title: 'Saint Kitts and Nevis Independence Day', date: '2024-09-19', image: SaintKittsNevisFlag },
-  { id: 9, title: 'Saint Vincent and the Grenadines Independence Day', date: '2024-10-27', image: SaintVincentGrenadinesFlag },
-  { id: 10, title: 'Antigua and Barbuda Independence Day', date: '2024-11-01', image: AntiguaBarbudaFlag },
-  { id: 11, title: 'Panama Independence Day', date: '2024-11-03', image: PanamaFlag },
-  { id: 12, title: 'Dominica Independence Day', date: '2024-11-03', image: DominicaFlag },
-  { id: 13, title: 'Barbados Independence Day', date: '2024-11-30', image: BarbadosFlag },
-  { id: 14, title: 'Saint Lucia Independence Day', date: '2025-02-22', image: SaintLuciaFlag },
+  { id: 1, title: 'Pool Party', date: '2024-08-26', image: PoolPartyFlyer },
+  { id: 2, title: 'Block Party', date: '2024-08-25', image: BlockPartyFlyer },
+  { id: 3, title: 'Haiti Independence Day', date: '2025-01-01', image: HaitiFlag },
+  { id: 4, title: 'Dominican Republic Independence Day', date: '2025-02-27', image: DominicanRepublicFlag },
+  { id: 5, title: 'Grenada Independence Day', date: '2025-02-07', image: GrenadaFlag },
+  { id: 6, title: 'Cuba Independence Day', date: '2025-05-20', image: CubaFlag },
+  { id: 7, title: 'Guyana Independence Day', date: '2025-05-26', image: GuyanaFlag },
+  { id: 8, title: 'Jamaica Independence Day', date: '2024-08-06', image: JamaicaFlag },
+  { id: 9, title: 'Trinidad and Tobago Independence Day', date: '2024-08-31', image: TrinidadTobagoFlag },
+  { id: 10, title: 'Saint Kitts and Nevis Independence Day', date: '2024-09-19', image: SaintKittsNevisFlag },
+  { id: 11, title: 'Saint Vincent and the Grenadines Independence Day', date: '2024-10-27', image: SaintVincentGrenadinesFlag },
+  { id: 12, title: 'Antigua and Barbuda Independence Day', date: '2024-11-01', image: AntiguaBarbudaFlag },
+  { id: 13, title: 'Panama Independence Day', date: '2024-11-03', image: PanamaFlag },
+  { id: 14, title: 'Dominica Independence Day', date: '2024-11-03', image: DominicaFlag },
+  { id: 15, title: 'Barbados Independence Day', date: '2024-11-30', image: BarbadosFlag },
+  { id: 16, title: 'Saint Lucia Independence Day', date: '2025-02-22', image: SaintLuciaFlag },
 ];
 
 const articles = [
@@ -95,15 +98,6 @@ const articles = [
   }
 ];
 
-// Upcoming events algorithm
-const getUpcomingEvents = (events, startDate) => {
-  const sortedEvents = events
-    .filter(event => new Date(event.date) >= new Date(startDate))
-    .sort((a, b) => new Date(a.date) - new Date(b.date));
-  const upcomingEvents = sortedEvents.slice(0, 4);
-  return upcomingEvents;
-};
-
 const formatDate = (dateStr) => {
   const date = new Date(dateStr);
   const options = { month: 'long', day: 'numeric' };
@@ -117,7 +111,7 @@ const formatDate = (dateStr) => {
 };
 
 const Home = () => {
-  const [currentDate, setCurrentDate] = useState(new Date('2024-07-01'));
+  const [currentDate, setCurrentDate] = useState(new Date('2024-08-01')); // Start from August 2024
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
@@ -127,7 +121,7 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const openPopup = () => setIsPopupOpen(true); // Ensure this function is defined
+  const openPopup = () => setIsPopupOpen(true); 
   const closePopup = () => setIsPopupOpen(false);
 
   const nextMonth = () => {
@@ -141,7 +135,7 @@ const Home = () => {
   const prevMonth = () => {
     const prevDate = new Date(currentDate);
     prevDate.setMonth(currentDate.getMonth() - 1);
-    if (prevDate >= new Date('2024-07-01')) {
+    if (prevDate >= new Date('2024-08-01')) {
       setCurrentDate(prevDate);
     }
   };
@@ -160,7 +154,7 @@ const Home = () => {
       <Popup isOpen={isPopupOpen} onClose={closePopup} />
 
       {/* Main image for all screens */}
-      <img src={SocaHomePagePicMobile} width="980" height="550" alt="SOCA Home" className="main-image" />
+      <img src={SocaHomePagePicMobile} width="980" height="530" alt="SOCA Home" className="main-image" />
 
       {/* Introduction text */}
       <div className="intro-text">
@@ -195,8 +189,32 @@ const Home = () => {
 
       <h1 className="UPCOMING-event">UPCOMING EVENTS</h1>
 
-      {/* Video Section moved under the SA KA FÊTE? section */}
-      <div className="video-container">
+      <div className="events-section box">
+        <div className="calendar-header">
+          <button onClick={prevMonth} className="calendar-nav">&lt;</button>
+          <h1 className="calendar-title">{formatMonthYear(currentDate)}</h1>
+          <button onClick={nextMonth} className="calendar-nav">&gt;</button>
+        </div>
+        <div className="events-grid">
+          {eventsForMonth.length > 0 ? (
+            eventsForMonth.map(event => (
+              <div key={event.id} className="event">
+                <img src={event.image} width="200" height="150" className="event-image-full" alt={event.title} />
+              </div>
+            ))
+          ) : (
+            <div className="no-events">
+              <p>No Events</p>
+              <div className="palm-trees">🌴🌴🌴</div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="articles-section">
+        <h2 className="sa-ka-f-te">SA KA FÊTE?</h2>
+
+        <div className="video-container">
         <iframe
           className="video"
           width="980"
@@ -210,31 +228,6 @@ const Home = () => {
         ></iframe>
       </div>
 
-      <div className="events-section box">
-        <div className="calendar-header">
-          <button onClick={prevMonth} className="calendar-nav">&lt;</button>
-          <h1 className="calendar-title">{formatMonthYear(currentDate)}</h1>
-          <button onClick={nextMonth} className="calendar-nav">&gt;</button>
-        </div>
-        <div className="events-grid">
-          {eventsForMonth.length > 0 ? (
-            eventsForMonth.map(event => (
-              <div key={event.id} className="event">
-                <img src={event.image} width="200" height="150" className="event-image" alt={event.title} />
-                <h3>{event.title}</h3>
-                <p>{formatDate(event.date)}</p>
-              </div>
-            ))
-          ) : (
-            <div className="no-events">
-              <p>No Events</p>
-              <div className="palm-trees">🌴🌴🌴</div>
-            </div>
-          )}
-        </div>
-      </div>
-      <div className="articles-section">
-        <h2 className="sa-ka-f-te">SA KA FÊTE?</h2>
         <div className="articles-grid">
           {articles.map((article, index) => (
             <div key={article.id} className={`article box ${index % 2 === 0 ? 'left' : 'right'}`}>
@@ -262,7 +255,7 @@ const Home = () => {
         </div>
       </div>
 
-      <h1 className="stay-connected-title">Stay Connected</h1>
+      <h1 className="stay-connected-title">Stay Connected!</h1>
 
       <div className="stay-connected-section">
         <div className="stay-connected-links">

@@ -18,7 +18,7 @@
 
 .footer-statement {
   font-family: 'Oswald', sans-serif;
-  font-size: 1rem; 
+  font-size: 0.7rem; 
   color: #ffffff;
   max-width: 800px; 
   margin: 0 auto; 
@@ -28,7 +28,7 @@
 .footer-bottom {
   text-align: center;
   margin-top: 0.5rem; 
-  font-size: 0.8rem; 
+  font-size: 0.7rem; 
 }
 
 /* Media query for smaller screens */
@@ -39,12 +39,12 @@
   }
 
   .footer-statement {
-      font-size: 0.9rem; 
+      font-size: 0.6rem; 
       max-width: 90%; 
   }
 
   .footer-bottom {
-      font-size: 0.7rem; 
+      font-size: 0.6rem; 
       margin-top: 0.3rem; 
   }
 }
