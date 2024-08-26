@@ -1,4 +1,3 @@
-/* Base styles for the popup */
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -22,6 +21,7 @@
   max-width: 500px; 
   text-align: center;
   font-family: 'Oswald', sans-serif; 
+  position: relative; 
 }
 
 .popup-header {
@@ -34,32 +34,40 @@
   margin-bottom: 1rem;
 }
 
-.popup-section img {
-  width: 40px;
-  height: 40px;
-  vertical-align: middle;
-}
-
 .popup-section a {
   text-decoration: none;
-  color: #383838;
+  color: #ffb700; 
   font-size: 1.2rem;
-  margin-left: 0.5rem;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  transition: color 0.3s; 
 }
 
 .popup-section a:hover {
   color: #d8a527; 
 }
 
-.close-button {
+.popup-icon {
+  width: 60px; 
+  height: 60px;
+  margin-bottom: 0.5rem; 
+}
+
+.popup-close {
   background: none;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #ffb700;
+  color: #ffb700; 
   position: absolute;
   top: 10px;
   right: 10px;
+  transition: color 0.3s; 
+}
+
+.popup-close:hover {
+  color: #d8a527; 
 }
 
 /* Media query for smaller screens */
@@ -73,16 +81,16 @@
     font-size: 1.5rem; 
   }
 
-  .popup-section img {
-    width: 30px;
-    height: 30px;
+  .popup-icon {
+    width: 50px; 
+    height: 50px;
   }
 
   .popup-section a {
     font-size: 1rem; 
   }
 
-  .close-button {
+  .popup-close {
     font-size: 1.2rem; 
   }
 }

@@ -6,6 +6,7 @@ import Popup from './Popup';
 // Importing stay connected icons
 import InstagramLogo from '../Assets/Instagram_logo.png';
 import MailIcon from '../Assets/Mail_Icon.png';
+import UVALogo from '../Assets/uva_logo.png';
 
 // Importing article images
 import HurricaneBerylArticleImage from '../Assets/HurricaneBerylArticleImage.jpg';
@@ -190,7 +191,7 @@ const Home = () => {
           ) : (
             <div className="no-events">
               <p>No Events</p>
-              <div className="palm-trees">🌴🌴🌴</div>
+              <div className="palm-trees">🌴More Events Coming Soon🌴</div>
             </div>
           )}
         </div>
@@ -241,8 +242,8 @@ const Home = () => {
             <span>@soca_at_uva</span>
           </a>
           <a href="https://lists.virginia.edu/sympa/subscribe/soca-uva?previous_action=info#" target="_blank" rel="noopener noreferrer">
-            <img src={MailIcon} alt="Mail" className="stay-connected-icon" />
-            <span>Subscribe to our UVA Mailing List</span>
+            <img src={UVALogo} alt="Mail" className="stay-connected-icon" />
+            <span>Subscribe to our UVA Mailing List!</span>
           </a>
           <a href="mailto:officialsoca@virginia.edu">
             <img src={MailIcon} alt="Contact" className="stay-connected-icon" />

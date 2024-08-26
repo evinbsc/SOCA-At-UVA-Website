@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/Popup.css';
 import InstagramLogo from '../Assets/Instagram_logo.png';
 import MailIcon from '../Assets/Mail_Icon.png';
+import UVALogo from '../Assets/uva_logo.png';
 
 const Popup = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -9,8 +10,8 @@ const Popup = ({ isOpen, onClose }) => {
   return (
     <div className="popup-overlay" onClick={onClose}>
       <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-        <button className="popup-close" onClick={onClose}>×</button>
-        <h2>Stay Connected</h2>
+        <button className="popup-close" onClick={onClose}>×</button> {/* Updated close button */}
+        <h2 className="popup-header">Stay Connected</h2>
         <div className="popup-section">
           <a href="https://www.instagram.com/soca_at_uva/" target="_blank" rel="noopener noreferrer">
             <img src={InstagramLogo} alt="Instagram" className="popup-icon" />
@@ -19,7 +20,7 @@ const Popup = ({ isOpen, onClose }) => {
         </div>
         <div className="popup-section">
           <a href="https://lists.virginia.edu/sympa/subscribe/soca-uva?previous_action=info#" target="_blank" rel="noopener noreferrer">
-            <img src={MailIcon} alt="Mailing List" className="popup-icon" />
+            <img src={UVALogo} alt="Mailing List" className="popup-icon" />
             <span>Subscribe to our UVA Mailing List</span>
           </a>
         </div>
