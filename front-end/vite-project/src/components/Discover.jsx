@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/discover.css';
+import '../styles/Discover.css';
 
 // Importing article images
 import hurricaneBerylArticleImage from '../assets/article_images/hurricane_beryl_article_image.jpg';
