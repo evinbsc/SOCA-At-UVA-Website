@@ -56,7 +56,6 @@
   margin: 20px 0;
 }
 
-/* Styles for Past Events */
 .past-event {
   background-color: #e0e0e0; /* Light grey background */
   color: #999; /* Grey text */
@@ -133,28 +132,58 @@
   gap: 1rem;
 }
 
+.events-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
 .event {
-  /* Individual event card */
-  border: 1px solid #ddd;
+  background-color: #f7f7f7;
   border-radius: 10px;
-  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 250px;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  background-color: #fff;
-  flex: 1 1 200px;
-  max-width: 200px;
+}
+
+.event:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.event-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
 }
 
 .event-image-full {
-  /* Full image for an event */
   width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 1rem;
+  height: 100%;
+  object-fit: cover;
 }
 
-.no-events {
-  /* Styles when there are no events */
-  text-align: center;
+.event-details {
+  padding: 0.5rem;
+}
+
+.event-name {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: #383838;
+}
+
+.event-date-time,
+.event-location {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0.25rem 0;
 }
 
 .palm-trees {
@@ -345,20 +374,17 @@
 }
 
 .animate-slide-in-right {
-  /* Applies slide-in-right animation */
   opacity: 1;
   animation: slideInRight 1s forwards;
 }
 
 .animate-fade-in {
-  /* Applies fade-in animation */
   opacity: 1;
   animation: fadeIn 1s forwards;
 }
 
 /* Hidden Class */
 .hidden {
-  /* Hides elements initially */
   opacity: 0;
 }
 
@@ -382,10 +408,7 @@
 }
 
 /* Media Queries */
-
-/* Adjustments for smaller screens */
 @media (max-width: 600px) {
-  /* Articles grid stacks vertically on smaller screens */
   .articles-grid {
     flex-direction: column;
     padding: 0 1rem;
@@ -397,6 +420,24 @@
     max-width: 100%;
   }
 
+  .events-grid {
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .event {
+    width: calc(50% - 0.5rem); /* Two events per row */
+    margin: 0.5rem 0;
+  }
+
+  .event-image-container {
+    height: 150px;
+  }
+
+  .event-image-full {
+    height: 100%;
+  }
+  
   /* Video container adjustments for mobile */
   .video-container {
     display: flex;
@@ -418,7 +459,7 @@
     padding-top: 0.5rem;
   }
 
-  /* Stay Connected section adjustments */
+  /* Stay Connected section */
   .stay-connected-links {
     flex-direction: column;
     justify-content: center;
@@ -457,7 +498,6 @@
   }
 
   .intro-text {
-    /* Adjust intro text on smaller screens */
     font-family: 'Oswald', sans-serif;
     font-size: 1rem;
     color: #383838;
@@ -465,7 +505,6 @@
     text-align: center;
   }
 
-  /* Adjust animation durations for smaller screens if needed */
   .animate-slide-in-left,
   .animate-slide-in-right,
   .animate-fade-in {

@@ -14,7 +14,7 @@ const events = [
   {
     id: 1,
     name: 'Water Fete',
-    date: '2023-08-30',
+    date: '2024-08-30',
     time: '4:00 PM - 6:30 PM',
     location: 'Booker T. Washington Park',
     image: waterFeteImage,
@@ -22,7 +22,7 @@ const events = [
   {
     id: 2,
     name: 'Sorrel Sale',
-    date: '2023-09-12',
+    date: '2024-09-12',
     time: '11:00 AM - 2:00 PM',
     location: 'Amphitheater Way',
     image: sorrelSaleImage,
@@ -30,7 +30,7 @@ const events = [
   {
     id: 3,
     name: 'Welcome Back Pool Party',
-    date: '2023-08-26',
+    date: '2024-08-26',
     time: '4:00 PM',
     location: 'Grandmarc',
     image: poolPartyImage,
@@ -38,7 +38,7 @@ const events = [
   {
     id: 4,
     name: 'Trinidad & Tobago Independence Day',
-    date: '2023-08-31',
+    date: '2024-08-31',
     time: '',
     location: '',
     image: trinidadIndependenceImage,
@@ -46,7 +46,7 @@ const events = [
   {
     id: 5,
     name: 'Bachata 101 Workshop',
-    date: '2023-09-07',
+    date: '2024-09-07',
     time: '1:00 PM - 3:00 PM',
     location: 'AFE Multi-Purpose Room #1',
     image: bachataWorkshopImage,
@@ -54,12 +54,11 @@ const events = [
   {
     id: 6,
     name: 'Black Block Party',
-    date: '2023-08-25',
+    date: '2024-08-25',
     time: '10:00 PM - 2:00 AM',
     location: '1533 Virginia Ave, Charlottesville, VA 22903',
     image: blockPartyImage,
   },
-  // Add more events as needed
 ];
 
 const getEventsForMonth = (events, month, year) => {
@@ -84,7 +83,7 @@ const Calendar = () => {
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
 
-  const years = [2023, 2024];
+  const years = [2024, 2025];
 
   const nextMonth = () => {
     const nextDate = new Date(currentDate);
@@ -118,14 +117,13 @@ const Calendar = () => {
 
   const eventsForMonth = getEventsForMonth(events, currentDate.getMonth(), currentDate.getFullYear());
 
-  // Assume current date is September 14th, 2023
-  const today = new Date('2023-09-14');
+  const today = new Date('2024-09-14');
 
   return (
     <div className="frame-calendar">
       <div className="calendar-container">
         <div className="calendar-header">
-          <button onClick={prevMonth} className="calendar-nav" disabled={currentDate <= new Date('2023-01-01')}>
+          <button onClick={prevMonth} className="calendar-nav" disabled={currentDate <= new Date('2024-01-01')}>
             &#x25C0;
           </button>
 
@@ -142,7 +140,7 @@ const Calendar = () => {
             </select>
           </div>
 
-          <button onClick={nextMonth} className="calendar-nav" disabled={currentDate >= new Date('2024-12-31')}>
+          <button onClick={nextMonth} className="calendar-nav" disabled={currentDate >= new Date('2025-12-31')}>
             &#x25B6;
           </button>
         </div>

@@ -41,7 +41,7 @@ const events = [
   {
     id: 2,
     name: 'Sorrel Sale',
-    date: '2023-09-12',
+    date: '2024-09-12',
     time: '11:00 AM - 2:00 PM',
     location: 'Amphitheater Way',
     image: sorrelSaleImage,
@@ -49,7 +49,7 @@ const events = [
   {
     id: 5,
     name: 'Bachata 101 Workshop',
-    date: '2023-09-07',
+    date: '2024-09-07',
     time: '1:00 PM - 3:00 PM',
     location: 'AFE Multi-Purpose Room #1',
     image: bachataWorkshopImage,
@@ -89,7 +89,7 @@ const Home = () => {
   const navigate = useNavigate();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date('2023-09-01'));
-  const today = new Date('2023-09-14'); // Assume current date is September 14th, 2023
+  const today = new Date('2024-09-14'); // Assume current date is September 14th, 2023
 
   useEffect(() => {
     // Show the popup after 5 seconds
@@ -132,7 +132,7 @@ const Home = () => {
   const nextMonth = () => {
     const nextDate = new Date(currentDate);
     nextDate.setMonth(currentDate.getMonth() + 1);
-    if (nextDate <= new Date('2024-12-31')) {
+    if (nextDate <= new Date('2025-12-31')) {
       setCurrentDate(nextDate);
     }
   };
@@ -140,7 +140,7 @@ const Home = () => {
   const prevMonth = () => {
     const prevDate = new Date(currentDate);
     prevDate.setMonth(currentDate.getMonth() - 1);
-    if (prevDate >= new Date('2023-01-01')) {
+    if (prevDate >= new Date('2024-01-01')) {
       setCurrentDate(prevDate);
     }
   };

@@ -60,16 +60,27 @@
 /* Media query for smaller screens */
 @media (max-width: 600px) {
   .navbar {
-    flex-direction: row;
-    justify-content: space-between; 
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  /* Make the logo and text stack vertically */
+  .logo-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1rem; 
+  }
+
+  .organization-name {
+    margin-left: 0; 
   }
 
   .menu-icon {
     display: block;
     position: absolute;
-    right: 10px; 
-    top: 50%;
-    transform: translateY(-50%); 
+    right: 10px;
+    top: 10px;
   }
 
   .nav-links {
@@ -78,12 +89,12 @@
     width: 100%;
     text-align: center;
     background-color: #ffb700; 
-    position: fixed; 
+    position: fixed;
     top: 0;
     right: 0;
     height: 100%; 
-    max-width: 50%; 
-    padding-top: 3rem; 
+    max-width: 50%;
+    padding-top: 3rem;
     box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     transition: transform 0.3s ease-in-out;
@@ -96,7 +107,7 @@
   .nav-links a {
     padding: 1rem 0;
     width: 100%;
-    color: #ffffff; 
+    color: #ffffff;
   }
 
   /* Overlay for the menu */
