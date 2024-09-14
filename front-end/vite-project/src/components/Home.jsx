@@ -37,7 +37,7 @@ import netherlandsBackground from '../assets/caribbean_island_flags/netherlands_
 import trinidadBackground from '../assets/caribbean_island_flags/trinidad_background.png';
 import barbadosBackground from '../assets/caribbean_island_flags/barbados_background.png';
 
-const upcomingEvents = [
+const events = [
   {
     id: 2,
     name: 'Sorrel Sale',
