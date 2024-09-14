@@ -1,4 +1,8 @@
+/* Home Page Stylesheet */
+
+/* General Styles */
 .frame {
+  /* Container frame for the home page */
   padding: 0.1rem;
   background: transparent;
   max-width: 1000px;
@@ -7,106 +11,62 @@
   position: relative;
 }
 
-.event-image-full {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
-
 .main-image {
+  /* Main image at the top of the page */
   width: 100%;
   height: auto;
   margin-bottom: 1rem;
 }
 
 .intro-text {
+  /* Introduction text below the main image */
   margin-bottom: 2rem;
   font-size: 1rem;
   color: #383838;
 }
 
+/* Flag Containers */
 .flag-container {
+  /* Container for the flag images on the sides */
   position: absolute;
   top: 0;
   bottom: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
-  width: 100px; 
-  z-index: -1; 
+  width: 100px;
+  z-index: -1;
 }
 
 .flag-container.left {
-  left: -120px; 
+  /* Left flag container positioning */
+  left: -120px;
 }
 
 .flag-container.right {
-  right: -120px; 
+  /* Right flag container positioning */
+  right: -120px;
 }
 
 .flag-image {
-  width: 80px; 
+  /* Styles for each flag image */
+  width: 80px;
   height: auto;
-  margin: 20px 0; 
+  margin: 20px 0;
 }
 
-.stay-connected-section {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
-  padding: 2rem;
-  margin-top: 2rem;
-  text-align: center;
-}
-
-.stay-connected-title {
+/* Upcoming Events Section */
+.UPCOMING-event {
+  /* Heading for upcoming events */
   font-family: 'Oswald', sans-serif;
   font-size: 2rem;
   color: #ffb700;
   margin-bottom: 1rem;
 }
 
-.stay-connected-links {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.stay-connected-links a {
-  text-decoration: none;
-  color: #383838;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.stay-connected-icon {
-  width: 40px;
-  height: 40px;
-}
-
-.stay-connected-links a:hover {
-  color: #d8a527;
-}
-
-.stay-connected-links a span {
-  font-size: 1.2rem;
-  font-family: 'Oswald', sans-serif;
-}
-
-.video {
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.video-container {
-  padding-bottom: 4rem;
-}
-
 .box {
+  /* Container box for events section */
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -115,14 +75,8 @@
   margin-bottom: 2rem;
 }
 
-.UPCOMING-event {
-  font-family: 'Oswald', sans-serif;
-  font-size: 2rem;
-  color: #ffb700; 
-  margin-bottom: 1rem;
-}
-
 .calendar-header {
+  /* Header section for the calendar navigation */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -130,6 +84,7 @@
 }
 
 .calendar-nav {
+  /* Navigation buttons for the calendar */
   background: #ffb700;
   color: #ffffff;
   border: none;
@@ -141,21 +96,25 @@
 }
 
 .calendar-nav:hover {
+  /* Hover effect for calendar navigation buttons */
   background: #d8a527;
 }
 
 .calendar-nav:disabled {
+  /* Disabled state for calendar navigation buttons */
   background: #cccccc;
   cursor: not-allowed;
 }
 
 .calendar-title {
+  /* Title displaying the current month and year */
   font-family: 'Oswald', sans-serif;
   font-size: 2rem;
   color: #383838;
 }
 
 .events-grid {
+  /* Grid layout for events */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -163,6 +122,7 @@
 }
 
 .event {
+  /* Individual event card */
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 1rem;
@@ -172,91 +132,248 @@
   max-width: 200px;
 }
 
-.event-image {
+.event-image-full {
+  /* Full image for an event */
+  width: 100%;
+  height: auto;
   border-radius: 10px;
   margin-bottom: 1rem;
 }
 
-.event h3 {
-  font-size: 1.2rem;
-  color: #383838;
-}
-
-.event p {
-  font-size: 1rem;
-  color: #777;
-}
-
 .no-events {
+  /* Styles when there are no events */
   text-align: center;
 }
 
 .palm-trees {
+  /* Emoji or icon indicating no events */
   font-size: 2rem;
   margin-top: 1rem;
 }
 
+/* Articles Section */
 .sa-ka-f-te {
+  /* Heading for the articles section */
   font-family: 'Oswald', sans-serif;
   font-size: 2rem;
   color: #ffb700;
 }
 
+.video-container {
+  /* Container for the embedded video */
+  padding-bottom: 4rem;
+}
+
+.video {
+  /* Styles for the video iframe */
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .articles-grid {
+  /* Grid layout for article cards */
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  gap: 2rem; 
-  justify-content: center; 
-  margin: 0 auto; 
-  max-width: 1000px; 
+  gap: 2rem;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1000px;
 }
 
 .article-card {
-  flex: 1 1 calc(50% - 2rem); 
+  /* Individual article card */
+  flex: 1 1 calc(50% - 2rem);
   background-color: #f7f7f7;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid #ddd;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s, background-color 0.3s;
-  margin: 1rem;
+  margin: 0;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  will-change: transform, opacity;
 }
 
 .article-card:hover {
-  transform: scale(1.02);
-  background-color: rgba(255, 183, 0, 0.1); 
+  /* Hover effect for article cards */
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 183, 0, 0.1);
 }
 
 .article-card-image {
+  /* Image within the article card */
   width: 100%;
   height: auto;
 }
 
 .article-card-text {
+  /* Text content within the article card */
   padding: 1rem;
   text-align: left;
 }
 
 .article-card-text h3 {
+  /* Article title */
   font-family: 'Oswald', sans-serif;
   font-size: 1.2rem;
   color: #383838;
 }
 
 .article-card-text p {
+  /* Article excerpt or paragraph */
   font-size: 0.9rem;
   color: #555;
   line-height: 1.4;
 }
 
 .article-date {
+  /* Article publication date */
   font-size: 0.8rem;
   color: #999;
 }
 
-/* Media query for smaller screens to stack images on top */
-@media (max-width: 600px) { 
+/* Stay Connected Section */
+.stay-connected-title {
+  /* Heading for the stay connected section */
+  font-family: 'Oswald', sans-serif;
+  font-size: 2rem;
+  color: #ffb700;
+  margin-bottom: 1rem;
+}
+
+.stay-connected-section {
+  /* Container for the stay connected links */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  padding: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.stay-connected-links {
+  /* Flex container for the stay connected links */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.stay-connected-links a {
+  /* Individual stay connected link */
+  text-decoration: none;
+  color: #383838;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stay-connected-icon {
+  /* Icon image for the stay connected link */
+  width: 40px;
+  height: 40px;
+}
+
+.stay-connected-links a:hover {
+  /* Hover effect for stay connected links */
+  color: #d8a527;
+}
+
+.stay-connected-links a span {
+  /* Text within the stay connected link */
+  font-size: 1.2rem;
+  font-family: 'Oswald', sans-serif;
+}
+
+/* Animations */
+
+/* Keyframe Animations */
+
+/* Slide-in from left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide-in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animation Classes */
+.animate-slide-in-left {
+  /* Applies slide-in-left animation */
+  opacity: 1;
+  animation: slideInLeft 1s forwards;
+}
+
+.animate-slide-in-right {
+  /* Applies slide-in-right animation */
+  opacity: 1;
+  animation: slideInRight 1s forwards;
+}
+
+.animate-fade-in {
+  /* Applies fade-in animation */
+  opacity: 1;
+  animation: fadeIn 1s forwards;
+}
+
+/* Hidden Class */
+.hidden {
+  /* Hides elements initially */
+  opacity: 0;
+}
+
+/* Transitions and Hover Effects */
+
+/* Apply transitions to elements */
+.article-card,
+.UPCOMING-event,
+.sa-ka-f-te,
+.intro-text,
+.stay-connected-title,
+.calendar-header {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  will-change: transform, opacity;
+}
+
+/* Hover effect for article cards */
+.article-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries */
+
+/* Adjustments for smaller screens */
+@media (max-width: 600px) {
+  /* Articles grid stacks vertically on smaller screens */
   .articles-grid {
     flex-direction: column;
     padding: 0 1rem;
@@ -268,6 +385,7 @@
     max-width: 100%;
   }
 
+  /* Video container adjustments for mobile */
   .video-container {
     display: flex;
     justify-content: center;
@@ -281,42 +399,43 @@
     max-width: 100%;
     border-radius: 10px;
     overflow: hidden;
-    aspect-ratio: 16/9; 
+    aspect-ratio: 16/9;
   }
 
   .frame {
-    padding-top: 0.5rem; 
+    padding-top: 0.5rem;
   }
 
+  /* Stay Connected section adjustments */
   .stay-connected-links {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem; 
+    gap: 1.5rem;
   }
 
   .stay-connected-links a {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: #ffb700; 
-    transition: background-color 0.3s, color 0.3s; 
+    color: #ffb700;
+    transition: background-color 0.3s, color 0.3s;
     padding: 1rem;
     border-radius: 10px;
-    width: 100%; 
-    text-align: center; 
+    width: 100%;
+    text-align: center;
   }
 
   .stay-connected-links a:hover {
-    background-color: rgba(255, 183, 0, 0.1); 
-    color: #d8a527; 
+    background-color: rgba(255, 183, 0, 0.1);
+    color: #d8a527;
   }
 
   .stay-connected-icon {
-    width: 60px; 
+    width: 60px;
     height: 60px;
-    margin-bottom: 0.5rem; 
+    margin-bottom: 0.5rem;
   }
 
   .mobile-image-container {
@@ -326,10 +445,18 @@
   }
 
   .intro-text {
+    /* Adjust intro text on smaller screens */
     font-family: 'Oswald', sans-serif;
     font-size: 1rem;
     color: #383838;
     margin-top: 1rem;
     text-align: center;
+  }
+
+  /* Adjust animation durations for smaller screens if needed */
+  .animate-slide-in-left,
+  .animate-slide-in-right,
+  .animate-fade-in {
+    animation-duration: 0.8s;
   }
 }

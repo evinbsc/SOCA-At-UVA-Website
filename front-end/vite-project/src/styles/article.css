@@ -1,60 +1,42 @@
-/* Main container for a single article view */
-.article-frame {
+/* Main container for the articles page */
+.articles-page {
   padding: 2rem;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin: 2rem auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Article image styling */
-.article-image-large {
-  width: 100%;
-  height: auto;
-  margin: 1rem 0;
-}
-
-/* Article title styling */
-.article-frame h1 {
+/* Heading for the articles page */
+.articles-heading {
   font-family: 'Oswald', sans-serif;
   font-size: 2.5rem;
-  color: #383838;
+  color: #ffb700;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
-/* Article paragraph styling */
-.article-frame p {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin: 1rem 0;
-}
-
-/* List of articles, similar to the grid on the home page */
+/* List of articles */
 .article-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   justify-content: center;
-  margin: 0 auto;
-  max-width: 1200px; 
 }
 
-/* Article card styling with hover effect */
+/* Article card styling */
 .article-card {
-  flex: 1 1 calc(50% - 2rem); /* Two articles side by side, with a small gap */
+  flex: 1 1 calc(50% - 2rem); /* Two articles side by side */
   background-color: #f7f7f7;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s, background-color 0.3s;
-  margin: 1rem;
-  max-width: calc(50% - 2rem); 
+  max-width: calc(50% - 2rem);
+  position: relative;
 }
 
 .article-card:hover {
-  transform: scale(1.02);
+  transform: translateY(-10px);
   background-color: rgba(255, 183, 0, 0.1); /* Light orange hover effect */
 }
 
@@ -74,6 +56,13 @@
   font-family: 'Oswald', sans-serif;
   font-size: 1.2rem;
   color: #383838;
+  margin-bottom: 0.5rem;
+}
+
+.article-meta {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 0.5rem;
 }
 
 .article-card-text p {
@@ -87,25 +76,127 @@
   color: #999;
 }
 
-/* Media query for smaller screens */
-@media (max-width: 600px) {
-  .article-list {
-    flex-direction: column;
-    padding: 0 1rem;
-  }
+/* Individual Article View */
+.article-frame {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 2rem auto;
+}
 
+.article-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.5rem;
+  color: #383838;
+  margin-bottom: 1rem;
+}
+
+.article-frame .article-meta {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+.article-image-large {
+  width: 100%;
+  height: auto;
+  margin: 1rem 0;
+  border-radius: 10px;
+}
+
+.article-frame p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 1rem 0;
+  color: #383838;
+}
+
+.back-button {
+  background-color: #ffb700;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 2rem;
+  font-family: 'Oswald', sans-serif;
+}
+
+.back-button:hover {
+  background-color: #d8a527;
+}
+
+/* Animations */
+
+/* Keyframe Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animation Classes */
+.animate-slide-in-left {
+  opacity: 1;
+  animation: slideInLeft 1s forwards;
+}
+
+.animate-fade-in {
+  opacity: 1;
+  animation: fadeIn 1s forwards;
+}
+
+/* Hidden Class */
+.hidden {
+  opacity: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 800px) {
   .article-card {
-    width: 100%;
-    margin: 0 0 1rem 0;
+    flex: 1 1 100%;
     max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .articles-page {
+    padding: 1rem;
   }
 
   .article-frame {
-    padding: 1rem; /* Reduced padding for smaller screens */
-    margin: 1rem;  /* Reduced margin for better fit */
+    padding: 1rem;
+    margin: 1rem;
   }
 
-  .article-frame h1 {
-    font-size: 2rem; /* Adjusted headline size for smaller screens */
+  .article-title {
+    font-size: 2rem;
+  }
+
+  .article-card-text h3 {
+    font-size: 1rem;
+  }
+
+  .article-card-text p {
+    font-size: 0.85rem;
+  }
+
+  .article-frame p {
+    font-size: 0.95rem;
   }
 }

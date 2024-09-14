@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-bottom">
-        All Content Copyright © 2024 University of Virginia SOCA
+        All Content Copyright © 2024 SOCA at University of Virginia
       </div>
       <div className="footer-content">
         <p className="footer-statement">
