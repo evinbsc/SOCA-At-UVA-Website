@@ -1,8 +1,10 @@
 import React from 'react';
 import '../styles/Popup.css';
-import InstagramLogo from '../assets/instagram_logo.png';
-import MailIcon from '../assets/mail_icon.png';
-import UVALogo from '../assets/uva_logo.jpg';
+
+// Importing stay connected icons (from misc folder)
+import instagramLogo from '../assets/misc/instagram_logo.png';
+import mailIcon from '../assets/misc/mail_icon.png';
+import uvaLogo from '../assets/misc/uva_logo.jpg';
 
 const Popup = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -14,19 +16,19 @@ const Popup = ({ isOpen, onClose }) => {
         <h2 className="popup-header">Stay Connected</h2>
         <div className="popup-section">
           <a href="https://www.instagram.com/soca_at_uva/" target="_blank" rel="noopener noreferrer">
-            <img src={InstagramLogo} alt="Instagram" className="popup-icon" />
+            <img src={instagramLogo} alt="Instagram" className="popup-icon" />
             <span>@soca_at_uva</span>
           </a>
         </div>
         <div className="popup-section">
           <a href="https://lists.virginia.edu/sympa/subscribe/soca-uva?previous_action=info#" target="_blank" rel="noopener noreferrer">
-            <img src={UVALogo} alt="Mailing List" className="popup-icon" />
+            <img src={uvaLogo} alt="Mailing List" className="popup-icon" />
             <span>Subscribe to our UVA Mailing List</span>
           </a>
         </div>
         <div className="popup-section">
           <a href="mailto:officialsoca@virginia.edu">
-            <img src={MailIcon} alt="Contact Mail" className="popup-icon" />
+            <img src={mailIcon} alt="Contact Mail" className="popup-icon" />
             <span>officialsoca@virginia.edu</span>
           </a>
         </div>
