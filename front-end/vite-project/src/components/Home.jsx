@@ -18,7 +18,7 @@ import blockPartyFlyer from '../assets/events/soca_black_block_party_flyer.png';
 import poolPartyFlyer from '../assets/events/soca_pool_party_flyer.png';
 
 // Importing flag images (from caribbean_flags folder)
-import haitiFlag from '../assets/caribbean_island_flags/haiti_flag.png';
+import haitiFlag from '../assets/caribbean_flags/haiti_flag.png';
 import dominicanRepublicFlag from '../assets/caribbean_flags/dominican_republic_flag.png';
 import cubaFlag from '../assets/caribbean_flags/cuba_flag.png';
 import panamaFlag from '../assets/caribbean_flags/panama_flag.png';
