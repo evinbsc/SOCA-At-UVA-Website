@@ -14,24 +14,8 @@ import hurricaneBerylArticleImage from '../assets/article_images/hurricane_beryl
 import caribbeanCarnivalArticleImage from '../assets/article_images/caribbean_carnival_article_image.jpg';
 
 // Importing event flyers (from events folder)
-import blockPartyFlyer from '../assets/events/soca_black_block_party_flyer.png';
-import poolPartyFlyer from '../assets/events/soca_pool_party_flyer.png';
-
-// Importing flag images (from caribbean_flags folder)
-import haitiFlag from '../assets/caribbean_flags/haiti_flag.png';
-import dominicanRepublicFlag from '../assets/caribbean_flags/dominican_republic_flag.png';
-import cubaFlag from '../assets/caribbean_flags/cuba_flag.png';
-import panamaFlag from '../assets/caribbean_flags/panama_flag.png';
-import jamaicaFlag from '../assets/caribbean_flags/jamaica_flag.png';
-import trinidadAndTobagoFlag from '../assets/caribbean_flags/trinidad_and_tobago_flag.png';
-import barbadosFlag from '../assets/caribbean_flags/barbados_flag.png';
-import guyanaFlag from '../assets/caribbean_flags/guyana_flag.png';
-import grenadaFlag from '../assets/caribbean_flags/grenada_flag.png';
-import dominicaFlag from '../assets/caribbean_flags/dominica_flag.png';
-import saintLuciaFlag from '../assets/caribbean_flags/saint_lucia_flag.png';
-import saintVincentAndGrenadinesFlag from '../assets/caribbean_flags/saint_vincent_and_grenadines_flag.png';
-import antiguaAndBarbudaFlag from '../assets/caribbean_flags/antigua_and_barbuda_flag.png';
-import saintKittsAndNevisFlag from '../assets/caribbean_flags/saint_kitts_and_nevis_flag.png';
+import sorrelSaleImage from '../assets/events/sorrel_sale.jpg';
+import bachataWorkshopImage from '../assets/events/bachata_workshop.jpg';
 
 // Importing background images (from caribbean_island folder)
 import saintLuciaBackground from '../assets/caribbean_island_flags/saint_lucia_background.png';
@@ -53,9 +37,23 @@ import netherlandsBackground from '../assets/caribbean_island_flags/netherlands_
 import trinidadBackground from '../assets/caribbean_island_flags/trinidad_background.png';
 import barbadosBackground from '../assets/caribbean_island_flags/barbados_background.png';
 
-const events = [
-  { id: 1, title: 'Pool Party', date: '2024-08-26', image: poolPartyFlyer },
-  { id: 2, title: 'Block Party', date: '2024-08-25', image: blockPartyFlyer },
+const upcomingEvents = [
+  {
+    id: 2,
+    name: 'Sorrel Sale',
+    date: '2023-09-12',
+    time: '11:00 AM - 2:00 PM',
+    location: 'Amphitheater Way',
+    image: sorrelSaleImage,
+  },
+  {
+    id: 5,
+    name: 'Bachata 101 Workshop',
+    date: '2023-09-07',
+    time: '1:00 PM - 3:00 PM',
+    location: 'AFE Multi-Purpose Room #1',
+    image: bachataWorkshopImage,
+  },
 ];
 
 const articles = [
@@ -88,9 +86,10 @@ const articles = [
 ];
 
 const Home = () => {
-  const [currentDate, setCurrentDate] = useState(new Date('2024-09-01'));
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const navigate = useNavigate();
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [currentDate, setCurrentDate] = useState(new Date('2023-09-01'));
+  const today = new Date('2023-09-14'); // Assume current date is September 14th, 2023
 
   useEffect(() => {
     // Show the popup after 5 seconds
@@ -133,7 +132,7 @@ const Home = () => {
   const nextMonth = () => {
     const nextDate = new Date(currentDate);
     nextDate.setMonth(currentDate.getMonth() + 1);
-    if (nextDate <= new Date('2025-08-01')) {
+    if (nextDate <= new Date('2024-12-31')) {
       setCurrentDate(nextDate);
     }
   };
@@ -141,13 +140,18 @@ const Home = () => {
   const prevMonth = () => {
     const prevDate = new Date(currentDate);
     prevDate.setMonth(currentDate.getMonth() - 1);
-    if (prevDate >= new Date('2024-08-01')) {
+    if (prevDate >= new Date('2023-01-01')) {
       setCurrentDate(prevDate);
     }
   };
 
   const formatMonthYear = (date) => {
     return date.toLocaleString('default', { month: 'long', year: 'numeric' });
+  };
+
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
   const eventsForMonth = events.filter(
@@ -158,8 +162,10 @@ const Home = () => {
 
   return (
     <div className="frame">
+      {/* Popup component */}
       <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
 
+      {/* Main Image */}
       <img
         src={socaHomePagePicMobile}
         width="980"
@@ -168,6 +174,7 @@ const Home = () => {
         className="main-image"
       />
 
+      {/* Intro Text */}
       <div className="intro-text hidden" data-animation="animate-slide-in-left">
         <p>
           The Student Organization for Caribbean Awareness (SOCA) is a University of Virginia
@@ -219,11 +226,30 @@ const Home = () => {
         </div>
         <div className="events-grid">
           {eventsForMonth.length > 0 ? (
-            eventsForMonth.map((event) => (
-              <div key={event.id} className="event hidden" data-animation="animate-fade-in">
-                <img src={event.image} className="event-image-full" alt={event.title} />
-              </div>
-            ))
+            eventsForMonth.map((event) => {
+              const eventDate = new Date(event.date);
+              const isPastEvent = eventDate < today;
+              return (
+                <div
+                  key={event.id}
+                  className={`event hidden ${isPastEvent ? 'past-event' : ''}`}
+                  data-animation="animate-fade-in"
+                >
+                  <div className="event-image-container">
+                    <img src={event.image} className="event-image-full" alt={event.name} />
+                  </div>
+                  <div className="event-details">
+                    <h3 className="event-name">{event.name}</h3>
+                    <p className="event-date-time">
+                      {formatDate(event.date)} {event.time}
+                    </p>
+                    {event.location && (
+                      <p className="event-location">{event.location}</p>
+                    )}
+                  </div>
+                </div>
+              );
+            })
           ) : (
             <div className="no-events">
               <p>No Events</p>

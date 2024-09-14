@@ -28,12 +28,13 @@
   flex: 1 1 calc(50% - 2rem); /* Two articles side by side */
   background-color: #f7f7f7;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s, background-color 0.3s;
   max-width: calc(50% - 2rem);
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .article-card:hover {
@@ -41,16 +42,20 @@
   background-color: rgba(255, 183, 0, 0.1); /* Light orange hover effect */
 }
 
-/* Article Card Image */
+/* Article Card Text */
 .article-card-image {
   width: 100%;
-  height: auto;
+  height: 200px;
+  object-fit: cover; 
 }
 
 /* Article Card Text */
 .article-card-text {
   padding: 1rem;
   text-align: left;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .article-card-text h3 {
@@ -58,6 +63,8 @@
   font-size: 1.2rem;
   color: #383838;
   margin-bottom: 0.5rem;
+  height: 3em; 
+  overflow: hidden; 
 }
 
 .article-meta {
@@ -70,6 +77,8 @@
   font-size: 0.9rem;
   color: #555;
   line-height: 1.4;
+  height: 4.2em; 
+  overflow: hidden; 
 }
 
 /* Animations */

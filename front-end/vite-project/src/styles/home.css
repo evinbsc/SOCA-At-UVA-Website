@@ -56,6 +56,18 @@
   margin: 20px 0;
 }
 
+/* Styles for Past Events */
+.past-event {
+  background-color: #e0e0e0; /* Light grey background */
+  color: #999; /* Grey text */
+}
+
+.past-event .event-name,
+.past-event .event-date-time,
+.past-event .event-location {
+  text-decoration: line-through; /* Strikethrough text */
+}
+
 /* Upcoming Events Section */
 .UPCOMING-event {
   /* Heading for upcoming events */

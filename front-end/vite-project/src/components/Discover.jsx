@@ -111,11 +111,11 @@ const Discover = () => {
       </h2>
       <div className="articles-grid">
         {articles.map((article) => (
-          <div
+          <Link
             key={article.id}
+            to={`/articles/${article.id}`}
             className="article-card hidden"
             data-animation="animate-fade-in"
-            onClick={() => navigate(`/articles/${article.id}`)}
           >
             <img src={article.image} alt={article.title} className="article-card-image" />
             <div className="article-card-text">
@@ -125,7 +125,7 @@ const Discover = () => {
               </p>
               <p>{article.summary}</p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

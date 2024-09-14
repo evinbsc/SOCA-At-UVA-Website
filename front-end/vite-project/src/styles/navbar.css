@@ -3,20 +3,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 2rem; 
+  padding: 0.5rem 2rem;
   background-color: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
-  margin-bottom: 1rem; 
+  margin-bottom: 1rem;
+  z-index: 1000; 
 }
 
 .menu-icon {
   display: none;
   cursor: pointer;
-  font-size: 2rem; 
+  font-size: 2.5rem; 
   color: #ffb700;
 }
 
+/* Logo container */
 .logo-container {
   display: flex;
   align-items: center;
@@ -32,8 +34,8 @@
   font-family: 'Oswald', sans-serif;
   font-size: 0.9rem;
   color: #ffb700;
-  text-decoration: none; 
-  margin-left: 0.5rem; 
+  text-decoration: none;
+  margin-left: 0.5rem;
 }
 
 .nav-links {
@@ -46,35 +48,28 @@
   font-family: 'Oswald', sans-serif;
   color: #ffb700;
   text-decoration: none;
-  padding: 0.3rem 0.8rem; 
-  transition: background 0.3s, color 0.3s; 
+  padding: 0.3rem 0.8rem;
+  transition: background 0.3s, color 0.3s;
 }
 
 .nav-links a:hover {
-  background: #ffb700; 
-  color: #ffffff; 
+  background: #ffb700;
+  color: #ffffff;
 }
 
 /* Media query for smaller screens */
 @media (max-width: 600px) {
   .navbar {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 0.5rem 1rem; 
+    flex-direction: row;
+    justify-content: space-between; 
   }
 
   .menu-icon {
     display: block;
     position: absolute;
-    left: 10px;
-    top: 10px;
-  }
-
-  .logo-container {
-    flex-direction: column;
-    text-align: center;
-    margin-top: 5px; 
+    right: 10px; 
+    top: 50%;
+    transform: translateY(-50%); 
   }
 
   .nav-links {
@@ -82,9 +77,16 @@
     flex-direction: column;
     width: 100%;
     text-align: center;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 10px; 
+    background-color: #ffb700; 
+    position: fixed; 
+    top: 0;
+    right: 0;
+    height: 100%; 
+    max-width: 50%; 
+    padding-top: 3rem; 
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
   }
 
   .nav-links.show {
@@ -92,7 +94,20 @@
   }
 
   .nav-links a {
-    padding: 0.5rem 0; 
-    width: 100%; 
+    padding: 1rem 0;
+    width: 100%;
+    color: #ffffff; 
+  }
+
+  /* Overlay for the menu */
+  .menu-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 500; 
   }
 }

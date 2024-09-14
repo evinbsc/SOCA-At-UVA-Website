@@ -10,21 +10,27 @@ const Navbar = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <nav className="navbar">
-      <div className="menu-icon" onClick={toggleMenu}>
-        &#9776; 
-      </div>
       <Link to="/" className="logo-container">
         <img src={SOCALogo} className="rectangle" alt="SOCALogo" />
         <span className="organization-name">Student Organization for Caribbean Awareness</span>
       </Link>
-      <div className={`nav-links ${menuOpen ? 'show' : ''}`}>
-        <Link to="/" className="text-wrapper-3">Home</Link>
-        <Link to="/discover" className="text-wrapper-4">Discover Caribbean</Link>
-        <Link to="/calendar" className="text-wrapper-5">Calendar</Link>
-        <Link to="/about" className="text-wrapper-6">About Us</Link>
+      <div className="menu-icon" onClick={toggleMenu}>
+        &#9776; {/* Hamburger Icon */}
       </div>
+      <div className={`nav-links ${menuOpen ? 'show' : ''}`}>
+        <Link to="/" className="text-wrapper-3" onClick={closeMenu}>Home</Link>
+        <Link to="/discover" className="text-wrapper-4" onClick={closeMenu}>Discover Caribbean</Link>
+        <Link to="/calendar" className="text-wrapper-5" onClick={closeMenu}>Calendar</Link>
+        <Link to="/about" className="text-wrapper-6" onClick={closeMenu}>About Us</Link>
+      </div>
+      {/* Overlay for the menu */}
+      {menuOpen && <div className="menu-overlay" onClick={closeMenu}></div>}
     </nav>
   );
 };
