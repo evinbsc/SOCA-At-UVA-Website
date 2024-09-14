@@ -7,7 +7,7 @@ import Popup from './Popup';
 import instagramLogo from '../assets/misc/instagram_logo.png';
 import mailIcon from '../assets/misc/mail_icon.png';
 import uvaLogo from '../assets/misc/uva_logo.jpg';
-import socaHomePagePicMobile from '../assets/misc/soca_home_page_pic_mobile.png';
+import socaHomePagePicMobile from '../assets/misc/soca_home_page_img.png';
 
 // Importing article images (from article_images folder)
 import hurricaneBerylArticleImage from '../assets/article_images/hurricane_beryl_article_image.jpg';
