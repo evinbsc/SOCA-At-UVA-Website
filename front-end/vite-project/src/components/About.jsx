@@ -5,20 +5,20 @@ import '../styles/about.css';
 import aboutUsSocaImage from '../assets/about_us_images/about_us_soca_image.png';
 
 // Importing executive member images (from about_us_images folder)
-import mckenziePresident from '../assets/about_us_images/mckenzie_samuels_president.png';
-import daraVicePresident from '../assets/about_us_images/dara_vice_president.png';
-import mayaSecretary from '../assets/about_us_images/maya_justilien_secretary.png';
-import evinResearchCoChair from '../assets/about_us_images/evin_research_co_chair.jpg';
 import aaliyahResearchCoChair from '../assets/about_us_images/aaliyah_taylor_research_co_chair.png';
-import monetMarketingCoChair from '../assets/about_us_images/monet_gonda_marketing_co_chair.png';
 import ashleyMarketingCoChair from '../assets/about_us_images/ashley_duhaney_marketing_co_chair.png';
-import starrEventCoordinator from '../assets/about_us_images/starr_mark_event_coordinator.png';
-import jamaicaEventCoordinator from '../assets/about_us_images/jamaica_weaver_event_coordinator.png';
-import nadiaSpecialEventCoordinator from '../assets/about_us_images/nadia_pitter_special_event_coordinator.png';
-import kennethGeneralChair from '../assets/about_us_images/kenneth_spivey_general_chair.png';
-import samiaSocialChair from '../assets/about_us_images/samia_naar_social_chair.png';
 import braianTreasurer from '../assets/about_us_images/braian_stubbs_romero_treasurer.png';
 import briannaFundraisingChair from '../assets/about_us_images/brianna_adderly_fundraising_chair.png';
+import daraVicePresident from '../assets/about_us_images/dara_vice_president.png';
+import evinResearchCoChair from '../assets/about_us_images/evin_research_co_chair.jpg';
+import jamaicaEventCoordinator from '../assets/about_us_images/jamaica_weaver_event_coordinator.png';
+import kennethGeneralChair from '../assets/about_us_images/kenneth_spiveyt_general_chair.png';
+import mayaSecretary from '../assets/about_us_images/maya_justilien_secretary.png';
+import mckenziePresident from '../assets/about_us_images/mckenzie_samuels_president.png';
+import monetMarketingCoChair from '../assets/about_us_images/monet_gonda_marketing_co_chair.png';
+import nadiaSpecialEventCoordinator from '../assets/about_us_images/nadia_pitter_special_event_coordinator.png';
+import samiaSocialChair from '../assets/about_us_images/samia_naar_social_chair.png';
+import starrEventCoordinator from '../assets/about_us_images/starr_mark_event_coordinator.png';
 
 const About = () => {
   useEffect(() => {
