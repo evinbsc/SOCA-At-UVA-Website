@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import SOCALogo from '../Assets/misc/SOCALogo.png';
+import SOCALogo from '../assets/misc/SOCALogo.png';
 import '../styles/navbar.css';
 
 const Navbar = () => {

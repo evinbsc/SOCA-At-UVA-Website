@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/Popup.css';
-import InstagramLogo from '../Assets/instagram_logo.png';
-import MailIcon from '../Assets/mail_icon.png';
-import UVALogo from '../Assets/uva_logo.jpg';
+import InstagramLogo from '../assets/instagram_logo.png';
+import MailIcon from '../assets/mail_icon.png';
+import UVALogo from '../assets/uva_logo.jpg';
 
 const Popup = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
