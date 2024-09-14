@@ -69,7 +69,6 @@ const articles = [
       },
     ],
   },
-  // Add more articles as needed
 ];
 
 const Discover = () => {
