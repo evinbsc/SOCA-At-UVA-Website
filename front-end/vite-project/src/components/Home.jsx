@@ -260,7 +260,7 @@ const Home = () => {
         <img src={saintKittsBackground} alt="Saint Kitts" className="flag-image" />
         <img src={guadeloupeBackground} alt="Guadeloupe" className="flag-image" />
       </div>
-      
+  
       <div className="flag-container right">
         <img src={martiniqueBackground} alt="Martinique" className="flag-image" />
         <img src={arubaBackground} alt="Aruba" className="flag-image" />
@@ -274,85 +274,86 @@ const Home = () => {
       </div>
   
       {/* Upcoming Events */}
-      <h1 className="UPCOMING-event hidden" data-animation="animate-slide-in-left">UPCOMING EVENTS</h1>
-        <div className="frame-calendar">
-          <div className="calendar-container">
-            <div className="calendar-header">
-              <button
-                onClick={prevMonth}
-                className="calendar-nav"
-                disabled={currentDate <= new Date('2024-01-01')}
-              >
-                &#x25C0;
-              </button>
+      <h1 className="UPCOMING-event hidden" data-animation="animate-slide-in-left">
+        UPCOMING EVENTS
+      </h1>
+      <div className="frame-calendar">
+        <div className="calendar-container">
+          <div className="calendar-header">
+            <button
+              onClick={prevMonth}
+              className="calendar-nav"
+              disabled={currentDate <= new Date('2024-01-01')}
+            >
+              &#x25C0;
+            </button>
   
-              <div className="calendar-selectors">
-                <select
-                  value={currentDate.getMonth()}
-                  onChange={handleMonthChange}
-                  className="month-selector"
-                >
-                  {months.map((month, index) => (
-                    <option key={index} value={index}>
-                      {month}
-                    </option>
-                  ))}
-                </select>
-                <select
-                  value={currentDate.getFullYear()}
-                  onChange={handleYearChange}
-                  className="year-selector"
-                >
-                  {years.map((year) => (
-                    <option key={year} value={year}>
-                      {year}
-                    </option>
-                  ))}
-                </select>
-              </div>
-  
-              <button
-                onClick={nextMonth}
-                className="calendar-nav"
-                disabled={currentDate >= new Date('2025-12-31')}
+            <div className="calendar-selectors">
+              <select
+                value={currentDate.getMonth()}
+                onChange={handleMonthChange}
+                className="month-selector"
               >
-                &#x25B6;
-              </button>
+                {months.map((month, index) => (
+                  <option key={index} value={index}>
+                    {month}
+                  </option>
+                ))}
+              </select>
+              <select
+                value={currentDate.getFullYear()}
+                onChange={handleYearChange}
+                className="year-selector"
+              >
+                {years.map((year) => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))}
+              </select>
             </div>
-            
-            <div className="events-grid">
-              {eventsForMonth.length > 0 ? (
-                eventsForMonth.map((event) => {
-                  const eventDate = new Date(event.date);
-                  const isPastEvent = eventDate < today;
-                  return (
-                    <div
-                      key={event.id}
-                      className={`event ${isPastEvent ? 'past-event' : ''}`}
-                      onClick={() => setSelectedEvent(event)}
-                    >
-                      <div className="event-image-container">
-                        <img src={event.image} className="event-image" alt={event.name} />
-                      </div>
-                      <div className="event-details">
-                        <h3 className="event-name">{event.name}</h3>
-                        <p className="event-date-time">
-                          {formatDate(event.date)} {event.time}
-                        </p>
-                        {event.location && (
-                          <p className="event-location">{event.location}</p>
-                        )}
-                      </div>
+  
+            <button
+              onClick={nextMonth}
+              className="calendar-nav"
+              disabled={currentDate >= new Date('2025-12-31')}
+            >
+              &#x25B6;
+            </button>
+          </div>
+  
+          <div className="events-grid">
+            {eventsForMonth.length > 0 ? (
+              eventsForMonth.map((event) => {
+                const eventDate = new Date(event.date);
+                const isPastEvent = eventDate < today;
+                return (
+                  <div
+                    key={event.id}
+                    className={`event ${isPastEvent ? 'past-event' : ''}`}
+                    onClick={() => setSelectedEvent(event)}
+                  >
+                    <div className="event-image-container">
+                      <img src={event.image} className="event-image" alt={event.name} />
                     </div>
-                  );
-                })
-              ) : (
-                <div className="no-events">
-                  <p>No Events</p>
-                  <div className="palm-trees">🌴🌴🌴</div>
-                </div>
-              )}
-            </div>
+                    <div className="event-details">
+                      <h3 className="event-name">{event.name}</h3>
+                      <p className="event-date-time">
+                        {formatDate(event.date)} {event.time}
+                      </p>
+                      {event.location && (
+                        <p className="event-location">{event.location}</p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <div className="no-events">
+                <p>No Events</p>
+                <div className="palm-trees">🌴🌴🌴</div>
+              </div>
+            )}
           </div>
   
           {selectedEvent && (
@@ -438,7 +439,7 @@ const Home = () => {
         </div>
       </div>
     </div>
-  );
+  );  
 };
   
   export default Home;
