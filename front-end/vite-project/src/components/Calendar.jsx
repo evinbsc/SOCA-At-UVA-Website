@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/calendar.css';
 
-// Import images (adjust paths to match your folder structure)
 import waterFeteImage from '../assets/events/water_fete.jpg';
 import sorrelSaleImage from '../assets/events/sorrel_sale.jpg';
 import poolPartyImage from '../assets/events/pool_party.jpg';
@@ -9,7 +8,6 @@ import trinidadIndependenceImage from '../assets/events/trinidad_independence_da
 import bachataWorkshopImage from '../assets/events/bachata_workshop.jpg';
 import blockPartyImage from '../assets/events/block_party.jpg';
 
-// Updated events array with new events and details
 const events = [
   {
     id: 1,
@@ -74,8 +72,7 @@ const formatDate = (dateString) => {
 };
 
 const Calendar = () => {
-  // Set current date to September 14th, 2023
-  const [currentDate, setCurrentDate] = useState(new Date('2023-09-01'));
+  const [currentDate, setCurrentDate] = useState(new Date('2024-09-01'));
   const [selectedEvent, setSelectedEvent] = useState(null);
 
   const months = [
@@ -88,7 +85,7 @@ const Calendar = () => {
   const nextMonth = () => {
     const nextDate = new Date(currentDate);
     nextDate.setMonth(currentDate.getMonth() + 1);
-    if (nextDate <= new Date('2024-12-31')) {
+    if (nextDate <= new Date('2025-12-31')) {
       setCurrentDate(nextDate);
     }
   };
@@ -96,7 +93,7 @@ const Calendar = () => {
   const prevMonth = () => {
     const prevDate = new Date(currentDate);
     prevDate.setMonth(currentDate.getMonth() - 1);
-    if (prevDate >= new Date('2023-01-01')) {
+    if (prevDate >= new Date('2024-01-01')) {
       setCurrentDate(prevDate);
     }
   };

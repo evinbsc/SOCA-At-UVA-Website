@@ -88,8 +88,7 @@ const articles = [
 const Home = () => {
   const navigate = useNavigate();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [currentDate, setCurrentDate] = useState(new Date('2023-09-01'));
-  const today = new Date('2024-09-14'); // Assume current date is September 14th, 2023
+  const today = new Date('2024-09-14'); 
 
   useEffect(() => {
     // Show the popup after 5 seconds
@@ -129,36 +128,10 @@ const Home = () => {
     };
   }, []);
 
-  const nextMonth = () => {
-    const nextDate = new Date(currentDate);
-    nextDate.setMonth(currentDate.getMonth() + 1);
-    if (nextDate <= new Date('2025-12-31')) {
-      setCurrentDate(nextDate);
-    }
-  };
-
-  const prevMonth = () => {
-    const prevDate = new Date(currentDate);
-    prevDate.setMonth(currentDate.getMonth() - 1);
-    if (prevDate >= new Date('2024-01-01')) {
-      setCurrentDate(prevDate);
-    }
-  };
-
-  const formatMonthYear = (date) => {
-    return date.toLocaleString('default', { month: 'long', year: 'numeric' });
-  };
-
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
-
-  const eventsForMonth = events.filter(
-    (event) =>
-      new Date(event.date).getMonth() === currentDate.getMonth() &&
-      new Date(event.date).getFullYear() === currentDate.getFullYear()
-  );
 
   return (
     <div className="frame">
@@ -259,42 +232,36 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Articles Section */}
-      <div className="articles-section">
-        <h2 className="sa-ka-f-te hidden" data-animation="animate-slide-in-right">
-          SA KA FÊTE?
-        </h2>
-
-        <div className="video-container hidden" data-animation="animate-fade-in">
-          <iframe
-            className="video"
-            width="980"
-            height="550"
-            src="https://www.youtube.com/embed/5WWuoR2NS4c?autoplay=1&mute=1"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
-        </div>
-
-        <div className="articles-grid">
-          {articles.map((article) => (
-            <div
-              key={article.id}
-              className="article-card hidden"
-              data-animation="animate-fade-in"
-              onClick={() => navigate(`/article/${article.id}`)}
-            >
-              <img src={article.image} alt={article.title} className="article-card-image" />
-              <div className="article-card-text">
-                <h3>{article.title}</h3>
-                <p>{article.paragraphs[0].text}</p>
-                <p className="article-date">{article.date}</p>
+      {/* Upcoming Events */}
+      <h1 className="UPCOMING-event hidden" data-animation="animate-slide-in-left">
+        UPCOMING EVENTS
+      </h1>
+      <div className="events-section box">
+        <div className="events-grid">
+          {events.map((event) => {
+            const eventDate = new Date(event.date);
+            const isPastEvent = eventDate < today;
+            return (
+              <div
+                key={event.id}
+                className={`event hidden ${isPastEvent ? 'past-event' : ''}`}
+                data-animation="animate-fade-in"
+              >
+                <div className="event-image-container">
+                  <img src={event.image} className="event-image-full" alt={event.name} />
+                </div>
+                <div className="event-details">
+                  <h3 className="event-name">{event.name}</h3>
+                  <p className="event-date-time">
+                    {formatDate(event.date)} {event.time}
+                  </p>
+                  {event.location && (
+                    <p className="event-location">{event.location}</p>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
