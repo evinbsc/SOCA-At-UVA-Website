@@ -497,7 +497,7 @@
     flex-direction: row; 
     justify-content: center; 
     flex-wrap: nowrap; 
-    gap: 0.2rem; 
+    gap: 0.1rem; 
     margin: 0; 
   }
 
@@ -508,8 +508,8 @@
     margin: 0.1rem; 
     width: auto; 
     max-width: 80px; 
-    font-size: 0.8rem; 
-    padding: 0.2rem 0.3rem; 
+    font-size: 0.7rem; 
+    padding: 0.15rem 0.25rem; 
   }
 
   .calendar-nav {
@@ -518,7 +518,7 @@
   }
 
   .calendar-container {
-    padding: 1rem; 
+    padding: 0.7rem; 
   }
 
   .events-grid {
