@@ -1,6 +1,10 @@
-# UVA SOCA Website
+# SOCA @ UVA Website 
 
-Welcome to the UVA SOCA (Student Organization for Caribbean Awareness) website repository. This project aims to promote awareness of Caribbean issues and foster a community at the University of Virginia.
+Welcome to the UVA SOCA (Student Organization for Caribbean Awareness) website repository. SOCA is a University of Virginia student-run organization that is committed to promoting awareness of issues facing the Caribbean and creating a community based around Caribbean cultures. The goal of SOCA is to bring together peoples with Caribbean descent, heritage and/or interest, in an effort to foster educational, cultural and social growth. SOCA welcomes and encourages all people to join and contribute to the organization, regardless of national or ethnic origin.
+
+# Demo
+
+https://github.com/user-attachments/assets/d6edee1c-89c0-4c50-a811-a8bcf9fcc3a4
 
 ## Table of Contents
 
@@ -22,6 +26,6 @@ The UVA SOCA website serves as a hub for students and community members to learn
 
 ## Technologies Used
 
-- **Frontend:** React, Vite, CSS
-- **Backend:** Node.js, Express, PostgreSQL (with Prisma ORM)
-- **Deployment:** Netlify (frontend), Heroku (backend)
+- **Frontend:** React, CSS, Vite
+- **Backend:** Node.js, Express, PostgreSQL (with Prisma)
+- **Deployment:** Netlify (frontend)
