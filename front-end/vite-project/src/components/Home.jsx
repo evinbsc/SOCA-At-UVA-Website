@@ -407,8 +407,10 @@ const Home = () => {
               <img src={article.image} alt={article.title} className="article-card-image" />
               <div className="article-card-text">
                 <h3>{article.title}</h3>
+                <p className="article-meta">
+                <strong>By:</strong> {article.author} | <strong>Date:</strong> {article.date}
+              </p>
                 <p>{article.paragraphs[0].text}</p>
-                <p className="article-date">{article.date}</p>
               </div>
             </div>
           ))}

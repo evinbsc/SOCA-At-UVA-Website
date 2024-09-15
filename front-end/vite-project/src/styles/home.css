@@ -489,40 +489,40 @@
   .calendar-header {
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between; 
-    margin-bottom: 0.5rem; 
+    justify-content: center; /* Center the buttons */
+    margin-bottom: 0.3rem; /* Reduce bottom margin */
   }
 
   .calendar-selectors {
-    flex-direction: row; 
-    justify-content: center; 
-    flex-wrap: nowrap; 
-    gap: 0.1rem; 
-    margin: 0; 
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 0.05rem; /* Reduce gap between elements */
+    margin: 0; /* Remove extra margin */
   }
 
   .month-selector,
   .year-selector,
   .calendar-nav {
-    flex: 0 1 auto; 
-    margin: 0.1rem; 
-    width: auto; 
-    max-width: 80px; 
-    font-size: 0.7rem; 
-    padding: 0.15rem 0.25rem; 
+    flex: 0 1 auto; /* Adjust flex properties */
+    margin: 0.05rem; /* Reduce margins */
+    width: auto; /* Keep auto width */
+    max-width: 70px; /* Reduce max-width for even smaller buttons */
+    font-size: 0.6rem; /* Smaller font size */
+    padding: 0.1rem 0.2rem; /* Reduce padding */
   }
 
   .calendar-nav {
-    font-size: 0.8rem; 
-    padding: 0.2rem 0.4rem; 
+    font-size: 0.7rem; /* Smaller font size for navigation buttons */
+    padding: 0.15rem 0.3rem; /* Adjust padding */
   }
 
   .calendar-container {
-    padding: 0.7rem; 
+    padding: 0.5rem; /* Further reduce padding to fit content */
   }
 
   .events-grid {
-    gap: 0.5rem;
+    gap: 0.4rem; /* Slightly reduce the gap between events */
     justify-content: center;
   }
 
