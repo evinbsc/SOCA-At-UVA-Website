@@ -15,7 +15,7 @@ const Footer = () => {
       </div>
       <div className="footer-animation-container">
         <div className="footer-made-by">
-          Website made with 💙💛🤍🖤 by Evin St Clair 🇱🇨
+          Website made with 💙💛 by Evin St Clair 🇱🇨
         </div>
         <div className="linkedin-connect">
           <span className="linkedin-text">Connect with me on</span>

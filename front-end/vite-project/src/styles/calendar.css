@@ -230,9 +230,12 @@
     height: 25px;
   }
 
-  .month-selector,
-  .year-selector {
+  .month-selector {
     font-size: 0.8rem; /* Adjust font size for mobile */
+  }
+
+  .year-selector {
+    display: none;
   }
 
   .event {
