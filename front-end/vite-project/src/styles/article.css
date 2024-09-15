@@ -5,6 +5,25 @@
   margin: 0 auto;
 }
 
+/* Social Media Icons */
+.author-social-media {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  justify-content: flex-start;
+}
+
+.social-media-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.social-media-icon:hover {
+  transform: scale(1.1);
+}
+
 /* Heading for the articles page */
 .articles-heading {
   font-family: 'Oswald', sans-serif;

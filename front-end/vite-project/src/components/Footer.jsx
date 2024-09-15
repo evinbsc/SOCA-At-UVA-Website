@@ -1,11 +1,25 @@
 import React from 'react';
+import linkedinLogo from '../assets/misc/linkedin_logo.png'; 
 import '../styles/footer.css';
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-bottom">
-        All Content Copyright © 2024 SOCA at University of Virginia
+        <div className="footer-animation-container">
+          <p className="footer-made-by">
+            Website made with <span className="hearts">💙💛🤍🖤</span> by Evin St Clair <span className="flag">🇱🇨</span>
+          </p>
+          <div className="linkedin-connect">
+            <span className="linkedin-text">Connect with me on LinkedIn!</span>
+            <a href="https://www.linkedin.com/in/evinbsc/" target="_blank" rel="noopener noreferrer" className="linkedin-link">
+              <img src={linkedinLogo} alt="LinkedIn" className="linkedin-icon" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        All Content Copyright © 2024 Student Organization for Caribbean Awareness at University of Virginia
       </div>
       <div className="footer-content">
         <p className="footer-statement">

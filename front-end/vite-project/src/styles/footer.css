@@ -18,7 +18,7 @@
 
 .footer-statement {
   font-family: 'Oswald', sans-serif;
-  font-size: 0.7rem; 
+  font-size: 0.9rem; 
   color: #ffffff;
   max-width: 800px; 
   margin: 0 auto; 
@@ -28,7 +28,96 @@
 .footer-bottom {
   text-align: center;
   margin-top: 0.5rem; 
-  font-size: 0.7rem; 
+  font-size: 0.9rem; 
+}
+
+/* Footer animation */
+.footer-animation-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.footer-made-by {
+  display: inline-block;
+  animation: slideIn 2s ease-in-out;
+}
+
+/* Footer animation */
+.footer-animation-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.footer-made-by {
+  display: inline-block;
+  animation: slideIn 2s ease-in-out;
+}
+
+.linkedin-connect {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; 
+}
+
+.linkedin-text {
+  font-size: 1rem;
+  color: #383838;
+  animation: fadeIn 1s ease-in-out 1s; /* Delayed fade-in animation */
+}
+
+/* LinkedIn icon styles */
+.linkedin-link {
+  display: inline-block;
+}
+
+.linkedin-icon {
+  width: 24px;
+  height: 24px;
+  animation: fadeIn 1s ease-in-out 2s; 
+  transition: transform 0.3s;
+}
+
+.linkedin-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Keyframes for the animations */
+@keyframes slideIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Media query for smaller screens */
@@ -39,12 +128,16 @@
   }
 
   .footer-statement {
-      font-size: 0.6rem; 
+      font-size: 0.8rem; 
       max-width: 90%; 
   }
 
   .footer-bottom {
-      font-size: 0.6rem; 
+      font-size: 0.8rem; 
       margin-top: 0.3rem; 
+  }
+
+  .linkedin-text {
+    font-size: 0.9rem; 
   }
 }

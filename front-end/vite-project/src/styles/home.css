@@ -25,25 +25,6 @@
   color: #383838;
 }
 
-/* Social Media Icons */
-.author-social-media {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-  justify-content: center;
-}
-
-.social-media-icon {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-.social-media-icon:hover {
-  transform: scale(1.1);
-}
-
 /* Flag Containers */
 .flag-container {
   /* Container for the flag images on the sides */
