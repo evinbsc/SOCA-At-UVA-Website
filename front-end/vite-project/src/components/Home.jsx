@@ -19,6 +19,7 @@ import sorrelSaleImage from '../assets/events/sorrel_sale.jpg';
 import poolPartyImage from '../assets/events/pool_party.jpg';
 import trinidadIndependenceImage from '../assets/events/trinidad_independence_day.jpg';
 import bachataWorkshopImage from '../assets/events/bachata_workshop.jpg';
+import blockPartyImage from '../assets/events/block_party.jpg';
 
 // Importing background images (from caribbean_island folder)
 import saintLuciaBackground from '../assets/caribbean_island_flags/saint_lucia_background.png';
