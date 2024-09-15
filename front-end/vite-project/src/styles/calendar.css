@@ -213,11 +213,11 @@
   }
 
   .calendar-nav {
-    /* Make the buttons half their current size */
-    font-size: 0.45rem; /* Reduce font-size */
-    padding: 0.15rem 0.25rem; /* Reduce padding */
-    border-radius: 3px; /* Adjust border-radius if needed */
-    max-width: 50px; /* Optional: Set a maximum width */
+    font-size: 0.9rem; 
+    padding: 0.3rem 0.5rem; 
+    border-radius: 5px; 
+    max-width: 50px; 
+    width: 50%;
   }
 
   .calendar-container {
