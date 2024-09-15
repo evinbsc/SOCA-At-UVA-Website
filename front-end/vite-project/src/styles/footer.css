@@ -44,6 +44,7 @@
 }
 
 .footer-made-by {
+  font-size: 0.9rem; 
   display: inline-block;
   animation: slideIn 2s ease-in-out;
 }
@@ -53,6 +54,7 @@
   align-items: center;
   gap: 0.5rem; 
   margin-top: 0.5rem; 
+  font-size: 0.9rem; 
 }
 
 /* LinkedIn icon styles */
@@ -61,7 +63,7 @@
 }
 
 .linkedin-icon {
-  width: 24px;
+  width: 96px;
   height: 24px;
   animation: fadeIn 1s ease-in-out 2s; 
   transition: transform 0.3s;
