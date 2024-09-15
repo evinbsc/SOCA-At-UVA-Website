@@ -124,9 +124,9 @@ const Article = () => {
         {article.paragraphs.map((paragraph) => (
           <p key={paragraph.id}>{paragraph.text}</p>
         ))}
-        <Link to="/discover" className="back-button" onClick={closeMenu}>
+        {/* <button className="back-button" onClick={() => navigate('/articles')}> 
           Back to Discover Caribbean
-        </Link>
+        </button> */}
       </div>
     );
   } else {
