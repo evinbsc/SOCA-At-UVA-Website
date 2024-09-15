@@ -238,7 +238,7 @@ const Home = () => {
   
     const eventsForMonth = getEventsForMonth(events, currentDate.getMonth(), currentDate.getFullYear());
   
-    const today = new Date('2024-10-14');
+    const today = new Date('2024-9-14');
 
   return (
     <div className="frame">

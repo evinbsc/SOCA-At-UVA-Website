@@ -127,13 +127,22 @@ const Calendar = () => {
 
   const eventsForMonth = getEventsForMonth(events, currentDate.getMonth(), currentDate.getFullYear());
 
-  const today = new Date('2024-9-14');
+  //Change according to current date
+  const today = new Date('2024-09-14'); 
+
+  const upcomingEvents = eventsForMonth.filter(event => new Date(event.date) >= today)
+                                       .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  const pastEvents = eventsForMonth.filter(event => new Date(event.date) < today)
+                                   .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  const sortedEvents = [...upcomingEvents, ...pastEvents];
 
   return (
     <div className="frame-calendar">
       <div className="calendar-container">
-      <h1 className="calendar-main-header">Calendar</h1>
-      <h2 className="calendar-sub-header">Check Out Our Upcoming Events!</h2>
+        <h1 className="calendar-main-header">Calendar</h1>
+        <h2 className="calendar-sub-header">Check Out Our Upcoming Events!</h2>
         <div className="calendar-header">
           <button onClick={prevMonth} className="calendar-nav" disabled={currentDate <= new Date('2024-01-01')}>
             <img src={rightArrow} alt="Previous Month" className="arrow-icon" />
@@ -141,23 +150,23 @@ const Calendar = () => {
           <div className="calendar-selectors">
             <select value={currentDate.getMonth()} onChange={handleMonthChange} className="month-selector">
               {months.map((month, index) => (
-              <option key={index} value={index}>{month}</option>
-            ))}
+                <option key={index} value={index}>{month}</option>
+              ))}
             </select>
             <select value={currentDate.getFullYear()} onChange={handleYearChange} className="year-selector">
-            {years.map((year) => (
-            <option key={year} value={year}>{year}</option>
-          ))}
-          </select>
+              {years.map((year) => (
+                <option key={year} value={year}>{year}</option>
+              ))}
+            </select>
           </div>
           <button onClick={nextMonth} className="calendar-nav" disabled={currentDate >= new Date('2025-12-31')}>
-          <img src={leftArrow} alt="Next Month" className="arrow-icon" />
-        </button>
+            <img src={leftArrow} alt="Next Month" className="arrow-icon" />
+          </button>
         </div>
         <p className="calendar-note">*Click On Event To Enlarge*</p>
         <div className="events-grid">
-          {eventsForMonth.length > 0 ? (
-            eventsForMonth.map((event) => {
+          {sortedEvents.length > 0 ? (
+            sortedEvents.map((event) => {
               const eventDate = new Date(event.date);
               const isPastEvent = eventDate < today;
               return (
@@ -195,9 +204,9 @@ const Calendar = () => {
             <span className="close-button" onClick={() => setSelectedEvent(null)}>&times;</span>
             <img src={selectedEvent.image} alt={selectedEvent.name} className="modal-image" />
             <h2>{selectedEvent.name}</h2>
-            <p>{formatDate(selectedEvent.date)} {selectedEvent.time}</p>
-            {selectedEvent.location && (
-              <p>{selectedEvent.location}</p>
+            <p>{formatDate(selectedEvent.date)} {event.time}</p>
+            {event.location && (
+              <p>{event.location}</p>
             )}
           </div>
         </div>
