@@ -133,6 +133,10 @@ const formatDate = (dateString) => {
   return new Date(dateString).toLocaleDateString(undefined, options);
 };
 
+const formatMonthYear = (date) => {
+  return date.toLocaleString('default', { month: 'long', year: 'numeric' });
+};
+
 const Home = () => {
   const navigate = useNavigate();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -222,7 +226,7 @@ const Home = () => {
     <div className="frame">
       {/* Popup component */}
       <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
-
+  
       {/* Main Image */}
       <img
         src={socaHomePagePicMobile}
@@ -231,7 +235,7 @@ const Home = () => {
         alt="SOCA Home"
         className="main-image"
       />
-
+  
       {/* Intro Text */}
       <div className="intro-text hidden" data-animation="animate-slide-in-left">
         <p>
@@ -243,7 +247,7 @@ const Home = () => {
           join and contribute to the organization, regardless of national or ethnic origin.
         </p>
       </div>
-
+  
       {/* Flag containers for outer ends */}
       <div className="flag-container left">
         <img src={saintLuciaBackground} alt="Saint Lucia" className="flag-image" />
@@ -267,148 +271,131 @@ const Home = () => {
         <img src={trinidadBackground} alt="Trinidad" className="flag-image" />
         <img src={barbadosBackground} alt="Barbados" className="flag-image" />
       </div>
-
-      {/* Upcoming Events */}
-      <h1 className="UPCOMING-event hidden" data-animation="animate-slide-in-left">
-        UPCOMING EVENTS
-      </h1>
-      <div className="events-section box">
-        <div className="calendar-header hidden" data-animation="animate-slide-in-right">
-          <button onClick={prevMonth} className="calendar-nav">
-            &lt;
-          </button>
-          <h1 className="calendar-title">{formatMonthYear(currentDate)}</h1>
-          <button onClick={nextMonth} className="calendar-nav">
-            &gt;
-          </button>
-        </div>
-        <div className="events-grid">
-          {eventsForMonth.length > 0 ? (
-            eventsForMonth.map((event) => {
-              const eventDate = new Date(event.date);
-              const isPastEvent = eventDate < today;
-              return (
-                <div
-                  key={event.id}
-                  className={`event hidden ${isPastEvent ? 'past-event' : ''}`}
-                  data-animation="animate-fade-in"
-                >
-                  <div className="event-image-container">
-                    <img src={event.image} className="event-image-full" alt={event.name} />
-                  </div>
-                  <div className="event-details">
-                    <h3 className="event-name">{event.name}</h3>
-                    <p className="event-date-time">
-                      {formatDate(event.date)} {event.time}
-                    </p>
-                    {event.location && (
-                      <p className="event-location">{event.location}</p>
-                    )}
-                  </div>
-                </div>
-              );
-            })
-          ) : (
-            <div className="no-events">
-              <p>No Events</p>
-              <div className="palm-trees">🌴🌴🌴</div>
+  
+      <div className="frame-calendar">
+        <div className="calendar-container">
+          <div className="calendar-header">
+            <button
+              onClick={prevMonth}
+              className="calendar-nav"
+              disabled={currentDate <= new Date('2024-01-01')}
+            >
+              &#x25C0;
+            </button>
+  
+            <div className="calendar-selectors">
+              <select
+                value={currentDate.getMonth()}
+                onChange={handleMonthChange}
+                className="month-selector"
+              >
+                {months.map((month, index) => (
+                  <option key={index} value={index}>
+                    {month}
+                  </option>
+                ))}
+              </select>
+              <select
+                value={currentDate.getFullYear()}
+                onChange={handleYearChange}
+                className="year-selector"
+              >
+                {years.map((year) => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))}
+              </select>
             </div>
-          )}
-        </div>
-      </div>
-
-      {/* Upcoming Events */}
-      <h1 className="UPCOMING-event hidden" data-animation="animate-slide-in-left">
-        UPCOMING EVENTS
-      </h1>
-      <div className="events-section box">
-        <div className="calendar-header hidden" data-animation="animate-slide-in-right">
-          <button onClick={prevMonth} className="calendar-nav">
-            &lt;
-          </button>
-          <h1 className="calendar-title">{`${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`}</h1>
-          <button onClick={nextMonth} className="calendar-nav">
-            &gt;
-          </button>
-        </div>
-        <div className="events-grid">
-          {eventsForMonth.length > 0 ? (
-            eventsForMonth.map((event) => {
-              const eventDate = new Date(event.date);
-              const isPastEvent = eventDate < today;
-              return (
-                <div
-                  key={event.id}
-                  className={`event hidden ${isPastEvent ? 'past-event' : ''}`}
-                  data-animation="animate-fade-in"
-                >
-                  <div className="event-image-container">
-                    <img src={event.image} className="event-image-full" alt={event.name} />
+  
+            <button
+              onClick={nextMonth}
+              className="calendar-nav"
+              disabled={currentDate >= new Date('2025-12-31')}
+            >
+              &#x25B6;
+            </button>
+          </div>
+          <div className="events-grid">
+            {eventsForMonth.length > 0 ? (
+              eventsForMonth.map((event) => {
+                const eventDate = new Date(event.date);
+                const isPastEvent = eventDate < today;
+                return (
+                  <div
+                    key={event.id}
+                    className={`event ${isPastEvent ? 'past-event' : ''}`}
+                    onClick={() => setSelectedEvent(event)}
+                  >
+                    <div className="event-image-container">
+                      <img src={event.image} className="event-image" alt={event.name} />
+                    </div>
+                    <div className="event-details">
+                      <h3 className="event-name">{event.name}</h3>
+                      <p className="event-date-time">
+                        {formatDate(event.date)} {event.time}
+                      </p>
+                      {event.location && (
+                        <p className="event-location">{event.location}</p>
+                      )}
+                    </div>
                   </div>
-                  <div className="event-details">
-                    <h3 className="event-name">{event.name}</h3>
-                    <p className="event-date-time">
-                      {formatDate(event.date)} {event.time}
-                    </p>
-                    {event.location && (
-                      <p className="event-location">{event.location}</p>
-                    )}
-                  </div>
-                </div>
-              );
-            })
-          ) : (
-            <div className="no-events">
-              <p>No Events</p>
-              <div className="palm-trees">🌴🌴🌴</div>
-            </div>
-          )}
-        </div>
-      </div>
-      
-      {selectedEvent && (
-        <div className="modal" onClick={() => setSelectedEvent(null)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <span className="close-button" onClick={() => setSelectedEvent(null)}>&times;</span>
-            <img src={selectedEvent.image} alt={selectedEvent.name} className="modal-image" />
-            <h2>{selectedEvent.name}</h2>
-            <p>{formatDate(selectedEvent.date)} {selectedEvent.time}</p>
-            {selectedEvent.location && (
-              <p>{selectedEvent.location}</p>
+                );
+              })
+            ) : (
+              <div className="no-events">
+                <p>No Events</p>
+                <div className="palm-trees">🌴🌴🌴</div>
+              </div>
             )}
           </div>
         </div>
-      )}
-      <h1 className="stay-connected-title hidden" data-animation="animate-slide-in-left">
-        Stay Connected!
-      </h1>
-
-      <div className="stay-connected-section hidden" data-animation="animate-fade-in">
-        <div className="stay-connected-links">
-          <a
-            href="https://www.instagram.com/soca_at_uva/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={instagramLogo} alt="Instagram" className="stay-connected-icon" />
-            <span>@soca_at_uva</span>
-          </a>
-          <a
-            href="https://lists.virginia.edu/sympa/subscribe/soca-uva?previous_action=info#"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={uvaLogo} alt="Mail" className="stay-connected-icon" />
-            <span>Subscribe to our UVA Mailing List!</span>
-          </a>
-          <a href="mailto:officialsoca@virginia.edu">
-            <img src={mailIcon} alt="Contact" className="stay-connected-icon" />
-            <span>officialsoca@virginia.edu</span>
-          </a>
+        {selectedEvent && (
+          <div className="modal" onClick={() => setSelectedEvent(null)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <span className="close-button" onClick={() => setSelectedEvent(null)}>&times;</span>
+              <img src={selectedEvent.image} alt={selectedEvent.name} className="modal-image" />
+              <h2>{selectedEvent.name}</h2>
+              <p>{formatDate(selectedEvent.date)} {selectedEvent.time}</p>
+              {selectedEvent.location && (
+                <p>{selectedEvent.location}</p>
+              )}
+              {/* Add more event details if available */}
+            </div>
+          </div>
+        )}
+        <h1 className="stay-connected-title hidden" data-animation="animate-slide-in-left">
+          Stay Connected!
+        </h1>
+  
+        <div className="stay-connected-section hidden" data-animation="animate-fade-in">
+          <div className="stay-connected-links">
+            <a
+              href="https://www.instagram.com/soca_at_uva/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={instagramLogo} alt="Instagram" className="stay-connected-icon" />
+              <span>@soca_at_uva</span>
+            </a>
+            <a
+              href="https://lists.virginia.edu/sympa/subscribe/soca-uva?previous_action=info#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={uvaLogo} alt="Mail" className="stay-connected-icon" />
+              <span>Subscribe to our UVA Mailing List!</span>
+            </a>
+            <a href="mailto:officialsoca@virginia.edu">
+              <img src={mailIcon} alt="Contact" className="stay-connected-icon" />
+              <span>officialsoca@virginia.edu</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   );
 };
-
-export default Home;
+  
+  export default Home;
+    
