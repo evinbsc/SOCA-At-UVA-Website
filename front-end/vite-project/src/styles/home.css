@@ -409,24 +409,14 @@
 
 /* Media Queries */
 @media (max-width: 600px) {
-  .articles-grid {
-    flex-direction: column;
-    padding: 0 1rem;
-  }
-
-  .article-card {
-    width: 100%;
-    margin: 0 0 1rem 0;
-    max-width: 100%;
-  }
-
+  /* Events Grid */
   .events-grid {
     gap: 0.5rem;
     justify-content: center;
   }
 
   .event {
-    width: calc(50% - 0.5rem); /* Two events per row */
+    width: calc(100% - 1rem); /* Full width for each event */
     margin: 0.5rem 0;
   }
 
@@ -435,7 +425,9 @@
   }
 
   .event-image-full {
+    width: 100%;
     height: 100%;
+    object-fit: cover; /* Ensures the image covers the container */
   }
   
   /* Video container adjustments for mobile */
@@ -509,5 +501,7 @@
   .animate-slide-in-right,
   .animate-fade-in {
     animation-duration: 0.8s;
+
+    
   }
 }

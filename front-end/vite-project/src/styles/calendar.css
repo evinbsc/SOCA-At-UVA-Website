@@ -222,6 +222,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 95%; 
   }
 
   .calendar-header {
@@ -237,15 +238,17 @@
   }
 
   .event {
-    width: calc(50% - 0.5rem); 
+    width: calc(100% - 1rem); 
     margin: 0.5rem 0;
   }
 
   .event-image-container {
-    height: 150px;
+    height: 200px; 
   }
 
   .event-image {
+    width: 100%; 
     height: 100%;
+    object-fit: cover; 
   }
 }
