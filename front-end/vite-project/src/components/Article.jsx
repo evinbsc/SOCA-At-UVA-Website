@@ -6,6 +6,10 @@ import '../styles/article.css';
 import hurricaneBerylArticleImage from '../assets/article_images/hurricane_beryl_article_image.jpg';
 import caribbeanCarnivalArticleImage from '../assets/article_images/caribbean_carnival_article_image.jpg';
 
+// Importing social media logos
+import linkedinLogo from '../assets/misc/linkedin_logo.png';
+import instagramLogo from '../assets/misc/instagram_logo.png';
+
 const articles = [
   {
     id: 1,
@@ -120,6 +124,15 @@ const Article = () => {
         <p className="article-meta">
           <strong>By:</strong> {article.author} | <strong>Date:</strong> {article.date}
         </p>
+        {/* Social Media Links */}
+        <div className="author-social-media">
+          <a href="https://www.linkedin.com/in/evinbsc/" target="_blank" rel="noopener noreferrer">
+            <img src={linkedinLogo} alt="LinkedIn" className="social-media-icon" />
+          </a>
+          <a href="https://www.instagram.com/evin__sc?igsh=MXZ0cHVnNWNiZTVvNw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
+            <img src={instagramLogo} alt="Instagram" className="social-media-icon" />
+          </a>
+        </div>
         <img src={article.image} alt={article.title} className="article-image-large" />
         {article.paragraphs.map((paragraph) => (
           <p key={paragraph.id}>{paragraph.text}</p>

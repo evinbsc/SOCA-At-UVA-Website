@@ -25,6 +25,25 @@
   color: #383838;
 }
 
+/* Social Media Icons */
+.author-social-media {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+
+.social-media-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.social-media-icon:hover {
+  transform: scale(1.1);
+}
+
 /* Flag Containers */
 .flag-container {
   /* Container for the flag images on the sides */
@@ -507,18 +526,18 @@
     flex: 0 1 auto; /* Adjust flex properties */
     margin: 0.05rem; /* Reduce margins */
     width: auto; /* Keep auto width */
-    max-width: 70px; /* Reduce max-width for even smaller buttons */
-    font-size: 0.6rem; /* Smaller font size */
+    max-width: 60px; /* Reduce max-width for even smaller buttons */
+    font-size: 0.5rem; /* Smaller font size */
     padding: 0.1rem 0.2rem; /* Reduce padding */
   }
 
   .calendar-nav {
-    font-size: 0.7rem; /* Smaller font size for navigation buttons */
-    padding: 0.15rem 0.3rem; /* Adjust padding */
+    font-size: 0.5rem; /* Smaller font size for navigation buttons */
+    padding: 0.1rem 0.2rem; /* Adjust padding */
   }
 
   .calendar-container {
-    padding: 0.5rem; /* Further reduce padding to fit content */
+    padding: 0.1rem; /* Further reduce padding to fit content */
   }
 
   .events-grid {
