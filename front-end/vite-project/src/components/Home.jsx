@@ -281,30 +281,30 @@ const Home = () => {
         <img src={barbadosBackground} alt="Barbados" className="flag-image" />
       </div>
   
-      {/* Upcoming Events */}
-      <div className="frame-calendar">
-        <h2 className="sa-ka-f-te hidden" data-animation="animate-slide-in-left">Calendar</h2>
-        <div className="calendar-container">
-        <h2 className="calendar-sub-header" data-animation="animate-slide-in-right">Check Out Our Upcoming Events!</h2>
-          <div className="calendar-header">
-          <button onClick={prevMonth} className="calendar-nav" disabled={currentDate <= new Date('2024-01-01')}>
-            <img src={leftArrow} alt="Previous Month" className="arrow-icon" />
-          </button>
-          <div className="calendar-selectors">
-            <select value={currentDate.getMonth()} onChange={handleMonthChange} className="month-selector">
-              {months.map((month, index) => (
-              <option key={index} value={index}>{month}</option>
-            ))}
-            </select>
-            <select value={currentDate.getFullYear()} onChange={handleYearChange} className="year-selector">
-            {years.map((year) => (
+     {/* Upcoming Events */}
+<div className="frame-calendar">
+  <h2 className="sa-ka-f-te hidden" data-animation="animate-slide-in-left">Calendar</h2>
+  <div className="calendar-container">
+    <h2 className="calendar-sub-header" data-animation="animate-slide-in-right">Check Out Our Upcoming Events!</h2>
+    <div className="calendar-header">
+      <button onClick={prevMonth} className="calendar-nav" disabled={currentDate <= new Date('2024-01-01')}>
+        <img src={leftArrow} alt="Previous Month" className="arrow-icon" />
+      </button>
+      <div className="calendar-selectors">
+        <select value={currentDate.getMonth()} onChange={handleMonthChange} className="month-selector">
+          {months.map((month, index) => (
+            <option key={index} value={index}>{month}</option>
+          ))}
+        </select>
+        <select value={currentDate.getFullYear()} onChange={handleYearChange} className="year-selector">
+          {years.map((year) => (
             <option key={year} value={year}>{year}</option>
           ))}
-          </select>
-          </div>
-          <button onClick={nextMonth} className="calendar-nav" disabled={currentDate >= new Date('2025-12-31')}>
-          <img src={rightArrow} alt="Next Month" className="arrow-icon" />
-        </button>
+        </select>
+      </div>
+      <button onClick={nextMonth} className="calendar-nav" disabled={currentDate >= new Date('2025-12-31')}>
+        <img src={rightArrow} alt="Next Month" className="arrow-icon" />
+      </button>
           </div>
           <p className="calendar-note">*Click on event image to enlarge*</p>
           <div className="events-grid">
