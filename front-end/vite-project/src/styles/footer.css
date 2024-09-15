@@ -28,26 +28,15 @@
 .footer-bottom {
   text-align: center;
   margin-top: 0.5rem; 
+  margin-bottom: 1rem; 
   font-size: 0.9rem; 
+  color: #c06000; 
 }
 
 /* Footer animation */
 .footer-animation-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.footer-made-by {
-  display: inline-block;
-  animation: slideIn 2s ease-in-out;
-}
-
-/* Footer animation */
-.footer-animation-container {
-  display: flex;
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -63,12 +52,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem; 
-}
-
-.linkedin-text {
-  font-size: 1rem;
-  color: #383838;
-  animation: fadeIn 1s ease-in-out 1s; /* Delayed fade-in animation */
+  margin-top: 0.5rem; 
 }
 
 /* LinkedIn icon styles */
@@ -85,6 +69,12 @@
 
 .linkedin-icon:hover {
   transform: scale(1.1);
+}
+
+.linkedin-symbol {
+  font-size: 1.2rem;
+  color: #383838;
+  animation: fadeIn 1s ease-in-out 1s; 
 }
 
 /* Keyframes for the animations */
@@ -123,21 +113,21 @@
 /* Media query for smaller screens */
 @media (max-width: 600px) {
   .footer {
-      padding: 0.5rem;
-      margin-top: 1rem;
+    padding: 0.5rem;
+    margin-top: 1rem;
   }
 
   .footer-statement {
-      font-size: 0.8rem; 
-      max-width: 90%; 
+    font-size: 0.8rem; 
+    max-width: 90%; 
   }
 
   .footer-bottom {
-      font-size: 0.8rem; 
-      margin-top: 0.3rem; 
+    font-size: 0.8rem; 
+    margin-top: 0.3rem; 
   }
 
-  .linkedin-text {
-    font-size: 0.9rem; 
+  .linkedin-symbol {
+    font-size: 1rem; 
   }
 }

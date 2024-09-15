@@ -497,7 +497,7 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: nowrap;
-    gap: 0.05rem; /* Reduce gap between elements */
+    gap: 0.02rem; /* Reduce gap between elements */
     margin: 0; /* Remove extra margin */
   }
 
@@ -505,24 +505,24 @@
   .year-selector,
   .calendar-nav {
     flex: 0 1 auto; /* Adjust flex properties */
-    margin: 0.05rem; /* Reduce margins */
+    margin: 0.02rem; /* Reduce margins */
     width: auto; /* Keep auto width */
-    max-width: 60px; /* Reduce max-width for even smaller buttons */
-    font-size: 0.5rem; /* Smaller font size */
-    padding: 0.1rem 0.2rem; /* Reduce padding */
+    max-width: 40px; /* Reduce max-width for even smaller buttons */
+    font-size: 0.3rem; /* Smaller font size */
+    padding: 0.05rem 0.1rem; /* Reduce padding */
   }
 
   .calendar-nav {
     font-size: 0.5rem; /* Smaller font size for navigation buttons */
-    padding: 0.1rem 0.2rem; /* Adjust padding */
+    padding: 0.0.5rem 0.1rem; /* Adjust padding */
   }
 
   .calendar-container {
-    padding: 0.1rem; /* Further reduce padding to fit content */
+    padding: 0.05rem; /* Further reduce padding to fit content */
   }
 
   .events-grid {
-    gap: 0.4rem; /* Slightly reduce the gap between events */
+    gap: 0.3rem; /* Slightly reduce the gap between events */
     justify-content: center;
   }
 
