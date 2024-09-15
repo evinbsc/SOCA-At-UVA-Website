@@ -9,6 +9,7 @@
   margin: 0 auto;
   text-align: center;
   position: relative;
+  overflow-x: hidden;
 }
 
 .main-image {
@@ -497,6 +498,7 @@
   .calendar-selectors {
     flex-direction: row;
     justify-content: center;
+    flex-direction: row; 
     flex-wrap: nowrap;
     gap: 0.02rem; /* Reduce gap between elements */
     margin: 0; /* Remove extra margin */
@@ -515,11 +517,16 @@
   .calendar-nav {
     font-size: 0.5rem; /* Smaller font size for navigation buttons */
     padding: 0.0.5rem 0.1rem; /* Adjust padding */
+    border-radius: 5px; 
     
   }
 
   .calendar-container {
     padding: 0.05rem; /* Further reduce padding to fit content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 95%; 
   }
 
   .events-grid {
@@ -613,7 +620,10 @@
   .animate-slide-in-right,
   .animate-fade-in {
     animation-duration: 0.8s;
+  }
 
-    
+  .flag-container.left,
+  .flag-container.right {
+    display: none; 
   }
 }

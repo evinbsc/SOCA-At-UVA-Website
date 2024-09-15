@@ -3,11 +3,25 @@
 /* General Styles */
 .frame-calendar {
   padding: 2rem;
-  background-color: #fff;
+  background-color: #f7f7f7;
   border-radius: 10px;
   max-width: 900px;
   margin: 2rem auto;
   text-align: center;
+}
+
+.calendar-main-header {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.5rem;
+  color: #ffb700;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-sub-header {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  color: #d8a527; /* Darker orange */
+  margin-bottom: 1.5rem;
 }
 
 .calendar-container {

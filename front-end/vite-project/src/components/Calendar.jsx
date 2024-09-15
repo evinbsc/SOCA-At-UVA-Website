@@ -118,6 +118,8 @@ const Calendar = () => {
 
   return (
     <div className="frame-calendar">
+      <h1 className="calendar-main-header">Calendar</h1>
+      <h2 className="calendar-sub-header">Check Out Our Upcoming Events</h2>
       <div className="calendar-container">
         <div className="calendar-header">
           <button onClick={prevMonth} className="calendar-nav" disabled={currentDate <= new Date('2024-01-01')}>
@@ -141,6 +143,7 @@ const Calendar = () => {
             &#x25B6;
           </button>
         </div>
+        <p className="calendar-note">*Click on event image to enlarge*</p>
         <div className="events-grid">
           {eventsForMonth.length > 0 ? (
             eventsForMonth.map((event) => {
@@ -185,7 +188,6 @@ const Calendar = () => {
             {selectedEvent.location && (
               <p>{selectedEvent.location}</p>
             )}
-            {/* Add more event details if available */}
           </div>
         </div>
       )}
