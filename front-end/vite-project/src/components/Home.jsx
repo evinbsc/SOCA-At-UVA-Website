@@ -281,7 +281,7 @@ const Home = () => {
   
       {/* Upcoming Events */}
       <div className="frame-calendar">
-        <h2 className="sa-ka-f-te hidden" data-animation="animate-slide-in-right">Calendar</h2>
+        <h2 className="sa-ka-f-te hidden" data-animation="animate-slide-in-left">Calendar</h2>
         <div className="calendar-container">
         <h2 className="calendar-sub-header" data-animation="animate-slide-in-right">Check Out Our Upcoming Events!</h2>
           <div className="calendar-header">
@@ -381,6 +381,8 @@ const Home = () => {
           ></iframe>
         </div>
   
+        <h2 className="sa-ka-f-te hidden" data-animation="animate-slide-in-left">Caribbean Today</h2>
+
         <div className="articles-grid">
           {articles.map((article) => (
             <div 
@@ -402,7 +404,7 @@ const Home = () => {
         </div>
       </div>
       
-      <h1 className="stay-connected-title hidden" data-animation="animate-slide-in-left">
+      <h1 className="stay-connected-title hidden" data-animation="animate-slide-in-right">
         Stay Connected!
       </h1>
   

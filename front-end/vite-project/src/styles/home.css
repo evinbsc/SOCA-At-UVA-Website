@@ -9,6 +9,7 @@
   margin: 0 auto;
   text-align: center;
   position: relative;
+  max-width: 100%;
 }
 
 .main-image {
@@ -38,6 +39,7 @@
   width: 100px;
   z-index: -1;
   max-width: 100%;
+  overflow: hidden;
 }
 
 .flag-container.left {
