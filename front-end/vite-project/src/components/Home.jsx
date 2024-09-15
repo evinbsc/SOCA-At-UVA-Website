@@ -188,39 +188,44 @@ const Home = () => {
     };
   }, []);
 
-  const nextMonth = () => {
-    const nextDate = new Date(currentDate);
-    nextDate.setMonth(currentDate.getMonth() + 1);
-    if (nextDate <= new Date('2025-12-31')) {
-      setCurrentDate(nextDate);
-    }
-  };
-
-  const prevMonth = () => {
-    const prevDate = new Date(currentDate);
-    prevDate.setMonth(currentDate.getMonth() - 1);
-    if (prevDate >= new Date('2024-01-01')) {
-      setCurrentDate(prevDate);
-    }
-  };
-
-  const handleMonthChange = (e) => {
-    const newMonth = parseInt(e.target.value);
-    const newDate = new Date(currentDate);
-    newDate.setMonth(newMonth);
-    setCurrentDate(newDate);
-  };
-
-  const handleYearChange = (e) => {
-    const newYear = parseInt(e.target.value);
-    const newDate = new Date(currentDate);
-    newDate.setFullYear(newYear);
-    setCurrentDate(newDate);
-  };
-
-  const eventsForMonth = getEventsForMonth(events, currentDate.getMonth(), currentDate.getFullYear());
-
-  const today = new Date('2024-09-14');
+    // Updated nextMonth function
+    const nextMonth = () => {
+      let nextDate = new Date(currentDate);
+      nextDate.setDate(1); 
+      nextDate.setMonth(currentDate.getMonth() + 1);
+      if (nextDate <= new Date('2025-12-31')) {
+        setCurrentDate(nextDate);
+      }
+    };
+  
+    // Updated prevMonth function
+    const prevMonth = () => {
+      let prevDate = new Date(currentDate);
+      prevDate.setDate(1); 
+      prevDate.setMonth(currentDate.getMonth() - 1);
+      if (prevDate >= new Date('2024-01-01')) {
+        setCurrentDate(prevDate);
+      }
+    };
+  
+    const handleMonthChange = (e) => {
+      const newMonth = parseInt(e.target.value);
+      const newDate = new Date(currentDate);
+      newDate.setDate(1); 
+      newDate.setMonth(newMonth);
+      setCurrentDate(newDate);
+    };
+  
+    const handleYearChange = (e) => {
+      const newYear = parseInt(e.target.value);
+      const newDate = new Date(currentDate);
+      newDate.setFullYear(newYear);
+      setCurrentDate(newDate);
+    };
+  
+    const eventsForMonth = getEventsForMonth(events, currentDate.getMonth(), currentDate.getFullYear());
+  
+    const today = new Date('2024-09-14');
 
   return (
     <div className="frame">
