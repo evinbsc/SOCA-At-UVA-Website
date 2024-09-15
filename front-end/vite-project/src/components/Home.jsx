@@ -275,13 +275,6 @@ const Home = () => {
   
       {/* Upcoming Events */}
       <h1 className="UPCOMING-event hidden" data-animation="animate-slide-in-left">UPCOMING EVENTS</h1>
-      <div className="events-section box">
-        <div className="calendar-header hidden" data-animation="animate-slide-in-right">
-          <button onClick={prevMonth} className="calendar-nav">&lt;</button>
-          <h1 className="calendar-title">{formatMonthYear(currentDate)}</h1>
-          <button onClick={nextMonth} className="calendar-nav">&gt;</button>
-        </div>
-        
         <div className="frame-calendar">
           <div className="calendar-container">
             <div className="calendar-header">
