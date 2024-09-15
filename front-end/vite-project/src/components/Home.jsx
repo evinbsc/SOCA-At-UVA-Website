@@ -14,7 +14,10 @@ import hurricaneBerylArticleImage from '../assets/article_images/hurricane_beryl
 import caribbeanCarnivalArticleImage from '../assets/article_images/caribbean_carnival_article_image.jpg';
 
 // Importing event flyers (from events folder)
+import waterFeteImage from '../assets/events/water_fete.jpg';
 import sorrelSaleImage from '../assets/events/sorrel_sale.jpg';
+import poolPartyImage from '../assets/events/pool_party.jpg';
+import trinidadIndependenceImage from '../assets/events/trinidad_independence_day.jpg';
 import bachataWorkshopImage from '../assets/events/bachata_workshop.jpg';
 
 // Importing background images (from caribbean_island folder)
