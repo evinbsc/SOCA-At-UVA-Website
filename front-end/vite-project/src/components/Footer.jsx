@@ -25,7 +25,7 @@ const Footer = () => {
             rel="noopener noreferrer" 
             className="linkedin-link"
           >
-            <img src={linkedinLogo} alt="LinkedIn" className="linkedin-icon" />!
+            <img src={linkedinLogo} alt="LinkedIn" className="linkedin-icon" />
           </a>
         </div>
       </div>

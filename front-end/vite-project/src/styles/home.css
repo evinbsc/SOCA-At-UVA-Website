@@ -504,7 +504,6 @@
   .month-selector,
   .year-selector,
   .calendar-nav {
-    flex: 0 1 auto; /* Adjust flex properties */
     margin: 0.02rem; /* Reduce margins */
     width: auto; /* Keep auto width */
     max-width: 40px; /* Reduce max-width for even smaller buttons */
