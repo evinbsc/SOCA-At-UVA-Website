@@ -288,7 +288,7 @@ const Home = () => {
     <h2 className="calendar-sub-header" data-animation="animate-slide-in-right">Check Out Our Upcoming Events!</h2>
     <div className="calendar-header">
       <button onClick={prevMonth} className="calendar-nav" disabled={currentDate <= new Date('2024-01-01')}>
-        <img src={leftArrow} alt="Previous Month" className="arrow-icon" />
+        <img src={rightArrow} alt="Previous Month" className="arrow-icon" />
       </button>
       <div className="calendar-selectors">
         <select value={currentDate.getMonth()} onChange={handleMonthChange} className="month-selector">
@@ -303,7 +303,7 @@ const Home = () => {
         </select>
       </div>
       <button onClick={nextMonth} className="calendar-nav" disabled={currentDate >= new Date('2025-12-31')}>
-        <img src={rightArrow} alt="Next Month" className="arrow-icon" />
+        <img src={leftArrow} alt="Next Month" className="arrow-icon" />
       </button>
           </div>
           <p className="calendar-note">*Click on event image to enlarge*</p>
