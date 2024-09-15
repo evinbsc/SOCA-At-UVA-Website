@@ -23,6 +23,8 @@ import poolPartyImage from '../assets/events/pool_party.jpg';
 import trinidadIndependenceImage from '../assets/events/trinidad_independence_day.jpg';
 import bachataWorkshopImage from '../assets/events/bachata_workshop.jpg';
 import blockPartyImage from '../assets/events/block_party.jpg';
+import sunsetMixerImage from '../assets/events/sunset_mixer.jpg';
+
 
 // Importing background images (from caribbean_island folder)
 import saintLuciaBackground from '../assets/caribbean_island_flags/saint_lucia_background.png';
@@ -92,6 +94,14 @@ const events = [
     time: '10:00 PM - 2:00 AM',
     location: '1533 Virginia Ave, Charlottesville, VA 22903',
     image: blockPartyImage,
+  },
+  {
+    id: 7,
+    name: 'Sunset Mixer',
+    date: '2024-09-22',
+    time: '5:00 PM - 8:00 PM',
+    location: 'Pavillion VIII Garden',
+    image: sunsetMixerImage,
   },
 ];
 
