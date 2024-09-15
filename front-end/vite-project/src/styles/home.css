@@ -9,7 +9,6 @@
   margin: 0 auto;
   text-align: center;
   position: relative;
-  max-width: 100%;
 }
 
 .main-image {
@@ -38,20 +37,19 @@
   align-items: center;
   width: 100px;
   z-index: -1;
-  max-width: 100%;
-  overflow: hidden;
+  padding-left: 120px; 
+  padding-right: 120px;
+  overflow-x: hidden;
 }
 
 .flag-container.left {
   /* Left flag container positioning */
   left: -120px;
-  max-width: 100%;
 }
 
 .flag-container.right {
   /* Right flag container positioning */
   right: -120px;
-  max-width: 100%;
 }
 
 .flag-image {
