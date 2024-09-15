@@ -281,8 +281,8 @@ const Home = () => {
   
       {/* Upcoming Events */}
       <div className="frame-calendar">
+      <h1 className="calendar-main-header" data-animation="animate-slide-in-left">Calendar</h1>
         <div className="calendar-container">
-        <h1 className="calendar-main-header" data-animation="animate-slide-in-left">Calendar</h1>
         <h2 className="calendar-sub-header" data-animation="animate-slide-in-right">Check Out Our Upcoming Events!</h2>
           <div className="calendar-header">
             <button
