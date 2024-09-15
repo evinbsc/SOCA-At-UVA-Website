@@ -260,6 +260,7 @@ const Home = () => {
         <img src={saintKittsBackground} alt="Saint Kitts" className="flag-image" />
         <img src={guadeloupeBackground} alt="Guadeloupe" className="flag-image" />
       </div>
+      
       <div className="flag-container right">
         <img src={martiniqueBackground} alt="Martinique" className="flag-image" />
         <img src={arubaBackground} alt="Aruba" className="flag-image" />
@@ -272,125 +273,175 @@ const Home = () => {
         <img src={barbadosBackground} alt="Barbados" className="flag-image" />
       </div>
   
-      <div className="frame-calendar">
-        <div className="calendar-container">
-          <div className="calendar-header">
-            <button
-              onClick={prevMonth}
-              className="calendar-nav"
-              disabled={currentDate <= new Date('2024-01-01')}
-            >
-              &#x25C0;
-            </button>
-  
-            <div className="calendar-selectors">
-              <select
-                value={currentDate.getMonth()}
-                onChange={handleMonthChange}
-                className="month-selector"
-              >
-                {months.map((month, index) => (
-                  <option key={index} value={index}>
-                    {month}
-                  </option>
-                ))}
-              </select>
-              <select
-                value={currentDate.getFullYear()}
-                onChange={handleYearChange}
-                className="year-selector"
-              >
-                {years.map((year) => (
-                  <option key={year} value={year}>
-                    {year}
-                  </option>
-                ))}
-              </select>
-            </div>
-  
-            <button
-              onClick={nextMonth}
-              className="calendar-nav"
-              disabled={currentDate >= new Date('2025-12-31')}
-            >
-              &#x25B6;
-            </button>
-          </div>
-          <div className="events-grid">
-            {eventsForMonth.length > 0 ? (
-              eventsForMonth.map((event) => {
-                const eventDate = new Date(event.date);
-                const isPastEvent = eventDate < today;
-                return (
-                  <div
-                    key={event.id}
-                    className={`event ${isPastEvent ? 'past-event' : ''}`}
-                    onClick={() => setSelectedEvent(event)}
-                  >
-                    <div className="event-image-container">
-                      <img src={event.image} className="event-image" alt={event.name} />
-                    </div>
-                    <div className="event-details">
-                      <h3 className="event-name">{event.name}</h3>
-                      <p className="event-date-time">
-                        {formatDate(event.date)} {event.time}
-                      </p>
-                      {event.location && (
-                        <p className="event-location">{event.location}</p>
-                      )}
-                    </div>
-                  </div>
-                );
-              })
-            ) : (
-              <div className="no-events">
-                <p>No Events</p>
-                <div className="palm-trees">🌴🌴🌴</div>
-              </div>
-            )}
-          </div>
+      {/* Upcoming Events */}
+      <h1 className="UPCOMING-event hidden" data-animation="animate-slide-in-left">UPCOMING EVENTS</h1>
+      <div className="events-section box">
+        <div className="calendar-header hidden" data-animation="animate-slide-in-right">
+          <button onClick={prevMonth} className="calendar-nav">&lt;</button>
+          <h1 className="calendar-title">{formatMonthYear(currentDate)}</h1>
+          <button onClick={nextMonth} className="calendar-nav">&gt;</button>
         </div>
-        {selectedEvent && (
-          <div className="modal" onClick={() => setSelectedEvent(null)}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <span className="close-button" onClick={() => setSelectedEvent(null)}>&times;</span>
-              <img src={selectedEvent.image} alt={selectedEvent.name} className="modal-image" />
-              <h2>{selectedEvent.name}</h2>
-              <p>{formatDate(selectedEvent.date)} {selectedEvent.time}</p>
-              {selectedEvent.location && (
-                <p>{selectedEvent.location}</p>
+        
+        <div className="frame-calendar">
+          <div className="calendar-container">
+            <div className="calendar-header">
+              <button
+                onClick={prevMonth}
+                className="calendar-nav"
+                disabled={currentDate <= new Date('2024-01-01')}
+              >
+                &#x25C0;
+              </button>
+  
+              <div className="calendar-selectors">
+                <select
+                  value={currentDate.getMonth()}
+                  onChange={handleMonthChange}
+                  className="month-selector"
+                >
+                  {months.map((month, index) => (
+                    <option key={index} value={index}>
+                      {month}
+                    </option>
+                  ))}
+                </select>
+                <select
+                  value={currentDate.getFullYear()}
+                  onChange={handleYearChange}
+                  className="year-selector"
+                >
+                  {years.map((year) => (
+                    <option key={year} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </select>
+              </div>
+  
+              <button
+                onClick={nextMonth}
+                className="calendar-nav"
+                disabled={currentDate >= new Date('2025-12-31')}
+              >
+                &#x25B6;
+              </button>
+            </div>
+            
+            <div className="events-grid">
+              {eventsForMonth.length > 0 ? (
+                eventsForMonth.map((event) => {
+                  const eventDate = new Date(event.date);
+                  const isPastEvent = eventDate < today;
+                  return (
+                    <div
+                      key={event.id}
+                      className={`event ${isPastEvent ? 'past-event' : ''}`}
+                      onClick={() => setSelectedEvent(event)}
+                    >
+                      <div className="event-image-container">
+                        <img src={event.image} className="event-image" alt={event.name} />
+                      </div>
+                      <div className="event-details">
+                        <h3 className="event-name">{event.name}</h3>
+                        <p className="event-date-time">
+                          {formatDate(event.date)} {event.time}
+                        </p>
+                        {event.location && (
+                          <p className="event-location">{event.location}</p>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <div className="no-events">
+                  <p>No Events</p>
+                  <div className="palm-trees">🌴🌴🌴</div>
+                </div>
               )}
-              {/* Add more event details if available */}
             </div>
           </div>
-        )}
-        <h1 className="stay-connected-title hidden" data-animation="animate-slide-in-left">
-          Stay Connected!
-        </h1>
   
-        <div className="stay-connected-section hidden" data-animation="animate-fade-in">
-          <div className="stay-connected-links">
-            <a
-              href="https://www.instagram.com/soca_at_uva/"
-              target="_blank"
-              rel="noopener noreferrer"
+          {selectedEvent && (
+            <div className="modal" onClick={() => setSelectedEvent(null)}>
+              <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                <span className="close-button" onClick={() => setSelectedEvent(null)}>&times;</span>
+                <img src={selectedEvent.image} alt={selectedEvent.name} className="modal-image" />
+                <h2>{selectedEvent.name}</h2>
+                <p>{formatDate(selectedEvent.date)} {selectedEvent.time}</p>
+                {selectedEvent.location && (
+                  <p>{selectedEvent.location}</p>
+                )}
+                {/* Add more event details if available */}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+  
+      {/* Articles Section */}
+      <div className="articles-section">
+        <h2 className="sa-ka-f-te hidden" data-animation="animate-slide-in-right">SA KA FÊTE?</h2>
+  
+        <div className="video-container hidden" data-animation="animate-fade-in">
+          <iframe
+            className="video"
+            width="980"
+            height="550"
+            src="https://www.youtube.com/embed/5WWuoR2NS4c?si=uh8Orc2207VLwxbv&autoplay=1&mute=1"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
+  
+        <div className="articles-grid">
+          {articles.map((article) => (
+            <div 
+              key={article.id} 
+              className="article-card hidden" 
+              data-animation="animate-fade-in"
+              onClick={() => navigate(`/article/${article.id}`)}
             >
-              <img src={instagramLogo} alt="Instagram" className="stay-connected-icon" />
-              <span>@soca_at_uva</span>
-            </a>
-            <a
-              href="https://lists.virginia.edu/sympa/subscribe/soca-uva?previous_action=info#"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={uvaLogo} alt="Mail" className="stay-connected-icon" />
-              <span>Subscribe to our UVA Mailing List!</span>
-            </a>
-            <a href="mailto:officialsoca@virginia.edu">
-              <img src={mailIcon} alt="Contact" className="stay-connected-icon" />
-              <span>officialsoca@virginia.edu</span>
-            </a>
-          </div>
+              <img src={article.image} alt={article.title} className="article-card-image" />
+              <div className="article-card-text">
+                <h3>{article.title}</h3>
+                <p>{article.paragraphs[0].text}</p>
+                <p className="article-date">{article.date}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <h1 className="stay-connected-title hidden" data-animation="animate-slide-in-left">
+        Stay Connected!
+      </h1>
+  
+      <div className="stay-connected-section hidden" data-animation="animate-fade-in">
+        <div className="stay-connected-links">
+          <a
+            href="https://www.instagram.com/soca_at_uva/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={instagramLogo} alt="Instagram" className="stay-connected-icon" />
+            <span>@soca_at_uva</span>
+          </a>
+          <a
+            href="https://lists.virginia.edu/sympa/subscribe/soca-uva?previous_action=info#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={uvaLogo} alt="Mail" className="stay-connected-icon" />
+            <span>Subscribe to our UVA Mailing List!</span>
+          </a>
+          <a href="mailto:officialsoca@virginia.edu">
+            <img src={mailIcon} alt="Contact" className="stay-connected-icon" />
+            <span>officialsoca@virginia.edu</span>
+          </a>
         </div>
       </div>
     </div>
