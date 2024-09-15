@@ -57,175 +57,6 @@
   margin: 20px 0;
 }
 
-.past-event {
-  background-color: #e0e0e0; /* Light grey background */
-  color: #999; /* Grey text */
-}
-
-.past-event .event-name,
-.past-event .event-date-time,
-.past-event .event-location {
-  text-decoration: line-through; /* Strikethrough text */
-}
-
-/* Upcoming Events Section */
-.UPCOMING-event {
-  /* Heading for upcoming events */
-  font-family: 'Oswald', sans-serif;
-  font-size: 2rem;
-  color: #ffb700;
-  margin-bottom: 1rem;
-}
-
-.box {
-  /* Container box for events section */
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
-  padding: 2rem;
-  margin-bottom: 2rem;
-}
-
-.calendar-container {
-  margin: 0 auto;
-  max-width: 100%;
-  padding: 0.5rem;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
-}
-
-.calendar-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.calendar-nav {
-  background: #ffb700;
-  color: #ffffff;
-  border: none;
-  padding: 0.3rem 0.5rem;
-  border-radius: 5px;
-  cursor: pointer;
-  font-family: 'Oswald', sans-serif;
-  font-size: 1rem;
-  margin: 0 0.5rem;
-  width: auto;
-  height: auto;
-}
-
-.calendar-nav:hover {
-  background: #d8a527;
-}
-
-.calendar-nav:disabled {
-  background: #cccccc;
-  cursor: not-allowed;
-}
-
-.calendar-selectors {
-  display: flex;
-  align-items: center;
-  margin: 0 0.5rem;
-}
-
-.month-selector,
-.year-selector {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1rem;
-  margin: 0 0.5rem;
-  padding: 0.3rem 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.month-selector {
-  min-width: 120px;
-}
-
-.year-selector {
-  min-width: 80px;
-}
-
-.events-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.event {
-  background-color: #f7f7f7;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-  width: 300px;
-  margin: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.event:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.event-image-container {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  border-radius: 10px 10px 0 0;
-}
-
-.event-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.event-details {
-  padding: 0.5rem;
-}
-
-.event-name {
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
-  color: #383838;
-}
-
-.event-date-time,
-.event-location {
-  font-size: 0.9rem;
-  color: #555;
-  margin: 0.25rem 0;
-}
-
-/* Styles for Past Events */
-.past-event {
-  background-color: #e0e0e0;
-  color: #999;
-}
-
-.past-event .event-name,
-.past-event .event-date-time,
-.past-event .event-location {
-  text-decoration: line-through;
-}
-
-.no-events {
-  text-align: center;
-}
-
-.palm-trees {
-  font-size: 2rem;
-  margin-top: 1rem;
-}
-
 /* Modal styles */
 .modal {
   position: fixed;
@@ -472,7 +303,6 @@
 
 /* Apply transitions to elements */
 .article-card,
-.UPCOMING-event,
 .sa-ka-f-te,
 .intro-text,
 .stay-connected-title,
@@ -489,65 +319,6 @@
 
 /* Media Queries */
 @media (max-width: 600px) {
-  .calendar-header {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center; /* Center the buttons */
-    margin-bottom: 0.3rem; /* Reduce bottom margin */
-    padding: 0;
-  }
-
-  .calendar-selectors {
-    flex-direction: row;
-    justify-content: center;
-    flex-direction: row; 
-    flex-wrap: nowrap;
-    gap: 0.02rem; /* Reduce gap between elements */
-    margin: 0; /* Remove extra margin */
-  }
-
-  .month-selector,
-  .year-selector,
-  .calendar-nav {
-    margin: 0.02rem; /* Reduce margins */
-    width: auto; /* Keep auto width */
-    max-width: 40px; /* Reduce max-width for even smaller buttons */
-    font-size: 0.3rem; /* Smaller font size */
-    padding: 0.05rem 0.1rem; /* Reduce padding */
-  }
-
-  .calendar-nav {
-    font-size: 0.5rem; /* Smaller font size for navigation buttons */
-    padding: 0.0.5rem 0.1rem; /* Adjust padding */
-    border-radius: 5px; 
-    
-  }
-
-  .calendar-container {
-    max-width: 100%; /* Ensure full width on smaller screens */
-    padding: 1rem;
-  }
-
-  .events-grid {
-    gap: 0.3rem; /* Slightly reduce the gap between events */
-    justify-content: center;
-  }
-
-  .event {
-    width: calc(100% - 2rem); /* Adjust event width on smaller screens */
-    margin: 0.5rem;
-  }
-
-  .event-image-container {
-    height: 200px;
-  }
-
-  .event-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
   /* Video container adjustments for mobile */
   .video-container {
     display: flex;
@@ -619,10 +390,5 @@
   .animate-slide-in-right,
   .animate-fade-in {
     animation-duration: 0.8s;
-  }
-
-  .flag-container.left,
-  .flag-container.right {
-    display: none; 
   }
 }

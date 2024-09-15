@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/home.css';
+import '../styles/calendar.css';
 import Popup from './Popup';
 
 // Importing stay connected icons (from misc folder)
@@ -283,6 +284,8 @@ const Home = () => {
         UPCOMING EVENTS
       </h1>
       <div className="frame-calendar">
+        <h1 className="calendar-main-header">Calendar</h1>
+        <h2 className="calendar-sub-header">Check Out Our Upcoming Events</h2>
         <div className="calendar-container">
           <div className="calendar-header">
             <button
@@ -292,7 +295,7 @@ const Home = () => {
             >
               &#x25C0;
             </button>
-  
+
             <div className="calendar-selectors">
               <select
                 value={currentDate.getMonth()}
@@ -317,7 +320,7 @@ const Home = () => {
                 ))}
               </select>
             </div>
-  
+
             <button
               onClick={nextMonth}
               className="calendar-nav"
@@ -326,7 +329,7 @@ const Home = () => {
               &#x25B6;
             </button>
           </div>
-  
+          <p className="calendar-note">*Click on event image to enlarge*</p>
           <div className="events-grid">
             {eventsForMonth.length > 0 ? (
               eventsForMonth.map((event) => {
@@ -360,21 +363,6 @@ const Home = () => {
               </div>
             )}
           </div>
-  
-          {selectedEvent && (
-            <div className="modal" onClick={() => setSelectedEvent(null)}>
-              <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                <span className="close-button" onClick={() => setSelectedEvent(null)}>&times;</span>
-                <img src={selectedEvent.image} alt={selectedEvent.name} className="modal-image" />
-                <h2>{selectedEvent.name}</h2>
-                <p>{formatDate(selectedEvent.date)} {selectedEvent.time}</p>
-                {selectedEvent.location && (
-                  <p>{selectedEvent.location}</p>
-                )}
-                {/* Add more event details if available */}
-              </div>
-            </div>
-          )}
         </div>
       </div>
   
