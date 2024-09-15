@@ -46,26 +46,29 @@
   font-family: 'Oswald', sans-serif;
 }
 
+.arrow-icon {
+  width: 20px; 
+  height: 20px; 
+}
+
 .calendar-nav {
-  background: #ffb700;
-  color: #ffffff;
-  border: none;
-  padding: 0.3rem 0.5rem;
-  border-radius: 5px;
+  background: none; 
+  border: none; 
+  padding: 0.3rem; 
   cursor: pointer;
-  font-family: 'Oswald', sans-serif;
-  font-size: 1rem;
   margin: 0 0.5rem;
-  width: auto;
-  height: auto;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
 }
 
 .calendar-nav:hover {
-  background: #d8a527;
+  background-color: #d8a527; 
+  border-radius: 5px;
 }
 
 .calendar-nav:disabled {
-  background: #cccccc;
+  opacity: 0.5; 
   cursor: not-allowed;
 }
 

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import '../styles/calendar.css';
 
+import rightArrow from '../assets/misc/right_arrow.png';
+import leftArrow from '../assets/misc/left_arrow.png';
+
 import waterFeteImage from '../assets/events/water_fete.jpg';
 import sorrelSaleImage from '../assets/events/sorrel_sale.jpg';
 import poolPartyImage from '../assets/events/pool_party.jpg';
@@ -123,25 +126,23 @@ const Calendar = () => {
       <h2 className="calendar-sub-header">Check Out Our Upcoming Events!</h2>
         <div className="calendar-header">
           <button onClick={prevMonth} className="calendar-nav" disabled={currentDate <= new Date('2024-01-01')}>
-            &#x25C0;
+            <img src={leftArrow} alt="Previous Month" className="arrow-icon" />
           </button>
-
           <div className="calendar-selectors">
             <select value={currentDate.getMonth()} onChange={handleMonthChange} className="month-selector">
               {months.map((month, index) => (
-                <option key={index} value={index}>{month}</option>
-              ))}
+              <option key={index} value={index}>{month}</option>
+            ))}
             </select>
             <select value={currentDate.getFullYear()} onChange={handleYearChange} className="year-selector">
-              {years.map((year) => (
-                <option key={year} value={year}>{year}</option>
-              ))}
-            </select>
+            {years.map((year) => (
+            <option key={year} value={year}>{year}</option>
+          ))}
+          </select>
           </div>
-
           <button onClick={nextMonth} className="calendar-nav" disabled={currentDate >= new Date('2025-12-31')}>
-            &#x25B6;
-          </button>
+          <img src={rightArrow} alt="Next Month" className="arrow-icon" />
+        </button>
         </div>
         <p className="calendar-note">*Click On Event To Enlarge*</p>
         <div className="events-grid">

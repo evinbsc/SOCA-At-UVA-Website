@@ -9,6 +9,8 @@ import instagramLogo from '../assets/misc/instagram_logo.png';
 import mailIcon from '../assets/misc/mail_icon.png';
 import uvaLogo from '../assets/misc/uva_logo.jpg';
 import socaHomePagePicMobile from '../assets/misc/soca_home_page_img.png';
+import rightArrow from '../assets/misc/right_arrow.png';
+import leftArrow from '../assets/misc/left_arrow.png';
 
 // Importing article images (from article_images folder)
 import hurricaneBerylArticleImage from '../assets/article_images/hurricane_beryl_article_image.jpg';
@@ -285,46 +287,24 @@ const Home = () => {
         <div className="calendar-container">
         <h2 className="calendar-sub-header" data-animation="animate-slide-in-right">Check Out Our Upcoming Events!</h2>
           <div className="calendar-header">
-            <button
-              onClick={prevMonth}
-              className="calendar-nav"
-              disabled={currentDate <= new Date('2024-01-01')}
-            >
-              &#x25C0;
-            </button>
-
-            <div className="calendar-selectors">
-              <select
-                value={currentDate.getMonth()}
-                onChange={handleMonthChange}
-                className="month-selector"
-              >
-                {months.map((month, index) => (
-                  <option key={index} value={index}>
-                    {month}
-                  </option>
-                ))}
-              </select>
-              <select
-                value={currentDate.getFullYear()}
-                onChange={handleYearChange}
-                className="year-selector"
-              >
-                {years.map((year) => (
-                  <option key={year} value={year}>
-                    {year}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <button
-              onClick={nextMonth}
-              className="calendar-nav"
-              disabled={currentDate >= new Date('2025-12-31')}
-            >
-              &#x25B6;
-            </button>
+          <button onClick={prevMonth} className="calendar-nav" disabled={currentDate <= new Date('2024-01-01')}>
+            <img src={leftArrow} alt="Previous Month" className="arrow-icon" />
+          </button>
+          <div className="calendar-selectors">
+            <select value={currentDate.getMonth()} onChange={handleMonthChange} className="month-selector">
+              {months.map((month, index) => (
+              <option key={index} value={index}>{month}</option>
+            ))}
+            </select>
+            <select value={currentDate.getFullYear()} onChange={handleYearChange} className="year-selector">
+            {years.map((year) => (
+            <option key={year} value={year}>{year}</option>
+          ))}
+          </select>
+          </div>
+          <button onClick={nextMonth} className="calendar-nav" disabled={currentDate >= new Date('2025-12-31')}>
+          <img src={rightArrow} alt="Next Month" className="arrow-icon" />
+        </button>
           </div>
           <p className="calendar-note">*Click on event image to enlarge*</p>
           <div className="events-grid">
