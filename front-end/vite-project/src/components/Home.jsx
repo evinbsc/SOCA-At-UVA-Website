@@ -306,7 +306,6 @@ const Home = () => {
         <img src={leftArrow} alt="Next Month" className="arrow-icon" />
       </button>
           </div>
-          <p className="calendar-note">*Click on event image to enlarge*</p>
           <div className="events-grid">
             {eventsForMonth.length > 0 ? (
               eventsForMonth.map((event) => {

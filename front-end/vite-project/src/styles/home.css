@@ -9,9 +9,6 @@
   margin: 0 auto;
   text-align: center;
   position: relative;
-  padding-left: 1000px; 
-  padding-right: 1000px;
-  overflow-x: hidden;
 }
 
 .main-image {
@@ -321,6 +318,10 @@
 
 /* Media Queries */
 @media (max-width: 600px) {
+  .frame {
+    overflow-x: hidden;
+  }
+
   /* Video container adjustments for mobile */
   .video-container {
     display: flex;
