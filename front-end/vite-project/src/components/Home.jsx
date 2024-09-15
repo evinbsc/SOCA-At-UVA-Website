@@ -237,8 +237,17 @@ const Home = () => {
     };
   
     const eventsForMonth = getEventsForMonth(events, currentDate.getMonth(), currentDate.getFullYear());
+
+    //Change according to current date
+    const today = new Date('2024-09-14'); 
   
-    const today = new Date('2024-9-14');
+    const upcomingEvents = eventsForMonth.filter(event => new Date(event.date) >= today)
+                                         .sort((a, b) => new Date(a.date) - new Date(b.date));
+  
+    const pastEvents = eventsForMonth.filter(event => new Date(event.date) < today)
+                                     .sort((a, b) => new Date(a.date) - new Date(b.date));
+  
+    const sortedEvents = [...upcomingEvents, ...pastEvents];
 
   return (
     <div className="frame">
@@ -291,66 +300,79 @@ const Home = () => {
         <img src={barbadosBackground} alt="Barbados" className="flag-image" />
       </div>
   
-     {/* Upcoming Events */}
-<div className="frame-calendar">
-  <h2 className="sa-ka-f-te hidden" data-animation="animate-slide-in-left">Calendar</h2>
-  <div className="calendar-container">
-    <h2 className="calendar-sub-header" data-animation="animate-slide-in-right">Check Out Our Upcoming Events!</h2>
-    <div className="calendar-header">
-      <button onClick={prevMonth} className="calendar-nav" disabled={currentDate <= new Date('2024-01-01')}>
-        <img src={rightArrow} alt="Previous Month" className="arrow-icon" />
-      </button>
-      <div className="calendar-selectors">
-        <select value={currentDate.getMonth()} onChange={handleMonthChange} className="month-selector">
-          {months.map((month, index) => (
-            <option key={index} value={index}>{month}</option>
-          ))}
-        </select>
-        <select value={currentDate.getFullYear()} onChange={handleYearChange} className="year-selector">
-          {years.map((year) => (
-            <option key={year} value={year}>{year}</option>
-          ))}
-        </select>
-      </div>
-      <button onClick={nextMonth} className="calendar-nav" disabled={currentDate >= new Date('2025-12-31')}>
-        <img src={leftArrow} alt="Next Month" className="arrow-icon" />
-      </button>
+      <div className="frame-calendar">
+      <div className="calendar-container">
+        <h1 className="calendar-main-header">Calendar</h1>
+        <h2 className="calendar-sub-header">Check Out Our Upcoming Events!</h2>
+        <div className="calendar-header">
+          <button onClick={prevMonth} className="calendar-nav" disabled={currentDate <= new Date('2024-01-01')}>
+            <img src={rightArrow} alt="Previous Month" className="arrow-icon" />
+          </button>
+          <div className="calendar-selectors">
+            <select value={currentDate.getMonth()} onChange={handleMonthChange} className="month-selector">
+              {months.map((month, index) => (
+                <option key={index} value={index}>{month}</option>
+              ))}
+            </select>
+            <select value={currentDate.getFullYear()} onChange={handleYearChange} className="year-selector">
+              {years.map((year) => (
+                <option key={year} value={year}>{year}</option>
+              ))}
+            </select>
           </div>
-          <div className="events-grid">
-            {eventsForMonth.length > 0 ? (
-              eventsForMonth.map((event) => {
-                const eventDate = new Date(event.date);
-                const isPastEvent = eventDate < today;
-                return (
-                  <div
-                    key={event.id}
-                    className={`event ${isPastEvent ? 'past-event' : ''}`}
-                    onClick={() => setSelectedEvent(event)}
-                  >
-                    <div className="event-image-container">
-                      <img src={event.image} className="event-image" alt={event.name} />
-                    </div>
-                    <div className="event-details">
-                      <h3 className="event-name">{event.name}</h3>
-                      <p className="event-date-time">
-                        {formatDate(event.date)} {event.time}
-                      </p>
-                      {event.location && (
-                        <p className="event-location">{event.location}</p>
-                      )}
-                    </div>
+          <button onClick={nextMonth} className="calendar-nav" disabled={currentDate >= new Date('2025-12-31')}>
+            <img src={leftArrow} alt="Next Month" className="arrow-icon" />
+          </button>
+        </div>
+        <p className="calendar-note">*Click On Event To Enlarge*</p>
+        <div className="events-grid">
+          {sortedEvents.length > 0 ? (
+            sortedEvents.map((event) => {
+              const eventDate = new Date(event.date);
+              const isPastEvent = eventDate < today;
+              return (
+                <div
+                  key={event.id}
+                  className={`event ${isPastEvent ? 'past-event' : ''}`}
+                  onClick={() => setSelectedEvent(event)}
+                >
+                  <div className="event-image-container">
+                    <img src={event.image} className="event-image" alt={event.name} />
                   </div>
-                );
-              })
-            ) : (
-              <div className="no-events">
-                <p>No Events</p>
-                <div className="palm-trees">🌴🌴🌴</div>
-              </div>
+                  <div className="event-details">
+                    <h3 className="event-name">{event.name}</h3>
+                    <p className="event-date-time">
+                      {formatDate(event.date)} {event.time}
+                    </p>
+                    {event.location && (
+                      <p className="event-location">{event.location}</p>
+                    )}
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <div className="no-events">
+              <p>No Events</p>
+              <div className="palm-trees">🌴🌴🌴</div>
+            </div>
+          )}
+        </div>
+      </div>
+      {selectedEvent && (
+        <div className="modal" onClick={() => setSelectedEvent(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <span className="close-button" onClick={() => setSelectedEvent(null)}>&times;</span>
+            <img src={selectedEvent.image} alt={selectedEvent.name} className="modal-image" />
+            <h2>{selectedEvent.name}</h2>
+            <p>{formatDate(selectedEvent.date)} {event.time}</p>
+            {event.location && (
+              <p>{event.location}</p>
             )}
           </div>
         </div>
-      </div>
+      )}
+    </div>
   
       {/* Articles Section */}
       <div className="articles-section">
