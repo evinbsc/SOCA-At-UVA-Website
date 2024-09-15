@@ -18,8 +18,8 @@ const Navbar = () => {
     <nav className="navbar">
       <Link to="/" className="logo-container">
         <img src={SOCALogo} className="rectangle" alt="SOCALogo" />
-        <span className="organization-name">Student Organization for Caribbean Awareness</span>
-      </Link>
+        <div className="organization-name">Student Organization for Caribbean Awareness</div>
+    </Link>
       <div className="menu-icon" onClick={toggleMenu}>
         &#9776; {/* Hamburger Icon */}
       </div>
