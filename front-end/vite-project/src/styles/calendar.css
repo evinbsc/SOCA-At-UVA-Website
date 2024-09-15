@@ -20,7 +20,7 @@
 .calendar-sub-header {
   font-family: 'Oswald', sans-serif;
   font-size: 1.5rem;
-  color: #d8a527; /* Darker orange */
+  color: #d8a527;
   margin-bottom: 1.5rem;
 }
 
@@ -32,11 +32,18 @@
   border-radius: 10px;
 }
 
+.calendar-note {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.5rem;
+  color: #d8a527;
+}
+
 .calendar-header {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
+  font-family: 'Oswald', sans-serif;
 }
 
 .calendar-nav {
