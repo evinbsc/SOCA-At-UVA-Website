@@ -72,7 +72,7 @@ const formatDate = (dateString) => {
 };
 
 const Calendar = () => {
-  const [currentDate, setCurrentDate] = useState(new Date('2024-09-01'));
+  const [currentDate, setCurrentDate] = useState(new Date('2024-10-01'));
   const [selectedEvent, setSelectedEvent] = useState(null);
 
   const months = [
@@ -114,7 +114,7 @@ const Calendar = () => {
 
   const eventsForMonth = getEventsForMonth(events, currentDate.getMonth(), currentDate.getFullYear());
 
-  const today = new Date('2024-09-14');
+  const today = new Date('2024-10-14');
 
   return (
     <div className="frame-calendar">
