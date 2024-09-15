@@ -118,9 +118,9 @@ const Calendar = () => {
 
   return (
     <div className="frame-calendar">
-      <h1 className="calendar-main-header">Calendar</h1>
       <div className="calendar-container">
-      <h2 className="calendar-sub-header">Check Out Our Upcoming Events</h2>
+      <h1 className="calendar-main-header">Calendar</h1>
+      <h2 className="calendar-sub-header">Check Out Our Upcoming Events!</h2>
         <div className="calendar-header">
           <button onClick={prevMonth} className="calendar-nav" disabled={currentDate <= new Date('2024-01-01')}>
             &#x25C0;

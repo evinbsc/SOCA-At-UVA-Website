@@ -280,13 +280,10 @@ const Home = () => {
       </div>
   
       {/* Upcoming Events */}
-      <h1 className="UPCOMING-event hidden" data-animation="animate-slide-in-left">
-        UPCOMING EVENTS
-      </h1>
       <div className="frame-calendar">
-        <h1 className="calendar-main-header">Calendar</h1>
-        <h2 className="calendar-sub-header">Check Out Our Upcoming Events</h2>
         <div className="calendar-container">
+        <h1 className="calendar-main-header" data-animation="animate-slide-in-left">Calendar</h1>
+        <h2 className="calendar-sub-header" data-animation="animate-slide-in-right">Check Out Our Upcoming Events!</h2>
           <div className="calendar-header">
             <button
               onClick={prevMonth}
