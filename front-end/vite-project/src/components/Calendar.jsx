@@ -11,6 +11,11 @@ import trinidadIndependenceImage from '../assets/events/trinidad_independence_da
 import bachataWorkshopImage from '../assets/events/bachata_workshop.jpg';
 import blockPartyImage from '../assets/events/block_party.jpg';
 import sunsetMixerImage from '../assets/events/sunset_mixer.jpg';
+import dominosDominosImage from '../assets/events/dominos_dominos.jpg';
+import repYaFlagImage from '../assets/events/rep_ya_flag.jpg';
+import tasteTraditionsImage from '../assets/events/taste_traditions.jpg';
+import karibbeanKitchenImage from '../assets/events/karibbean_kitchen.jpg';
+
 
 
 const events = [
@@ -70,6 +75,38 @@ const events = [
     location: 'Pavillion VIII Garden',
     image: sunsetMixerImage,
   },
+  {
+    id: 8,
+    name: 'Karibbean Kitchen',
+    date: '2024-10-23',
+    time: '6:00 PM - 7:30 PM',
+    location: 'UVA Teaching Kitchen @ SHW',
+    image: karibbeanKitchenImage,
+  },
+  {
+    id: 9,
+    name: 'Gen Bod Meeting - Dominos & Dominos',
+    date: '2024-10-02',
+    time: '7:30 PM - 9:00 PM',
+    location: 'Multicultural Student Center',
+    image: dominosDominosImage,
+  },
+  {
+    id: 10,
+    name: 'Taste\'s & Traditions',
+    date: '2024-09-28',
+    time: '2:00 PM - 5:00 PM',
+    location: 'Amphitheater',
+    image: tasteTraditionsImage,
+  },
+  {
+    id: 11,
+    name: 'Rep Ya Flag Party',
+    date: '2024-09-20',
+    time: '10:00 PM - 2:00 AM',
+    location: '600 Preston Place',
+    image: repYaFlagImage,
+  }
 ];
 
 const getEventsForMonth = (events, month, year) => {
@@ -85,7 +122,7 @@ const formatDate = (dateString) => {
 };
 
 const Calendar = () => {
-  const [currentDate, setCurrentDate] = useState(new Date('2024-10-01'));
+  const [currentDate, setCurrentDate] = useState(new Date('2024-10-23'));
   const [selectedEvent, setSelectedEvent] = useState(null);
 
   const months = [
