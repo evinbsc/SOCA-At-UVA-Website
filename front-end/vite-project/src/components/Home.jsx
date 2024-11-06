@@ -352,7 +352,7 @@ const Home = () => {
               disabled={currentDate <= new Date('2024-01-01')}
               aria-label="Previous Month"
             >
-              <img src={leftArrow} alt="Previous Month" className="arrow-icon" />
+              <img src={rightArrow} alt="Previous Month" className="arrow-icon" />
             </button>
             <div className="calendar-selectors">
               <select value={currentDate.getMonth()} onChange={handleMonthChange} className="month-selector">
@@ -372,7 +372,7 @@ const Home = () => {
               disabled={currentDate >= new Date('2025-12-31')}
               aria-label="Next Month"
             >
-              <img src={rightArrow} alt="Next Month" className="arrow-icon" />
+              <img src={leftArrow} alt="Next Month" className="arrow-icon" />
             </button>
           </div>
           <p className="calendar-note">*Click On Event To Enlarge*</p>
