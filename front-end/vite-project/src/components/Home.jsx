@@ -51,6 +51,23 @@ import netherlandsBackground from '../assets/caribbean_island_flags/netherlands_
 import trinidadBackground from '../assets/caribbean_island_flags/trinidad_background.png';
 import barbadosBackground from '../assets/caribbean_island_flags/barbados_background.png';
 
+const parseDate = (dateString) => {
+  const [year, month, day] = dateString.split('-').map(Number);
+  return new Date(year, month - 1, day);
+};
+
+const getEventsForMonth = (events, month, year) => {
+  return events.filter((event) => {
+    const eventDate = parseDate(event.date);
+    return eventDate.getMonth() === month && eventDate.getFullYear() === year;
+  });
+};
+
+const formatDate = (dateString) => {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return parseDate(dateString).toLocaleDateString(undefined, options);
+};
+
 const events = [
   {
     id: 1,
@@ -171,26 +188,10 @@ const articles = [
   },
 ];
 
-const getEventsForMonth = (events, month, year) => {
-  return events.filter((event) => {
-    const eventDate = new Date(event.date);
-    return eventDate.getMonth() === month && eventDate.getFullYear() === year;
-  });
-};
-
-const formatDate = (dateString) => {
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(dateString).toLocaleDateString(undefined, options);
-};
-
-const formatMonthYear = (date) => {
-  return date.toLocaleString('default', { month: 'long', year: 'numeric' });
-};
-
 const Home = () => {
   const navigate = useNavigate();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [currentDate, setCurrentDate] = useState(new Date('2024-10-01'));
+  const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedEvent, setSelectedEvent] = useState(null);
 
   const months = [
@@ -198,7 +199,7 @@ const Home = () => {
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
 
-  const years = [2024, 2025]; 
+  const years = [2024, 2025];
 
   useEffect(() => {
     // Show the popup after 5 seconds
@@ -238,59 +239,61 @@ const Home = () => {
     };
   }, []);
 
-    // Updated nextMonth function
-    const nextMonth = () => {
-      let nextDate = new Date(currentDate);
-      nextDate.setDate(1); 
-      nextDate.setMonth(currentDate.getMonth() + 1);
-      if (nextDate <= new Date('2025-12-31')) {
-        setCurrentDate(nextDate);
-      }
-    };
-  
-    // Updated prevMonth function
-    const prevMonth = () => {
-      let prevDate = new Date(currentDate);
-      prevDate.setDate(1); 
-      prevDate.setMonth(currentDate.getMonth() - 1);
-      if (prevDate >= new Date('2024-01-01')) {
-        setCurrentDate(prevDate);
-      }
-    };
-  
-    const handleMonthChange = (e) => {
-      const newMonth = parseInt(e.target.value);
-      const newDate = new Date(currentDate);
-      newDate.setDate(1); 
-      newDate.setMonth(newMonth);
-      setCurrentDate(newDate);
-    };
-  
-    const handleYearChange = (e) => {
-      const newYear = parseInt(e.target.value);
-      const newDate = new Date(currentDate);
-      newDate.setFullYear(newYear);
-      setCurrentDate(newDate);
-    };
-  
-    const eventsForMonth = getEventsForMonth(events, currentDate.getMonth(), currentDate.getFullYear());
+  // Navigate to next month
+  const nextMonth = () => {
+    let nextDate = new Date(currentDate);
+    nextDate.setDate(1); // Prevents issues when moving from months with more days
+    nextDate.setMonth(currentDate.getMonth() + 1);
+    if (nextDate <= new Date('2025-12-31')) {
+      setCurrentDate(nextDate);
+    }
+  };
 
-    //Change according to current date
-    const today = new Date('2024-10-23'); 
-  
-    const upcomingEvents = eventsForMonth.filter(event => new Date(event.date) >= today)
-                                         .sort((a, b) => new Date(a.date) - new Date(b.date));
-  
-    const pastEvents = eventsForMonth.filter(event => new Date(event.date) < today)
-                                     .sort((a, b) => new Date(a.date) - new Date(b.date));
-  
-    const sortedEvents = [...upcomingEvents, ...pastEvents];
+  // Navigate to previous month
+  const prevMonth = () => {
+    let prevDate = new Date(currentDate);
+    prevDate.setDate(1); // Prevents issues when moving from months with more days
+    prevDate.setMonth(currentDate.getMonth() - 1);
+    if (prevDate >= new Date('2024-01-01')) {
+      setCurrentDate(prevDate);
+    }
+  };
+
+  const handleMonthChange = (e) => {
+    const newMonth = parseInt(e.target.value);
+    const newDate = new Date(currentDate);
+    newDate.setDate(1); // Set to first day to prevent date overflow
+    newDate.setMonth(newMonth);
+    setCurrentDate(newDate);
+  };
+
+  const handleYearChange = (e) => {
+    const newYear = parseInt(e.target.value);
+    const newDate = new Date(currentDate);
+    newDate.setFullYear(newYear);
+    setCurrentDate(newDate);
+  };
+
+  const eventsForMonth = getEventsForMonth(events, currentDate.getMonth(), currentDate.getFullYear());
+
+  // Use the actual current date
+  const today = new Date();
+
+  const upcomingEvents = eventsForMonth
+    .filter(event => parseDate(event.date) >= today)
+    .sort((a, b) => parseDate(a.date) - parseDate(b.date));
+
+  const pastEvents = eventsForMonth
+    .filter(event => parseDate(event.date) < today)
+    .sort((a, b) => parseDate(a.date) - parseDate(b.date));
+
+  const sortedEvents = [...upcomingEvents, ...pastEvents];
 
   return (
     <div className="frame">
       {/* Popup component */}
       <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
-  
+
       {/* Main Image */}
       <img
         src={socaHomePagePicMobile}
@@ -299,7 +302,7 @@ const Home = () => {
         alt="SOCA Home"
         className="main-image"
       />
-  
+
       {/* Intro Text */}
       <div className="intro-text hidden" data-animation="animate-slide-in-left">
         <p>
@@ -311,7 +314,7 @@ const Home = () => {
           join and contribute to the organization, regardless of national or ethnic origin.
         </p>
       </div>
-  
+
       {/* Flag containers for outer ends */}
       <div className="flag-container left">
         <img src={saintLuciaBackground} alt="Saint Lucia" className="flag-image" />
@@ -324,7 +327,7 @@ const Home = () => {
         <img src={saintKittsBackground} alt="Saint Kitts" className="flag-image" />
         <img src={guadeloupeBackground} alt="Guadeloupe" className="flag-image" />
       </div>
-  
+
       <div className="flag-container right">
         <img src={martiniqueBackground} alt="Martinique" className="flag-image" />
         <img src={arubaBackground} alt="Aruba" className="flag-image" />
@@ -336,85 +339,96 @@ const Home = () => {
         <img src={trinidadBackground} alt="Trinidad" className="flag-image" />
         <img src={barbadosBackground} alt="Barbados" className="flag-image" />
       </div>
-  
+
+      {/* Calendar Section */}
       <div className="frame-calendar">
-      <div className="calendar-container">
-        <h1 className="calendar-main-header">Calendar</h1>
-        <h2 className="calendar-sub-header">Check Out Our Upcoming Events!</h2>
-        <div className="calendar-header">
-          <button onClick={prevMonth} className="calendar-nav" disabled={currentDate <= new Date('2024-01-01')}>
-            <img src={rightArrow} alt="Previous Month" className="arrow-icon" />
-          </button>
-          <div className="calendar-selectors">
-            <select value={currentDate.getMonth()} onChange={handleMonthChange} className="month-selector">
-              {months.map((month, index) => (
-                <option key={index} value={index}>{month}</option>
-              ))}
-            </select>
-            <select value={currentDate.getFullYear()} onChange={handleYearChange} className="year-selector">
-              {years.map((year) => (
-                <option key={year} value={year}>{year}</option>
-              ))}
-            </select>
-          </div>
-          <button onClick={nextMonth} className="calendar-nav" disabled={currentDate >= new Date('2025-12-31')}>
-            <img src={leftArrow} alt="Next Month" className="arrow-icon" />
-          </button>
-        </div>
-        <p className="calendar-note">*Click On Event To Enlarge*</p>
-        <div className="events-grid">
-          {sortedEvents.length > 0 ? (
-            sortedEvents.map((event) => {
-              const eventDate = new Date(event.date);
-              const isPastEvent = eventDate < today;
-              return (
-                <div
-                  key={event.id}
-                  className={`event ${isPastEvent ? 'past-event' : ''}`}
-                  onClick={() => setSelectedEvent(event)}
-                >
-                  <div className="event-image-container">
-                    <img src={event.image} className="event-image" alt={event.name} />
-                  </div>
-                  <div className="event-details">
-                    <h3 className="event-name">{event.name}</h3>
-                    <p className="event-date-time">
-                      {formatDate(event.date)} {event.time}
-                    </p>
-                    {event.location && (
-                      <p className="event-location">{event.location}</p>
-                    )}
-                  </div>
-                </div>
-              );
-            })
-          ) : (
-            <div className="no-events">
-              <p>No Events</p>
-              <div className="palm-trees">🌴🌴🌴</div>
+        <div className="calendar-container">
+          <h1 className="calendar-main-header">Calendar</h1>
+          <h2 className="calendar-sub-header">Check Out Our Upcoming Events!</h2>
+          <div className="calendar-header">
+            <button
+              onClick={prevMonth}
+              className="calendar-nav"
+              disabled={currentDate <= new Date('2024-01-01')}
+              aria-label="Previous Month"
+            >
+              <img src={leftArrow} alt="Previous Month" className="arrow-icon" />
+            </button>
+            <div className="calendar-selectors">
+              <select value={currentDate.getMonth()} onChange={handleMonthChange} className="month-selector">
+                {months.map((month, index) => (
+                  <option key={index} value={index}>{month}</option>
+                ))}
+              </select>
+              <select value={currentDate.getFullYear()} onChange={handleYearChange} className="year-selector">
+                {years.map((year) => (
+                  <option key={year} value={year}>{year}</option>
+                ))}
+              </select>
             </div>
-          )}
-        </div>
-      </div>
-      {selectedEvent && (
-        <div className="modal" onClick={() => setSelectedEvent(null)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <span className="close-button" onClick={() => setSelectedEvent(null)}>&times;</span>
-            <img src={selectedEvent.image} alt={selectedEvent.name} className="modal-image" />
-            <h2>{selectedEvent.name}</h2>
-            <p>{formatDate(selectedEvent.date)} {event.time}</p>
-            {event.location && (
-              <p>{event.location}</p>
+            <button
+              onClick={nextMonth}
+              className="calendar-nav"
+              disabled={currentDate >= new Date('2025-12-31')}
+              aria-label="Next Month"
+            >
+              <img src={rightArrow} alt="Next Month" className="arrow-icon" />
+            </button>
+          </div>
+          <p className="calendar-note">*Click On Event To Enlarge*</p>
+          <div className="events-grid">
+            {sortedEvents.length > 0 ? (
+              sortedEvents.map((event) => {
+                const eventDate = parseDate(event.date);
+                const isPastEvent = eventDate < today;
+                return (
+                  <div
+                    key={event.id}
+                    className={`event ${isPastEvent ? 'past-event' : ''}`}
+                    onClick={() => setSelectedEvent(event)}
+                  >
+                    <div className="event-image-container">
+                      <img src={event.image} className="event-image" alt={event.name} />
+                    </div>
+                    <div className="event-details">
+                      <h3 className="event-name">{event.name}</h3>
+                      <p className="event-date-time">
+                        {formatDate(event.date)} {event.time}
+                      </p>
+                      {event.location && (
+                        <p className="event-location">{event.location}</p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <div className="no-events">
+                <p>No Events</p>
+                <div className="palm-trees">🌴🌴🌴</div>
+              </div>
             )}
           </div>
         </div>
-      )}
-    </div>
-  
+        {selectedEvent && (
+          <div className="modal" onClick={() => setSelectedEvent(null)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <span className="close-button" onClick={() => setSelectedEvent(null)}>&times;</span>
+              <img src={selectedEvent.image} alt={selectedEvent.name} className="modal-image" />
+              <h2>{selectedEvent.name}</h2>
+              <p>{formatDate(selectedEvent.date)} {selectedEvent.time}</p>
+              {selectedEvent.location && (
+                <p>{selectedEvent.location}</p>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+
       {/* Articles Section */}
       <div className="articles-section">
         <h2 className="sa-ka-f-te hidden" data-animation="animate-slide-in-right">SA KA FÊTE?</h2>
-  
+
         <div className="video-container hidden" data-animation="animate-fade-in">
           <iframe
             className="video"
@@ -428,7 +442,7 @@ const Home = () => {
             allowFullScreen
           ></iframe>
         </div>
-  
+
         <h2 className="sa-ka-f-te hidden" data-animation="animate-slide-in-left">Caribbean Today</h2>
 
         <div className="articles-grid">
@@ -443,8 +457,8 @@ const Home = () => {
               <div className="article-card-text">
                 <h3>{article.title}</h3>
                 <p className="article-meta">
-                <strong>By:</strong> {article.author} | <strong>Date:</strong> {article.date}
-              </p>
+                  <strong>By:</strong> {article.author} | <strong>Date:</strong> {article.date}
+                </p>
                 <p>{article.paragraphs[0].text}</p>
               </div>
             </div>
@@ -455,7 +469,7 @@ const Home = () => {
       <h1 className="stay-connected-title hidden" data-animation="animate-slide-in-right">
         Stay Connected!
       </h1>
-  
+
       <div className="stay-connected-section hidden" data-animation="animate-fade-in">
         <div className="stay-connected-links">
           <a
@@ -483,6 +497,5 @@ const Home = () => {
     </div>
   );  
 };
-  
-  export default Home;
-    
+
+export default Home;

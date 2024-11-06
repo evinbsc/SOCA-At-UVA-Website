@@ -16,7 +16,22 @@ import repYaFlagImage from '../assets/events/rep_ya_flag.jpg';
 import tasteTraditionsImage from '../assets/events/taste_traditions.jpg';
 import karibbeanKitchenImage from '../assets/events/karibbean_kitchen.jpg';
 
+const parseDate = (dateString) => {
+  const [year, month, day] = dateString.split('-').map(Number);
+  return new Date(year, month - 1, day);
+};
 
+const getEventsForMonth = (events, month, year) => {
+  return events.filter((event) => {
+    const eventDate = parseDate(event.date);
+    return eventDate.getMonth() === month && eventDate.getFullYear() === year;
+  });
+};
+
+const formatDate = (dateString) => {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return parseDate(dateString).toLocaleDateString(undefined, options);
+};
 
 const events = [
   {
@@ -109,20 +124,8 @@ const events = [
   }
 ];
 
-const getEventsForMonth = (events, month, year) => {
-  return events.filter((event) => {
-    const eventDate = new Date(event.date);
-    return eventDate.getMonth() === month && eventDate.getFullYear() === year;
-  });
-};
-
-const formatDate = (dateString) => {
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(dateString).toLocaleDateString(undefined, options);
-};
-
 const Calendar = () => {
-  const [currentDate, setCurrentDate] = useState(new Date('2024-10-23'));
+  const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedEvent, setSelectedEvent] = useState(null);
 
   const months = [
@@ -132,16 +135,20 @@ const Calendar = () => {
 
   const years = [2024, 2025];
 
+  // Navigate to next month
   const nextMonth = () => {
     const nextDate = new Date(currentDate);
+    nextDate.setDate(1); // Prevents issues when moving from months with more days
     nextDate.setMonth(currentDate.getMonth() + 1);
     if (nextDate <= new Date('2025-12-31')) {
       setCurrentDate(nextDate);
     }
   };
 
+  // Navigate to previous month
   const prevMonth = () => {
     const prevDate = new Date(currentDate);
+    prevDate.setDate(1); // Prevents issues when moving from months with more days
     prevDate.setMonth(currentDate.getMonth() - 1);
     if (prevDate >= new Date('2024-01-01')) {
       setCurrentDate(prevDate);
@@ -151,6 +158,7 @@ const Calendar = () => {
   const handleMonthChange = (e) => {
     const newMonth = parseInt(e.target.value);
     const newDate = new Date(currentDate);
+    newDate.setDate(1); // Set to first day to prevent date overflow
     newDate.setMonth(newMonth);
     setCurrentDate(newDate);
   };
@@ -164,14 +172,16 @@ const Calendar = () => {
 
   const eventsForMonth = getEventsForMonth(events, currentDate.getMonth(), currentDate.getFullYear());
 
-  //Change according to current date
-  const today = new Date('2024-09-14'); 
+  // Use the actual current date
+  const today = new Date();
 
-  const upcomingEvents = eventsForMonth.filter(event => new Date(event.date) >= today)
-                                       .sort((a, b) => new Date(a.date) - new Date(b.date));
+  const upcomingEvents = eventsForMonth
+    .filter(event => parseDate(event.date) >= today)
+    .sort((a, b) => parseDate(a.date) - parseDate(b.date));
 
-  const pastEvents = eventsForMonth.filter(event => new Date(event.date) < today)
-                                   .sort((a, b) => new Date(a.date) - new Date(b.date));
+  const pastEvents = eventsForMonth
+    .filter(event => parseDate(event.date) < today)
+    .sort((a, b) => parseDate(a.date) - parseDate(b.date));
 
   const sortedEvents = [...upcomingEvents, ...pastEvents];
 
@@ -181,8 +191,13 @@ const Calendar = () => {
         <h1 className="calendar-main-header">Calendar</h1>
         <h2 className="calendar-sub-header">Check Out Our Upcoming Events!</h2>
         <div className="calendar-header">
-          <button onClick={prevMonth} className="calendar-nav" disabled={currentDate <= new Date('2024-01-01')}>
-            <img src={rightArrow} alt="Previous Month" className="arrow-icon" />
+          <button
+            onClick={prevMonth}
+            className="calendar-nav"
+            disabled={currentDate <= new Date('2024-01-01')}
+            aria-label="Previous Month"
+          >
+            <img src={leftArrow} alt="Previous Month" className="arrow-icon" />
           </button>
           <div className="calendar-selectors">
             <select value={currentDate.getMonth()} onChange={handleMonthChange} className="month-selector">
@@ -196,15 +211,20 @@ const Calendar = () => {
               ))}
             </select>
           </div>
-          <button onClick={nextMonth} className="calendar-nav" disabled={currentDate >= new Date('2025-12-31')}>
-            <img src={leftArrow} alt="Next Month" className="arrow-icon" />
+          <button
+            onClick={nextMonth}
+            className="calendar-nav"
+            disabled={currentDate >= new Date('2025-12-31')}
+            aria-label="Next Month"
+          >
+            <img src={rightArrow} alt="Next Month" className="arrow-icon" />
           </button>
         </div>
         <p className="calendar-note">*Click On Event To Enlarge*</p>
         <div className="events-grid">
           {sortedEvents.length > 0 ? (
             sortedEvents.map((event) => {
-              const eventDate = new Date(event.date);
+              const eventDate = parseDate(event.date);
               const isPastEvent = eventDate < today;
               return (
                 <div
@@ -241,9 +261,9 @@ const Calendar = () => {
             <span className="close-button" onClick={() => setSelectedEvent(null)}>&times;</span>
             <img src={selectedEvent.image} alt={selectedEvent.name} className="modal-image" />
             <h2>{selectedEvent.name}</h2>
-            <p>{formatDate(selectedEvent.date)} {event.time}</p>
-            {event.location && (
-              <p>{event.location}</p>
+            <p>{formatDate(selectedEvent.date)} {selectedEvent.time}</p>
+            {selectedEvent.location && (
+              <p>{selectedEvent.location}</p>
             )}
           </div>
         </div>
