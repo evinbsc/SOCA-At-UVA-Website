@@ -1,15 +1,12 @@
-// netlify/functions/chatbot.mjs
-
 import fetch from 'node-fetch';
 
-export const handler = async (event, context) => {
+export const handler = async (event) => {
   const headers = {
-    'Access-Control-Allow-Origin': '*', // Adjust as needed for security
+    'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
   };
 
-  // Handle CORS preflight request
   if (event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
@@ -18,7 +15,6 @@ export const handler = async (event, context) => {
     };
   }
 
-  // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -30,8 +26,7 @@ export const handler = async (event, context) => {
   try {
     const { message } = JSON.parse(event.body);
 
-    // Input validation
-    if (typeof message !== 'string' || message.trim() === '') {
+    if (!message || typeof message !== 'string') {
       return {
         statusCode: 400,
         headers,
@@ -39,11 +34,17 @@ export const handler = async (event, context) => {
       };
     }
 
-    // Example API call to Gemini Chatbot (Replace with actual Gemini API endpoint)
-    const response = await fetch('https://api.gemini.com/respond', {
+    const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-chat:generateMessage', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ input: message }),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.GEMINI_API_KEY}`, 
+      },
+      body: JSON.stringify({
+        prompt: {
+          messages: [{ content: message }],
+        },
+      }),
     });
 
     if (!response.ok) {
@@ -55,7 +56,7 @@ export const handler = async (event, context) => {
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({ reply: data.reply }),
+      body: JSON.stringify({ reply: data.candidates?.[0]?.content || 'No response available.' }),
     };
   } catch (error) {
     console.error('Chatbot Function Error:', error);
