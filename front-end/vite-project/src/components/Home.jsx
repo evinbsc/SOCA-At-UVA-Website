@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/home.css';
 import '../styles/calendar.css';
+import Chatbot from './chatbot';
 import Popup from './Popup';
+
 
 // Importing stay connected icons (from misc folder)
 import instagramLogo from '../assets/misc/instagram_logo.png';
@@ -242,7 +244,7 @@ const Home = () => {
   // Navigate to next month
   const nextMonth = () => {
     let nextDate = new Date(currentDate);
-    nextDate.setDate(1); // Prevents issues when moving from months with more days
+    nextDate.setDate(1); 
     nextDate.setMonth(currentDate.getMonth() + 1);
     if (nextDate <= new Date('2025-12-31')) {
       setCurrentDate(nextDate);
@@ -252,7 +254,7 @@ const Home = () => {
   // Navigate to previous month
   const prevMonth = () => {
     let prevDate = new Date(currentDate);
-    prevDate.setDate(1); // Prevents issues when moving from months with more days
+    prevDate.setDate(1); 
     prevDate.setMonth(currentDate.getMonth() - 1);
     if (prevDate >= new Date('2024-01-01')) {
       setCurrentDate(prevDate);
@@ -262,7 +264,7 @@ const Home = () => {
   const handleMonthChange = (e) => {
     const newMonth = parseInt(e.target.value);
     const newDate = new Date(currentDate);
-    newDate.setDate(1); // Set to first day to prevent date overflow
+    newDate.setDate(1); 
     newDate.setMonth(newMonth);
     setCurrentDate(newDate);
   };
@@ -494,6 +496,8 @@ const Home = () => {
           </a>
         </div>
       </div>
+      {/* Chatbot Component */}
+      <Chatbot />
     </div>
   );  
 };

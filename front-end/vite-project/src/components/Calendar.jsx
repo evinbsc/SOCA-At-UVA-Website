@@ -138,7 +138,7 @@ const Calendar = () => {
   // Navigate to next month
   const nextMonth = () => {
     const nextDate = new Date(currentDate);
-    nextDate.setDate(1); // Prevents issues when moving from months with more days
+    nextDate.setDate(1); 
     nextDate.setMonth(currentDate.getMonth() + 1);
     if (nextDate <= new Date('2025-12-31')) {
       setCurrentDate(nextDate);
@@ -148,7 +148,7 @@ const Calendar = () => {
   // Navigate to previous month
   const prevMonth = () => {
     const prevDate = new Date(currentDate);
-    prevDate.setDate(1); // Prevents issues when moving from months with more days
+    prevDate.setDate(1); 
     prevDate.setMonth(currentDate.getMonth() - 1);
     if (prevDate >= new Date('2024-01-01')) {
       setCurrentDate(prevDate);
@@ -158,7 +158,7 @@ const Calendar = () => {
   const handleMonthChange = (e) => {
     const newMonth = parseInt(e.target.value);
     const newDate = new Date(currentDate);
-    newDate.setDate(1); // Set to first day to prevent date overflow
+    newDate.setDate(1); 
     newDate.setMonth(newMonth);
     setCurrentDate(newDate);
   };
