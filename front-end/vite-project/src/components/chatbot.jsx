@@ -1,6 +1,6 @@
 // src/components/Chatbot.jsx
 import React, { useState } from 'react';
-import { FaCoconut, FaTimes, FaPaperPlane } from 'react-icons/fa';
+import { FaComments, FaTimes, FaPaperPlane } from 'react-icons/fa';
 import '../styles/chatbot.css';
 
 const API_KEY = process.env.AIzaSyCqHKIk5OXuUtCAS1PHZCcyuPatrw3575I
@@ -34,6 +34,10 @@ const Chatbot = () => {
         body: JSON.stringify({ message: input }),
       });
 
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
       const data = await response.json();
 
       // Add bot response
@@ -61,7 +65,7 @@ const Chatbot = () => {
       {isOpen && (
         <div className="chatbot-container">
           <div className="chatbot-header">
-            <FaCoconut className="chatbot-icon" />
+            <FaComments className="chatbot-icon" />
             <span>Caribbean Chatbot</span>
             <FaTimes className="chatbot-close" onClick={toggleChat} />
           </div>
@@ -88,7 +92,7 @@ const Chatbot = () => {
         </div>
       )}
       <div className="chatbot-button" onClick={toggleChat}>
-        <FaCoconut />
+        <FaComments />
       </div>
     </>
   );
