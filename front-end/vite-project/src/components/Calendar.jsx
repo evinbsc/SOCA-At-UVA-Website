@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// src/components/Calendar.jsx
+import React, { useState, useEffect } from 'react';
 import '../styles/calendar.css';
 
 import rightArrow from '../assets/misc/right_arrow.png';
@@ -16,16 +17,12 @@ import repYaFlagImage from '../assets/events/rep_ya_flag.jpg';
 import tasteTraditionsImage from '../assets/events/taste_traditions.jpg';
 import karibbeanKitchenImage from '../assets/events/karibbean_kitchen.jpg';
 
+// Importing icons for adding events
+import { FaPlus, FaTimes } from 'react-icons/fa';
+
 const parseDate = (dateString) => {
   const [year, month, day] = dateString.split('-').map(Number);
   return new Date(year, month - 1, day);
-};
-
-const getEventsForMonth = (events, month, year) => {
-  return events.filter((event) => {
-    const eventDate = parseDate(event.date);
-    return eventDate.getMonth() === month && eventDate.getFullYear() === year;
-  });
 };
 
 const formatDate = (dateString) => {
@@ -33,7 +30,7 @@ const formatDate = (dateString) => {
   return parseDate(dateString).toLocaleDateString(undefined, options);
 };
 
-const events = [
+const initialEvents = [
   {
     id: 1,
     name: 'Water Fete',
@@ -126,7 +123,18 @@ const events = [
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [events, setEvents] = useState(initialEvents);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [newEvent, setNewEvent] = useState({
+    image: null,
+    imagePreview: '',
+    name: '',
+    date: '',
+    time: '',
+    location: '',
+  });
+  const [isPreviewVisible, setIsPreviewVisible] = useState(true);
 
   const months = [
     'January', 'February', 'March', 'April', 'May', 'June',
@@ -138,7 +146,7 @@ const Calendar = () => {
   // Navigate to next month
   const nextMonth = () => {
     const nextDate = new Date(currentDate);
-    nextDate.setDate(1); 
+    nextDate.setDate(1);
     nextDate.setMonth(currentDate.getMonth() + 1);
     if (nextDate <= new Date('2025-12-31')) {
       setCurrentDate(nextDate);
@@ -148,7 +156,7 @@ const Calendar = () => {
   // Navigate to previous month
   const prevMonth = () => {
     const prevDate = new Date(currentDate);
-    prevDate.setDate(1); 
+    prevDate.setDate(1);
     prevDate.setMonth(currentDate.getMonth() - 1);
     if (prevDate >= new Date('2024-01-01')) {
       setCurrentDate(prevDate);
@@ -158,7 +166,7 @@ const Calendar = () => {
   const handleMonthChange = (e) => {
     const newMonth = parseInt(e.target.value);
     const newDate = new Date(currentDate);
-    newDate.setDate(1); 
+    newDate.setDate(1);
     newDate.setMonth(newMonth);
     setCurrentDate(newDate);
   };
@@ -170,7 +178,10 @@ const Calendar = () => {
     setCurrentDate(newDate);
   };
 
-  const eventsForMonth = getEventsForMonth(events, currentDate.getMonth(), currentDate.getFullYear());
+  const eventsForMonth = events.filter((event) => {
+    const eventDate = parseDate(event.date);
+    return eventDate.getMonth() === currentDate.getMonth() && eventDate.getFullYear() === currentDate.getFullYear();
+  });
 
   // Use the actual current date
   const today = new Date();
@@ -184,6 +195,68 @@ const Calendar = () => {
     .sort((a, b) => parseDate(a.date) - parseDate(b.date));
 
   const sortedEvents = [...upcomingEvents, ...pastEvents];
+
+  // Handle input changes in the add event form
+  const handleInputChange = (e) => {
+    const { name, value, files } = e.target;
+
+    if (name === 'image' && files.length > 0) {
+      const file = files[0];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setNewEvent(prevState => ({
+          ...prevState,
+          image: file,
+          imagePreview: reader.result
+        }));
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setNewEvent(prevState => ({
+        ...prevState,
+        [name]: value
+      }));
+
+      // Hide preview when user starts typing
+      if (isPreviewVisible) {
+        setIsPreviewVisible(false);
+      }
+    }
+  };
+
+  // Handle adding a new event
+  const handleAddEvent = (e) => {
+    e.preventDefault();
+    const { imagePreview, name, date, time, location } = newEvent;
+
+    if (!name || !date) {
+      alert('Please provide at least an event name and date.');
+      return;
+    }
+
+    const newId = events.length > 0 ? Math.max(...events.map(event => event.id)) + 1 : 1;
+
+    const eventToAdd = {
+      id: newId,
+      name,
+      date,
+      time,
+      location,
+      image: imagePreview || '', // Use preview image or empty string
+    };
+
+    setEvents([...events, eventToAdd]);
+    setNewEvent({
+      image: null,
+      imagePreview: '',
+      name: '',
+      date: '',
+      time: '',
+      location: '',
+    });
+    setIsPreviewVisible(true);
+    setIsAddModalOpen(false);
+  };
 
   return (
     <div className="frame-calendar">
@@ -219,6 +292,14 @@ const Calendar = () => {
           >
             <img src={leftArrow} alt="Next Month" className="arrow-icon" />
           </button>
+          {/* Add Event Button */}
+          <button
+            className="add-event-button"
+            onClick={() => setIsAddModalOpen(true)}
+            aria-label="Add Event"
+          >
+            <FaPlus />
+          </button>
         </div>
         <p className="calendar-note">*Click On Event To Enlarge*</p>
         <div className="events-grid">
@@ -233,7 +314,11 @@ const Calendar = () => {
                   onClick={() => setSelectedEvent(event)}
                 >
                   <div className="event-image-container">
-                    <img src={event.image} className="event-image" alt={event.name} />
+                    {event.image ? (
+                      <img src={event.image} className="event-image" alt={event.name} />
+                    ) : (
+                      <div className="placeholder-image">No Image</div>
+                    )}
                   </div>
                   <div className="event-details">
                     <h3 className="event-name">{event.name}</h3>
@@ -255,16 +340,108 @@ const Calendar = () => {
           )}
         </div>
       </div>
+
+      {/* Event Details Modal */}
       {selectedEvent && (
         <div className="modal" onClick={() => setSelectedEvent(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <span className="close-button" onClick={() => setSelectedEvent(null)}>&times;</span>
-            <img src={selectedEvent.image} alt={selectedEvent.name} className="modal-image" />
+            <span className="close-button" onClick={() => setSelectedEvent(null)}><FaTimes /></span>
+            {selectedEvent.image ? (
+              <img src={selectedEvent.image} alt={selectedEvent.name} className="modal-image" />
+            ) : (
+              <div className="modal-placeholder-image">No Image</div>
+            )}
             <h2>{selectedEvent.name}</h2>
             <p>{formatDate(selectedEvent.date)} {selectedEvent.time}</p>
             {selectedEvent.location && (
               <p>{selectedEvent.location}</p>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Add Event Modal */}
+      {isAddModalOpen && (
+        <div className="modal" onClick={() => setIsAddModalOpen(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <span className="close-button" onClick={() => setIsAddModalOpen(false)}><FaTimes /></span>
+            <h2>Add New Event</h2>
+            <form className="add-event-form" onSubmit={handleAddEvent}>
+              <div className="form-group">
+                <label htmlFor="image">Event Image:</label>
+                <input
+                  type="file"
+                  id="image"
+                  name="image"
+                  accept="image/*"
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="name">Event Title:</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={newEvent.name}
+                  onChange={handleInputChange}
+                  placeholder="Enter event title"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="date">Event Date:</label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  value={newEvent.date}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="time">Event Time:</label>
+                <input
+                  type="text"
+                  id="time"
+                  name="time"
+                  value={newEvent.time}
+                  onChange={handleInputChange}
+                  placeholder="e.g., 5:00 PM - 7:00 PM"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="location">Event Location:</label>
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  value={newEvent.location}
+                  onChange={handleInputChange}
+                  placeholder="Enter event location"
+                />
+              </div>
+              {/* Preview Section */}
+              {isPreviewVisible && (
+                <div className="preview-section">
+                  <h3>Preview:</h3>
+                  <div className="preview-card">
+                    {newEvent.imagePreview ? (
+                      <img src={newEvent.imagePreview} alt="Preview" className="preview-image" />
+                    ) : (
+                      <div className="preview-placeholder-image">No Image</div>
+                    )}
+                    <div className="preview-details">
+                      <h4>{newEvent.name || 'Event Title'}</h4>
+                      <p>{newEvent.date ? formatDate(newEvent.date) : 'Event Date'} {newEvent.time || ''}</p>
+                      <p>{newEvent.location || 'Event Location'}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+              <button type="submit" className="submit-button">Add Event</button>
+            </form>
           </div>
         </div>
       )}
