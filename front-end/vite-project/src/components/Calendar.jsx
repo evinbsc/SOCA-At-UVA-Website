@@ -2,10 +2,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import '../styles/calendar.css';
 
+// Import arrow images
 import rightArrow from '../assets/misc/right_arrow.png';
 import leftArrow from '../assets/misc/left_arrow.png';
 
-// Import images
+// Import event images
 import waterFeteImage from '../assets/events/water_fete.jpg';
 import sorrelSaleImage from '../assets/events/sorrel_sale.jpg';
 import poolPartyImage from '../assets/events/pool_party.jpg';
@@ -237,9 +238,9 @@ const Calendar = () => {
         [name]: value
       }));
 
-      // Hide preview when user starts typing
-      if (isPreviewVisible) {
-        setIsPreviewVisible(false);
+      // Show preview when user starts typing or selecting file
+      if (!isPreviewVisible) {
+        setIsPreviewVisible(true);
       }
     }
   };
@@ -274,7 +275,7 @@ const Calendar = () => {
       time: '',
       location: '',
     });
-    setIsPreviewVisible(true);
+    setIsPreviewVisible(false);
     setIsAddModalOpen(false);
   };
 
