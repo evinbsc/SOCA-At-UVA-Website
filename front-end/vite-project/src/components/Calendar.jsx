@@ -1,10 +1,11 @@
 // src/components/Calendar.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import '../styles/calendar.css';
 
 import rightArrow from '../assets/misc/right_arrow.png';
 import leftArrow from '../assets/misc/left_arrow.png';
 
+// Import images
 import waterFeteImage from '../assets/events/water_fete.jpg';
 import sorrelSaleImage from '../assets/events/sorrel_sale.jpg';
 import poolPartyImage from '../assets/events/pool_party.jpg';
@@ -19,6 +20,8 @@ import karibbeanKitchenImage from '../assets/events/karibbean_kitchen.jpg';
 
 // Importing icons for adding events
 import { FaPlus, FaTimes } from 'react-icons/fa';
+
+import { AuthContext } from '../context/AuthContext';
 
 const parseDate = (dateString) => {
   const [year, month, day] = dateString.split('-').map(Number);
@@ -122,8 +125,10 @@ const initialEvents = [
 ];
 
 const Calendar = () => {
+  const { isAuthenticated } = useContext(AuthContext);
+
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [events, setEvents] = useState(initialEvents);
+  const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [newEvent, setNewEvent] = useState({
@@ -142,6 +147,21 @@ const Calendar = () => {
   ];
 
   const years = [2024, 2025];
+
+  // Load events from localStorage or use initialEvents
+  useEffect(() => {
+    const storedEvents = localStorage.getItem('events');
+    if (storedEvents) {
+      setEvents(JSON.parse(storedEvents));
+    } else {
+      setEvents(initialEvents);
+    }
+  }, []);
+
+  // Save events to localStorage whenever events state changes
+  useEffect(() => {
+    localStorage.setItem('events', JSON.stringify(events));
+  }, [events]);
 
   // Navigate to next month
   const nextMonth = () => {
@@ -293,13 +313,16 @@ const Calendar = () => {
             <img src={leftArrow} alt="Next Month" className="arrow-icon" />
           </button>
           {/* Add Event Button */}
-          <button
-            className="add-event-button"
-            onClick={() => setIsAddModalOpen(true)}
-            aria-label="Add Event"
-          >
-            <FaPlus />
-          </button>
+          {isAuthenticated && (
+            <button
+              className="add-event-button"
+              onClick={() => setIsAddModalOpen(true)}
+              aria-label="Add Event"
+            >
+              <FaPlus className="add-event-icon" />
+              <span className="add-event-text">Add Event</span>
+            </button>
+          )}
         </div>
         <p className="calendar-note">*Click On Event To Enlarge*</p>
         <div className="events-grid">
@@ -361,7 +384,7 @@ const Calendar = () => {
       )}
 
       {/* Add Event Modal */}
-      {isAddModalOpen && (
+      {isAddModalOpen && isAuthenticated && (
         <div className="modal" onClick={() => setIsAddModalOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <span className="close-button" onClick={() => setIsAddModalOpen(false)}><FaTimes /></span>

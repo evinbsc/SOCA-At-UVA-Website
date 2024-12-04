@@ -1,3 +1,5 @@
+/* src/styles/navbar.css */
+
 /* Base styles for the navbar */
 .navbar {
   display: flex;
@@ -59,6 +61,29 @@
   color: #ffffff;
 }
 
+/* User Greeting */
+.user-greeting {
+  margin: 0 1rem;
+  font-family: 'Oswald', sans-serif;
+  color: #ffb700;
+}
+
+/* Logout Button */
+.logout-button {
+  background: none;
+  border: none;
+  color: #ffb700;
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  padding: 0.3rem 0.8rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.logout-button:hover {
+  background: #ffb700;
+  color: #ffffff;
+}
+
 /* Media query for smaller screens */
 @media (max-width: 600px) {
   .navbar {
@@ -107,7 +132,8 @@
     display: flex;
   }
 
-  .nav-links a {
+  .nav-links a,
+  .logout-button {
     padding: 1rem 0;
     width: 100%;
     color: #ffffff;
@@ -123,5 +149,15 @@
     bottom: 0;
     background: rgba(0, 0, 0, 0.5); 
     z-index: 500; 
+  }
+
+  .user-greeting {
+    margin: 1rem 0;
+  }
+
+  .logout-button {
+    margin: 1rem 0;
+    width: 100%;
+    text-align: center;
   }
 }

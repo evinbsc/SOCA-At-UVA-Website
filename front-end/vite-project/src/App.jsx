@@ -10,6 +10,8 @@ import About from './components/About';
 import Footer from './components/Footer';
 import Article from './components/Article';
 import Popup from './components/Popup';
+import Login from './components/Login';
+import { AuthProvider } from './context/AuthContext';
 import './styles/main.css';
 import './styles/navbar.css';
 import './styles/home.css';
