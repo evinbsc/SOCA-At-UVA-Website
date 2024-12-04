@@ -1,7 +1,7 @@
 // /src/App.jsx
 
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Discover from './components/Discover';
@@ -19,20 +19,26 @@ import './styles/calendar.css';
 import './styles/about.css';
 import './styles/footer.css';
 import './styles/article.css';
+import './styles/login.css'; 
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/discover" element={<Discover />} />
-        <Route path="/calendar" element={<Calendar />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/article/:id" element={<Article />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/discover" element={<Discover />} />
+          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/article/:id" element={<Article />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+        <Footer />
+        <Popup /> 
+      </Router>
+    </AuthProvider>
   );
 }
 
