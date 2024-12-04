@@ -1,7 +1,7 @@
 // src/components/Chatbot.jsx
 
 import React, { useState, useEffect } from 'react';
-import { FaCoconut, FaTimes, FaPaperPlane } from 'react-icons/fa';
+import { FaComments, FaTimes, FaPaperPlane } from 'react-icons/fa';
 import '../styles/chatbot.css';
 
 const Chatbot = () => {
@@ -74,7 +74,7 @@ const Chatbot = () => {
       {isOpen && (
         <div className="chatbot-container" role="dialog" aria-modal="true" aria-labelledby="chatbot-title">
           <div className="chatbot-header">
-            <FaCoconut className="chatbot-icon" />
+            <FaComments className="chatbot-icon" />
             <span id="chatbot-title">Caribbean Chatbot</span>
             <FaTimes className="chatbot-close" onClick={toggleChat} aria-label="Close chatbot" />
           </div>
@@ -107,7 +107,7 @@ const Chatbot = () => {
         </div>
       )}
       <div className="chatbot-button" onClick={toggleChat} aria-label="Open chatbot">
-        <FaCoconut />
+        <FaComments />
       </div>
     </>
   );
