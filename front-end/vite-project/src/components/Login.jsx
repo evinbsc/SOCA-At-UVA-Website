@@ -9,7 +9,7 @@ const Login = () => {
   const { isAuthenticated, login } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const [username, setUsername] = useState(''); // Changed from email to username
+  const [username, setUsername] = useState(''); 
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
