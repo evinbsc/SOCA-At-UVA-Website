@@ -75,7 +75,7 @@ const formatDate = (dateString) => {
   return parseDate(dateString).toLocaleDateString(undefined, options);
 };
 
-const initialEvents = [
+const events = [
   {
     id: 1,
     name: 'Water Fete',
