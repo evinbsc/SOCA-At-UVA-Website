@@ -19,7 +19,7 @@ import repYaFlagImage from '../assets/events/rep_ya_flag.jpg';
 import tasteTraditionsImage from '../assets/events/taste_traditions.jpg';
 import karibbeanKitchenImage from '../assets/events/karibbean_kitchen.jpg';
 import popTheBalloonImage from '../assets/events/pop_the_balloon.jpg';
-import loveAffairPartyImage from '../assets/events/love_affair_partyg.jpg';
+import loveAffairPartyImage from '../assets/events/love_affair_party.jpg';
 import haitiIndependenceImage from '../assets/events/haiti_independence.jpg';
 import friendsgivingImage from '../assets/events/friendsgiving.jpg';
 import clayMagnetWorkshopImage from '../assets/events/clay_magnet_workshop.jpg';
