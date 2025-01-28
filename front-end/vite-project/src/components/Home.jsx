@@ -18,7 +18,7 @@ import leftArrow from '../assets/misc/left_arrow.png';
 import hurricaneBerylArticleImage from '../assets/article_images/hurricane_beryl_article_image.jpg';
 import caribbeanCarnivalArticleImage from '../assets/article_images/caribbean_carnival_article_image.jpg';
 
-// Importing event flyers (from events folder)
+// Import event images
 import waterFeteImage from '../assets/events/water_fete.jpg';
 import sorrelSaleImage from '../assets/events/sorrel_sale.jpg';
 import poolPartyImage from '../assets/events/pool_party.jpg';
@@ -30,6 +30,11 @@ import dominosDominosImage from '../assets/events/dominos_dominos.jpg';
 import repYaFlagImage from '../assets/events/rep_ya_flag.jpg';
 import tasteTraditionsImage from '../assets/events/taste_traditions.jpg';
 import karibbeanKitchenImage from '../assets/events/karibbean_kitchen.jpg';
+import popTheBalloonImage from '../assets/events/pop_the_balloon.jpg';
+import loveAffairPartyImage from '../assets/events/love_affair_partyg.jpg';
+import haitiIndependenceImage from '../assets/events/haiti_independence.jpg';
+import friendsgivingImage from '../assets/events/friendsgiving.jpg';
+import clayMagnetWorkshopImage from '../assets/events/clay_magnet_workshop.jpg';
 
 
 
@@ -70,7 +75,7 @@ const formatDate = (dateString) => {
   return parseDate(dateString).toLocaleDateString(undefined, options);
 };
 
-const events = [
+const initialEvents = [
   {
     id: 1,
     name: 'Water Fete',
@@ -158,6 +163,46 @@ const events = [
     time: '10:00 PM - 2:00 AM',
     location: '600 Preston Place',
     image: repYaFlagImage,
+  },
+  {
+    id: 12,
+    name: 'Love Affair Party',
+    date: '2025-02-08',
+    time: '10:00 PM - 2:00 AM',
+    location: '600 Preston Place',
+    image: loveAffairPartyImage,
+  },
+  {
+    id: 13,
+    name: 'Pop The Balloon',
+    date: '2025-02-08',
+    time: '6:00 PM - 8:00 PM',
+    location: 'Student Activities Building',
+    image: popTheBalloonImage,
+  },
+  {
+    id: 14,
+    name: 'Haiti Independence Day',
+    date: '2025-01-01',
+    time: '',
+    location: '',
+    image: haitiIndependenceImage,
+  },
+  {
+    id: 15,
+    name: 'Friendsgiving',
+    date: '2024-11-24',
+    time: '6:00 PM - 9:00 PM',
+    location: 'PAC Lounge',
+    image: friendsgivingImage,
+  },
+  {
+    id: 16,
+    name: 'Clay Magnet Workshop',
+    date: '2024-11-21',
+    time: '6:00 PM - 8:00 PM',
+    location: 'Multicultural Student Center',
+    image: clayMagnetWorkshopImage,
   }
 ];
 
