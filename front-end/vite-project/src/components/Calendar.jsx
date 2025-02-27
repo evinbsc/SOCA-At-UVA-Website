@@ -23,7 +23,7 @@ import loveAffairPartyImage from '../assets/events/love_affair_party.jpg';
 import haitiIndependenceImage from '../assets/events/haiti_independence.jpg';
 import friendsgivingImage from '../assets/events/friendsgiving.jpg';
 import clayMagnetWorkshopImage from '../assets/events/clay_magnet_workshop.jpg';
-
+import tabooToTempoImage from '../assets/events/taboo_to_tempo.jpg';
 
 // Importing icons for adding events
 import { FaPlus, FaTimes } from 'react-icons/fa';
@@ -168,6 +168,14 @@ const initialEvents = [
     time: '6:00 PM - 8:00 PM',
     location: 'Multicultural Student Center',
     image: clayMagnetWorkshopImage,
+  },
+  {
+    id: 17,
+    name: 'Taboo To Tempo',
+    date: '2025-02-26',
+    time: '6:00 PM - 7:30 PM',
+    location: 'Multicultural Student Center',
+    image: tabooToTempoImage,
   }
 ];
 
