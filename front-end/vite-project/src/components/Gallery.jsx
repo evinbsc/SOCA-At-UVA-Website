@@ -4,10 +4,10 @@ import '../styles/gallery.css';
 
 // Asset imports based on your provided names and locations:
 import mainGalleryImage from '../assets/misc/soca_home_page_img.png';
-import yearGalleryImage from '../assets/gallery/Carnival2025.jpg';
-import video1 from '../assets/gallery/Carnival2025Video1.mp4';
-import video2 from '../assets/gallery/Carnival2025Video2.mp4';
-import video3 from '../assets/gallery/Carnival2025Video3.mp4';
+import yearGalleryImage from '../assets/Gallery/Carnival2025.jpg';
+import video1 from '../assets/Gallery/Carnival2025Video1.mp4';
+import video2 from '../assets/Gallery/Carnival2025Video2.mp4';
+import video3 from '../assets/Gallery/Carnival2025Video3.mp4';
 
 const Gallery = () => {
   // Views: "main" => folder view, "year" => inside folder view, "event" => media grid view
