@@ -36,6 +36,7 @@ const Navbar = () => {
       <div className={`nav-links ${menuOpen ? 'show' : ''}`}>
         <Link to="/" className="text-wrapper-3" onClick={closeMenu}>Home</Link>
         <Link to="/discover" className="text-wrapper-4" onClick={closeMenu}>Discover Caribbean</Link>
+        <Link to="/gallery" className="text-wrapper-gallery" onClick={closeMenu}>Gallery</Link>
         <Link to="/calendar" className="text-wrapper-5" onClick={closeMenu}>Calendar</Link>
         <Link to="/about" className="text-wrapper-6" onClick={closeMenu}>About Us</Link>
         {isAuthenticated ? (

@@ -1,0 +1,114 @@
+/* Container for the entire gallery view */
+.gallery-container {
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Back button styles */
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 0.5rem 1rem;
+    background-color: #ffb700;
+    border: none;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-button:hover {
+    background-color: #d8a527;
+  }
+  
+  /* Main folder view (2024 - 2025) */
+  .gallery-main {
+    margin-top: 4rem;
+    cursor: pointer;
+  }
+  
+  .gallery-folder {
+    width: 300px;
+    height: auto;
+    border: 2px solid #ffb700;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-folder:hover {
+    transform: scale(1.05);
+  }
+  
+  .folder-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    color: #ffb700;
+    margin-top: 1rem;
+  }
+  
+  /* Year view (Inside folder) */
+  .gallery-year {
+    margin-top: 4rem;
+    cursor: pointer;
+  }
+  
+  .gallery-year-preview {
+    width: 300px;
+    height: auto;
+    border: 2px solid #ffb700;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-year-preview:hover {
+    transform: scale(1.05);
+  }
+  
+  .year-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    color: #ffb700;
+    margin-top: 1rem;
+  }
+  
+  /* Event view (Media grid for videos and images) */
+  .gallery-event {
+    margin-top: 4rem;
+  }
+  
+  .media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .media-item {
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+  
+  .media-content {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .media-content:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 600px) {
+    .gallery-folder,
+    .gallery-year-preview {
+      width: 90%;
+    }
+  }
+  

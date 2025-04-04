@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import Article from './components/Article';
 import Popup from './components/Popup';
 import Login from './components/Login';
+import Gallery from './components/Gallery';
 import { AuthProvider } from './context/AuthContext';
 import './styles/main.css';
 import './styles/navbar.css';
@@ -29,6 +30,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/discover" element={<Discover />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
