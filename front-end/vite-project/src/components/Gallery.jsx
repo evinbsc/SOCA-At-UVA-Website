@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/gallery.css';
 
 // Asset imports based on your provided names and locations:
-import mainGalleryImage from '../assets/misc/soca_home_page_image.png';
+import mainGalleryImage from '../assets/misc/soca_home_page_img.png';
 import yearGalleryImage from '../assets/gallery/Carnival2025.jpg';
 import video1 from '../assets/gallery/Carnival2025Video1.mp4';
 import video2 from '../assets/gallery/Carnival2025Video2.mp4';
